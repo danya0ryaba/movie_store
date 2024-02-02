@@ -6,4 +6,7 @@ fetch('https://api.kinopoisk.dev/v1.4/movie?limit=100&page=1', {
 })
     .then(response => response.json())
     .then(value => console.log(value))
+
+// просто комментарий
+
 export { }
