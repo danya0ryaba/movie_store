@@ -1,0 +1,81 @@
+@import '../../style/variables.scss';
+
+.fullscreen {
+    // position: relative;
+    // overflow: hidden;
+    margin-top: -104px;
+    width: 100vw;
+    height: 100vh;
+    background: url('https://imagetmdb.com/t/p/original/vRTKNKNWLZ22fAgPa5kY8wT2b1F.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &__info {
+        position: absolute;
+        top: 300px;
+        left: 200px;
+        text-shadow: -4px 4px 6px rgba(0, 0, 0, 0.71);
+
+        .title {
+            font-family: 'IM Fell French Canon', sans-serif;
+            font-size: 30px;
+            font-weight: 400;
+            color: $green;
+        }
+
+        .subtitle {
+            color: $white;
+            line-height: 1.2;
+            font-size: 62px;
+
+            span {
+                color: $green;
+            }
+
+            margin-bottom: 15px;
+        }
+
+        .about_film {
+            display: flex;
+            align-items: center;
+            margin-bottom: 45px;
+
+            .type {
+                font-size: 15px;
+                padding: 6px 3px;
+                background-color: $white;
+                color: black;
+                margin-right: 20px;
+            }
+
+            .quality {
+                padding: 2px 5px;
+                color: $white;
+                background-color: transparent;
+                border: 1px solid $white;
+                margin-right: 18px;
+            }
+
+            .category {
+                font-size: 18px;
+                color: $white;
+                margin-right: 16px;
+            }
+
+            .data {
+                display: flex;
+
+                img {
+                    width: 18px;
+                    height: 18px;
+                }
+
+                span {
+                    font-size: 18px;
+                    font-weight: 400;
+                    color: $white;
+                }
+            }
+        }
+    }
+}

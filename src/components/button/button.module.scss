@@ -1,0 +1,12 @@
+@import '../../style/variables.scss';
+
+.button {
+    font-size: 18px;
+    font-family: 'imprima', sans-serif;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background: transparent;
+    border: 2px solid $green;
+    color: $white;
+}

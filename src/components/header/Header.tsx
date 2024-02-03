@@ -1,27 +1,36 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import style from './header.module.scss'
+import { Search } from '../search/Search'
+import logo from '../../assets/img/logo.png'
+import { Language } from '../language/Language'
+import { Auth } from '../auth/Auth'
 
 export const Header = () => {
-    return (
+    return <div className={style.container}>
+
         <header className={style.header}>
 
-            <div className="logo">
-                <img id='logo' src="" alt="logo" />
-                <label about='logo'>Filmagnet</label>
+            <div className={style.header__logo}>
+                <img src={logo} alt="logo" />
+                <h1>Filmagnet</h1>
             </div>
 
-            <nav className='menu'>
-                <NavLink to={'/'}>HOME</NavLink>
-                <NavLink to={'/'}>MOVIE</NavLink>
-                <NavLink to={'/'}>TV SHOW</NavLink>
-                <NavLink to={'/'}>WEB SERIES</NavLink>
-                <NavLink to={'/'}>PRIMIUM</NavLink>
+            <nav className={style.header__menu}>
+                <NavLink className={style.link} to={'/'}>HOME</NavLink>
+                <NavLink className={style.link} to={'/'}>MOVIE</NavLink>
+                <NavLink className={style.link} to={'/'}>TV SHOW</NavLink>
+                <NavLink className={style.link} to={'/'}>WEB SERIES</NavLink>
+                <NavLink className={style.link} to={'/'}>PRIMIUM</NavLink>
             </nav>
 
-            {/* тут компонент search */}
-            {/* тут компонент смены Языка */}
-            {/* тут компонент Авторизвции */}
+            <div className={style.header__modes}>
+                <Search />
+                <Language />
+                <Auth />
+            </div>
+
         </header>
-    )
+
+    </div>
 }

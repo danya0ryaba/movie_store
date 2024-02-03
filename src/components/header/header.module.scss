@@ -1,3 +1,55 @@
+@import '../../style/variables.scss';
+
+.container {
+    margin: 0 auto;
+    max-width: 1180px;
+    width: 100%;
+    padding: 0 10px;
+}
+
 .header {
+    // position: fixed;
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 16px;
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        h1 {
+            font-family: 'IM Fell French Canon', sans-serif;
+            font-size: 29.17px;
+            font-weight: 400;
+            color: $white;
+        }
+    }
+
+    &__menu {
+
+        .link {
+            position: relative;
+            font-size: 17px;
+            font-weight: 400;
+            color: $white;
+            padding: 0 18px;
+
+            &:first-child {
+                padding-left: 0;
+            }
+
+            &:last-child {
+                padding-right: 0;
+            }
+
+        }
+    }
+
+    &__modes {
+        display: flex;
+        align-items: center;
+    }
 }

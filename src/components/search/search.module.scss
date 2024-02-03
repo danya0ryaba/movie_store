@@ -1,0 +1,17 @@
+.input {
+    // background: transparent;
+
+    &__active {
+        display: block;
+        // background: transparent;
+    }
+
+    &__none {
+        opacity: 0;
+        // background: transparent;
+    }
+}
+
+.search {
+    padding: 0 15px 0 8px;
+}

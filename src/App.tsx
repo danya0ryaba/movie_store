@@ -6,6 +6,7 @@ import { Error } from './page/Error';
 import { CardMovie } from './page/CardMovie';
 
 function App() {
+
   return (
     <Routes>
       <Route path='/' element={<Home />} />
