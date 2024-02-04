@@ -1,0 +1,73 @@
+@import '../../style/variables.scss';
+
+.category {
+    background: url('../../assets/img/categoryImage.png');
+    height: 140vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 80px 0;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1180px;
+    width: 100%;
+    padding: 0 10px;
+    overflow: hidden;
+}
+
+.category__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    z-index: 100;
+    margin-bottom: 44px;
+
+    .text {
+        display: flex;
+        flex-direction: column;
+
+        .title {
+            font-size: 18px;
+            font-weight: 400;
+            color: $green;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-family: 'Homenaje', serif;
+            font-size: 44px;
+            font-weight: 400;
+            color: $white;
+        }
+    }
+
+    .filters {
+        &__item {
+            padding: 11px 43px;
+            background: $gray;
+            font-size: 18px;
+            font-weight: 400;
+            color: $white;
+            border-radius: 24px;
+            margin: 0 11px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.category__films {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 70px;
+}
