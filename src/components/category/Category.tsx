@@ -1,6 +1,7 @@
 import React from 'react'
 import style from './category.module.scss'
 import { MovieCard } from '../moviecard/MovieCard'
+import { TopFilms } from '../topfilms/TopFilms'
 
 export const Category = () => {
     return <section className={style.category}>
@@ -26,7 +27,7 @@ export const Category = () => {
                 <MovieCard />
                 <MovieCard />
             </div>
-            <h2 style={{ color: 'white', fontSize: '50px' }}>TOP 100</h2>
         </div>
+
     </section>
 }
