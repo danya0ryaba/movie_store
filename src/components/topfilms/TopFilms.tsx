@@ -1,27 +1,16 @@
 import React from 'react'
 import style from './topfilms.module.scss'
-import topfilm from '../../assets/img/top_film.png'
+import { TopFilmItem } from './topfilmitem/TopFilmItem'
+import { Title } from '../title/Title'
+
+const topFilms = [1, 2, 3, 4, 5]
 
 export const TopFilms = () => {
     return <>
-        <h2 className={style.title}>top films</h2>
+        <Title>top films</Title>
         <section className={style.top__films}>
-
             <ul className={style.films}>
-                <li className={style.item__film}><img src={topfilm} alt="list top films" /></li>
-                <li className={style.item__film}><img src={topfilm} alt="list top films" /></li>
-                <li className={style.item__film}><img src={topfilm} alt="list top films" /></li>
-                <li className={style.item__film}><img src={topfilm} alt="list top films" /></li>
-                <li className={style.item__film}><img src={topfilm} alt="list top films" /></li>
-                {/* <li className={style.item__film}><img src={topfilm} alt="list top films" /></li>
-                <li className={style.item__film}><img src={topfilm} alt="list top films" /></li>
-                <li className={style.item__film}><img src={topfilm} alt="list top films" /></li>
-                <li className={style.item__film}><img src={topfilm} alt="list top films" /></li>
-                <li className={style.item__film}><img src={topfilm} alt="list top films" /></li>
-                <li className={style.item__film}><img src={topfilm} alt="list top films" /></li>
-                <li className={style.item__film}><img src={topfilm} alt="list top films" /></li>
-                <li className={style.item__film}><img src={topfilm} alt="list top films" /></li>
-                <li className={style.item__film}><img src={topfilm} alt="list top films" /></li> */}
+                {topFilms.map(item => <TopFilmItem key={item} />)}
             </ul>
         </section>
     </>

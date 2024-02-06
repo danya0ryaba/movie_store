@@ -1,16 +1,15 @@
 import React from 'react'
 import style from './company.module.scss'
-import company from '../../assets/img/company.png'
+import { CompanyItem } from './companyitem/CompanyItem'
+import { Title } from '../title/Title'
 
+const companyItem = [1, 2, 3, 4]
 export const Company = () => {
     return <section className={style.company}>
         <div className={style.container}>
-            <h1 className={style.title}>Company</h1>
+            <Title>Company</Title>
             <div className={style.list__company}>
-                <div className={style.item__company}><img src={company} alt="company" /></div>
-                <div className={style.item__company}><img src={company} alt="company" /></div>
-                <div className={style.item__company}><img src={company} alt="company" /></div>
-                <div className={style.item__company}><img src={company} alt="company" /></div>
+                {companyItem.map(company => <CompanyItem key={company} />)}
             </div>
         </div>
     </section>

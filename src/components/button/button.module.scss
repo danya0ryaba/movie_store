@@ -9,4 +9,11 @@
     background: transparent;
     border: 2px solid $green;
     color: $white;
+    transition: 0.5s all;
+
+    &:hover {
+        color: black;
+        background-color: $white;
+        border: 2px solid transparent;
+    }
 }

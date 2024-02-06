@@ -1,8 +1,6 @@
 @import '../../style/variables.scss';
 
 .fullscreen {
-    // position: relative;
-    // overflow: hidden;
     margin-top: -104px;
     width: 100vw;
     height: 100vh;
@@ -10,72 +8,80 @@
     background-repeat: no-repeat;
     background-size: cover;
 
-    &__info {
-        position: absolute;
-        top: 300px;
-        left: 200px;
-        text-shadow: -4px 4px 6px rgba(0, 0, 0, 0.71);
+    &__gradient {
+        width: 100vw;
+        height: 100vh;
+        background: rgb(164, 164, 170);
+        background: linear-gradient(90deg, rgba(164, 164, 170, 1) 0%, rgba(15, 15, 61, 0.6503851540616247) 37%, rgba(103, 119, 122, 1) 100%);
 
-        .title {
-            font-family: 'IM Fell French Canon', sans-serif;
-            font-size: 30px;
-            font-weight: 400;
-            color: $green;
-        }
+        .fullscreen__info {
+            position: absolute;
+            top: 300px;
+            left: 200px;
+            text-shadow: -4px 4px 6px rgba(0, 0, 0, 0.71);
 
-        .subtitle {
-            color: $white;
-            line-height: 1.2;
-            font-size: 62px;
-
-            span {
+            .title {
+                font-family: 'IM Fell French Canon', sans-serif;
+                font-size: 30px;
                 color: $green;
             }
 
-            margin-bottom: 15px;
-        }
-
-        .about_film {
-            display: flex;
-            align-items: center;
-            margin-bottom: 45px;
-
-            .type {
-                font-size: 15px;
-                padding: 6px 3px;
-                background-color: $white;
-                color: black;
-                margin-right: 20px;
-            }
-
-            .quality {
-                padding: 2px 5px;
+            .subtitle {
                 color: $white;
-                background-color: transparent;
-                border: 1px solid $white;
-                margin-right: 18px;
-            }
-
-            .category {
-                font-size: 18px;
-                color: $white;
-                margin-right: 16px;
-            }
-
-            .data {
-                display: flex;
-
-                img {
-                    width: 18px;
-                    height: 18px;
-                }
+                line-height: 1.2;
+                font-size: 62px;
 
                 span {
-                    font-size: 18px;
-                    font-weight: 400;
+                    color: $green;
+                }
+
+                margin-bottom: 15px;
+            }
+
+            .about_film {
+                display: flex;
+                align-items: center;
+                margin-bottom: 45px;
+
+                .type {
+                    font-size: 15px;
+                    padding: 6px 3px;
+                    background-color: $white;
+                    color: black;
+                    margin-right: 20px;
+                }
+
+                .quality {
+                    padding: 2px 5px;
                     color: $white;
+                    background-color: transparent;
+                    border: 1px solid $white;
+                    margin-right: 18px;
+                }
+
+                .category {
+                    font-size: 18px;
+                    color: $white;
+                    margin-right: 16px;
+                }
+
+                .data {
+                    display: flex;
+
+                    img {
+                        width: 18px;
+                        height: 18px;
+                    }
+
+                    span {
+                        padding-left: 8px;
+                        font-size: 18px;
+                        color: $white;
+                    }
                 }
             }
         }
+
     }
+
 }

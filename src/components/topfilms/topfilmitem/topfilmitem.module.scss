@@ -1,0 +1,16 @@
+.item__film {
+    cursor: pointer;
+    margin-right: 12px;
+    opacity: 80%;
+    filter: blur(5px);
+    transition: 0.3s all;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    &:hover {
+        opacity: 100%;
+        filter: blur(0);
+    }
+}

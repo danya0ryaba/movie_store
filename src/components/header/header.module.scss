@@ -24,7 +24,6 @@
         h1 {
             font-family: 'IM Fell French Canon', sans-serif;
             font-size: 29.17px;
-            font-weight: 400;
             color: $white;
         }
     }
@@ -34,9 +33,9 @@
         .link {
             position: relative;
             font-size: 17px;
-            font-weight: 400;
             color: $white;
             padding: 0 18px;
+            transition: 0.3s all;
 
             &:first-child {
                 padding-left: 0;
@@ -44,6 +43,11 @@
 
             &:last-child {
                 padding-right: 0;
+            }
+
+            &:hover {
+                font-weight: 700;
+                color: $green;
             }
 
         }

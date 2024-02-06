@@ -1,7 +1,10 @@
 import React from 'react'
 import style from './category.module.scss'
 import { MovieCard } from '../moviecard/MovieCard'
-import { TopFilms } from '../topfilms/TopFilms'
+import { ButtonCategory } from './buttoncategory/ButtonCategory'
+
+const nameCategory = ['Movies', 'TVs Shows', 'Anime']
+const cardMovie = [1, 2, 3, 4]
 
 export const Category = () => {
     return <section className={style.category}>
@@ -14,18 +17,13 @@ export const Category = () => {
                 </div>
 
                 <div className={style.filters}>
-                    <button className={style.filters__item}>Movies</button>
-                    <button className={style.filters__item}>TVs Shows</button>
-                    <button className={style.filters__item}>Anime</button>
+                    {nameCategory.map(item => <ButtonCategory key={item}>{item}</ButtonCategory>)}
                 </div>
 
             </div>
 
             <div className={style.category__films}>
-                <MovieCard />
-                <MovieCard />
-                <MovieCard />
-                <MovieCard />
+                {cardMovie.map(card => <MovieCard key={card} />)}
             </div>
         </div>
 

@@ -7,27 +7,32 @@ export const FullScreen = () => {
     return (
         <div className={style.fullscreen}>
 
-            <div className={style.fullscreen__info}>
+            <div className={style.fullscreen__gradient}>
 
-                <h2 className={style.title}>Filmagnet</h2>
+                <div className={style.fullscreen__info}>
 
-                <h3 className={style.subtitle}>
-                    Unlimited <span>Entertainment</span>,<br />Movies, TVs shows, & More.
-                </h3>
+                    <h2 className={style.title}>Filmagnet</h2>
 
-                <div className={style.about_film}>
-                    <div className={style.type}>Movie</div>
-                    <div className={style.quality}>HD</div>
-                    <div className={style.category}>Action, Drama</div>
-                    <div className={style.data}>
-                        <img src={date} alt="date" />
-                        <span>2023</span>
+                    <h3 className={style.subtitle}>
+                        Unlimited <span>Entertainment</span>,<br />Movies, TVs shows, & More.
+                    </h3>
+
+                    <div className={style.about_film}>
+                        <div className={style.type}>Movie</div>
+                        <div className={style.quality}>HD</div>
+                        <div className={style.category}>Action, Drama</div>
+                        <div className={style.data}>
+                            <img src={date} alt="date" />
+                            <span>2023</span>
+                        </div>
                     </div>
+
+                    <Button>play now</Button>
+
                 </div>
 
-                <Button>play now</Button>
-
             </div>
+
 
         </div>
     )

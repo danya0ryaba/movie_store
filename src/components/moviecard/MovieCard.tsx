@@ -19,8 +19,6 @@ export const MovieCard = () => {
                     <span className={style.film__date}>2023</span>
                 </div>
 
-
-
                 <div className={style.item__info}>
 
                     <span className={style.quality}>HD</span>

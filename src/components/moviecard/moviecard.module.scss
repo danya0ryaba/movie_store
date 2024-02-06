@@ -2,68 +2,73 @@
 
 .category__films_item {
     cursor: pointer;
-}
 
-.item_film {
+    .item_film {
+        padding: 4px;
+        opacity: 80%;
+        transition: 0.5s all;
 
-    .poster {
-        width: 280px;
-        margin-bottom: 30px;
-    }
-
-    &_info {
-
-        display: flex;
-        flex-direction: column;
-
-        .info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-
-            .film__name {
-                font-family: 'Electrolize', sans-serif;
-                font-weight: 400;
-                font-size: 18px;
-                color: $white;
-            }
-
-            .film__date {
-                font-size: 18px;
-                font-weight: 400;
-                color: $green;
-                text-transform: uppercase;
-                padding-right: 5px;
-            }
+        .poster {
+            width: 280px;
+            margin-bottom: 30px;
         }
 
-        .item__info {
+        &_info {
+
             display: flex;
-            align-items: center;
-            color: $white;
+            flex-direction: column;
 
-            .quality {
-                font-size: 14px;
-                font-weight: 400;
-                padding: 2px 4px;
-                border: 1px solid $white;
-                margin-right: 135px;
-            }
-
-            .duration {
+            .info {
                 display: flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
 
-                span {
-                    font-size: 11px;
-                    font-weight: 400;
-                    padding-right: 30px;
+                .film__name {
+                    font-family: 'Electrolize', sans-serif;
+                    font-size: 18px;
+                    color: $white;
+                }
+
+                .film__date {
+                    font-size: 18px;
+                    color: $green;
+                    text-transform: uppercase;
+                    padding-right: 5px;
                 }
             }
 
-            .rating {
-                padding-right: 5px;
+            .item__info {
+                display: flex;
+                align-items: center;
+                color: $white;
+
+                .quality {
+                    font-size: 14px;
+                    padding: 2px 4px;
+                    border: 1px solid $white;
+                    margin-right: 135px;
+                }
+
+                .duration {
+                    display: flex;
+
+                    span {
+                        font-size: 11px;
+
+                        padding-right: 30px;
+                    }
+                }
+
+                .rating {
+                    padding-right: 5px;
+                }
             }
+
         }
 
+        &:hover {
+            opacity: 100%;
+            filter: contrast(140%);
+        }
     }
 }

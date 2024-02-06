@@ -1,0 +1,17 @@
+.item__film {
+    cursor: pointer;
+    padding: 0 10px;
+    opacity: 80%;
+
+    &:first-child {
+        padding-left: 0;
+    }
+
+    &:last-child {
+        padding-right: 0;
+    }
+
+    &:hover {
+        opacity: 100%;
+    }
+}
