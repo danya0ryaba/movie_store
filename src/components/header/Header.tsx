@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom'
 import style from './header.module.scss'
 import { Search } from '../search/Search'
 import logo from '../../assets/img/logo.png'
-import { Language } from '../language/Language'
 import { Auth } from '../auth/Auth'
+import { SelectCustom } from '../select/SelectCustom'
 
 export const Header = () => {
     return <div className={style.container}>
@@ -13,7 +13,7 @@ export const Header = () => {
 
             <div className={style.header__logo}>
                 <img src={logo} alt="logo" />
-                <h1>Filmagnet</h1>
+                <h1> <a href="">Filmagnet</a> </h1>
             </div>
 
             <nav className={style.header__menu}>
@@ -26,7 +26,7 @@ export const Header = () => {
 
             <div className={style.header__modes}>
                 <Search />
-                <Language />
+                <SelectCustom />
                 <Auth />
             </div>
 

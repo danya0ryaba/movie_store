@@ -1,17 +1,12 @@
 .input {
-    // background: transparent;
+    background: transparent;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+    font-size: 18px;
 
-    &__active {
-        display: block;
-        // background: transparent;
-    }
-
-    &__none {
-        opacity: 0;
-        // background: transparent;
-    }
 }
 
 .search {
-    padding: 0 15px 0 8px;
+    cursor: pointer;
+    padding: 0 10px 0 8px;
 }

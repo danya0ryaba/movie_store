@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 import search from '../../assets/img/search.png'
 import style from './search.module.scss'
 
 export const Search = () => {
 
-    const [input, setInput] = React.useState(false)
-
-    let classInp = !input ? 'input__none' : 'input__active'
-
+    const [input, setInput] = React.useState('')
+    const [isOpenInput, setIsOpenInput] = React.useState(false)
+    const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
+        setInput(e.currentTarget.value)
+    }
+    const onClickSearch = () => {
+        setIsOpenInput(!isOpenInput)
+    }
     return <>
-        <input className={classInp} id='search' type="text" />
-        <img className={style.search} src={search} alt="search" onClick={() => setInput(!input)} />
+        {isOpenInput && <input autoFocus value={input} onChange={onChangeInput} className={style.input} id='search' type="text" />}
+
+        <img onClick={onClickSearch} className={style.search} src={search} alt="search" />
     </>
 }

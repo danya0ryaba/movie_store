@@ -9,7 +9,6 @@
 }
 
 .header {
-    // position: fixed;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -24,7 +23,15 @@
         h1 {
             font-family: 'IM Fell French Canon', sans-serif;
             font-size: 29.17px;
-            color: $white;
+
+            a {
+                color: $white;
+                transition: 0.3s all;
+
+                &:hover {
+                    color: $green;
+                }
+            }
         }
     }
 
