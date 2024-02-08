@@ -25,7 +25,8 @@ export const Category = () => {
             <div className={style.category__films}>
                 {cardMovie.map(card => <MovieCard key={card} />)}
             </div>
-        </div>
 
+            <button className={style.more}>Show more...</button>
+        </div>
     </section>
 }
