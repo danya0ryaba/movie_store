@@ -23,21 +23,20 @@
         h1 {
             font-family: 'IM Fell French Canon', sans-serif;
             font-size: 29.17px;
+            color: $white;
+            transition: 0.3s all;
 
-            a {
-                color: $white;
-                transition: 0.3s all;
-
-                &:hover {
-                    color: $green;
-                }
+            &:hover {
+                color: $green;
             }
+
         }
     }
 
     &__menu {
 
         .link {
+            text-transform: uppercase;
             position: relative;
             font-size: 17px;
             color: $white;

@@ -1,0 +1,203 @@
+@import '../../style//variables.scss';
+
+.section__film {
+    color: $white;
+    padding: 40px 0;
+
+    .container {
+        margin: 0 auto;
+        max-width: 1180px;
+        width: 100%;
+        padding: 0 10px;
+        overflow: hidden;
+
+        .back {
+            color: $white;
+            background-color: transparent;
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 70px;
+        }
+
+        .card {
+            display: flex;
+
+            &__trailer {
+                cursor: pointer;
+                padding-right: 80px;
+                position: relative;
+
+                &::after {
+                    content: '';
+                    width: 93px;
+                    height: 93px;
+                    border-radius: 100%;
+                    border: 10px solid $white;
+                    position: absolute;
+                    top: 166px;
+                    left: 111px;
+                }
+
+                &::before {
+                    content: '';
+                    width: 30px;
+                    height: 30px;
+                    border-style: solid;
+                    border-width: 26px 0 26px 34px;
+                    border-color: transparent transparent transparent #FFFFFF;
+                    transform: rotate(0deg);
+                    position: absolute;
+                    top: 186px;
+                    left: 148px;
+                }
+
+                img {
+                    transition: 0.3s all;
+                    max-width: 315px;
+                    overflow: hidden;
+
+                    &:hover {
+                        transform: scale(1.1);
+                        box-shadow: 0px 2px 6px 5px #000;
+                    }
+                }
+
+
+
+            }
+
+            &__info {
+                padding-top: 25px;
+                display: flex;
+                flex-direction: column;
+
+                .movie__title {
+                    text-transform: uppercase;
+                    font-family: 'Gurajada', sans-serif;
+                    font-size: 30px;
+                    color: $green;
+                    font-weight: 400;
+                    letter-spacing: 8px;
+                }
+
+                .movie__subtitle {
+                    font-family: 'Gurajada', sans-serif;
+                    font-size: 95px;
+                    letter-spacing: 5px;
+                    margin-bottom: 15px;
+
+                    span {
+                        color: $green;
+                    }
+                }
+
+                .about_film {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 15px;
+
+                    .type {
+                        font-size: 15px;
+                        padding: 6px 3px;
+                        background-color: $white;
+                        color: black;
+                        margin-right: 20px;
+                    }
+
+                    .quality {
+                        padding: 2px 5px;
+                        color: $white;
+                        background-color: transparent;
+                        border: 1px solid $white;
+                        margin-right: 18px;
+                    }
+
+                    .category {
+                        font-size: 18px;
+                        color: $white;
+                        margin-right: 16px;
+                    }
+
+                    .data {
+                        display: flex;
+
+                        img {
+                            width: 18px;
+                            height: 18px;
+                        }
+
+                        span {
+                            padding-left: 8px;
+                            font-size: 18px;
+                            color: $white;
+                        }
+                    }
+                }
+
+                .movie__rating {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 35px;
+                    background-color: rgba(23, 23, 23, 0.69);
+                    max-width: 484px;
+                    border-radius: 60px;
+                    margin-bottom: 22px;
+
+                    .send {
+                        cursor: pointer;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+
+                        &__text {
+                            padding-top: 3px;
+                            font-size: 14px;
+                        }
+                    }
+
+                    .rating {
+                        font-size: 30px;
+
+                        &__title {
+                            font-size: 20px;
+                            margin-bottom: 5px;
+                        }
+
+                        .grade {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            cursor: pointer;
+
+                            &:hover {
+                                .star {
+                                    transform: scale(1.2);
+                                }
+                            }
+
+                            .star {
+                                transition: 0.3s all;
+                                padding-right: 10px;
+                            }
+
+                            label {
+                                cursor: pointer;
+                            }
+                        }
+                    }
+
+                }
+
+                &__text {
+                    padding: 0 5px;
+                    font-size: 24px;
+                    max-width: 840px;
+                    width: 100%;
+                }
+
+            }
+        }
+    }
+}

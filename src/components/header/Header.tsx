@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import style from './header.module.scss'
 import { Search } from '../search/Search'
 import logo from '../../assets/img/logo.png'
@@ -11,10 +11,12 @@ export const Header = () => {
 
         <header className={style.header}>
 
-            <div className={style.header__logo}>
-                <img src={logo} alt="logo" />
-                <h1> <a href="">Filmagnet</a> </h1>
-            </div>
+            <Link to='/'>
+                <div className={style.header__logo}>
+                    <img src={logo} alt="logo" />
+                    <h1> Filmagnet </h1>
+                </div>
+            </Link>
 
             <nav className={style.header__menu}>
                 <NavLink className={style.link} to={'/'}>HOME</NavLink>
