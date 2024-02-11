@@ -6,6 +6,10 @@ import logo from '../../assets/img/logo.png'
 import { Auth } from '../auth/Auth'
 import { SelectCustom } from '../select/SelectCustom'
 
+export type Language = 'RU' | 'EN'
+
+const arrayLanguage = ['RU', 'EN']
+
 export const Header = () => {
     return <div className={style.container}>
 
@@ -28,7 +32,7 @@ export const Header = () => {
 
             <div className={style.header__modes}>
                 <Search />
-                <SelectCustom />
+                <SelectCustom title='EN' option={arrayLanguage} />
                 <Auth />
             </div>
 
