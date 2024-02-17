@@ -11,7 +11,6 @@ export const Filters = () => {
         <div className={style.container}>
 
             <div className={style.filters__item}>
-                <h3 className={style.logo} >Filmagnet</h3>
                 {arrayFilters.map(filter => (<ButtonCategory key={filter}>{filter}</ButtonCategory>))}
             </div>
 

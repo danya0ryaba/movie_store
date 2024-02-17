@@ -15,7 +15,15 @@ export const usersAPI = {
 
     getStudio(page: number = 1, limit: number = 100) {
         return instance.get(`studio?page=${page}&limit=${limit}`)
+    },
+
+
+    // тип для сериалов(надо api писать и разобраться в доке)
+    // в закладках пример кодов с этой api-шки
+    getSeason() {
+        return instance.get(`movie?type=tv-series`)
     }
+    //sortField=rating.kp&sortType=-1&type=movie&selectFields=rating&selectFields=movieLength&selectFields=name&selectFields=description&selectFields=year&selectFields=poster&selectFields=genres&selectFields=countries&selectFields=enName&selectFields=ageRating&notNullFields=name
 }
 
 // export const profileAPI = {}

@@ -24,9 +24,9 @@ export const Header = () => {
 
             <nav className={style.header__menu}>
                 <NavLink className={style.link} to={'/'}>HOME</NavLink>
-                <NavLink className={style.link} to={'/'}>MOVIE</NavLink>
+                <NavLink className={style.link} to={'/films'}>MOVIE</NavLink>
                 <NavLink className={style.link} to={'/'}>TV SHOW</NavLink>
-                <NavLink className={style.link} to={'/'}>WEB SERIES</NavLink>
+                <NavLink className={style.link} to={'/series'}>series</NavLink>
                 <NavLink className={style.link} to={'/'}>PRIMIUM</NavLink>
             </nav>
 
