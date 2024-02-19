@@ -1,8 +1,6 @@
 import React from 'react'
 import style from './film.module.scss'
 import camera from '../../assets/img/camera.png'
-// import grade_star from '../../assets/img/grade_star.png'
-// import { ReactComponent as Send } from '../../assets/img/send.svg'
 
 export const Film: React.FC = () => {
 
@@ -44,14 +42,6 @@ export const Film: React.FC = () => {
 
 
                 </div>
-
-                {/* <span className={style.grade}>
-                    <img className={style.grade__star} src={grade_star} alt="grade star" />
-                </span>
-
-                <span className={style.send}>
-                    <Send style={{ fill: 'black', backgroundColor: 'red', width: '20px', height: '20px' }} />
-                </span> */}
 
             </div>
         </div>

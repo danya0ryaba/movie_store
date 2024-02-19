@@ -1,0 +1,35 @@
+@import '../../style/variables.scss';
+
+.block__tv {
+    // flex: 0 1, 25%;
+    // margin: 0 -10px;
+    padding-bottom: 26px;
+
+
+    .wrapper {
+        padding: 0 5px;
+        cursor: pointer;
+
+        .image {
+            &__img {
+                // border-radius: 20px;
+                width: 280px;
+                height: 330px;
+            }
+        }
+
+        .info {
+            color: $white;
+            font-size: 20px;
+            background-color: $light-gray;
+            padding: 14px;
+            text-align: center;
+
+            .title {
+                font-size: 24px;
+                padding: 15px 0;
+            }
+        }
+    }
+
+}

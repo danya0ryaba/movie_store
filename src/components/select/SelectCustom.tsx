@@ -9,7 +9,6 @@ type SelectCustomType = {
     title: string
 }
 
-
 export const SelectCustom: React.FC<SelectCustomType> = ({ option, title }) => {
 
     const [isOpen, setIsOpen] = React.useState(false)

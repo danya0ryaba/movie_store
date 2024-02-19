@@ -1,0 +1,31 @@
+@import '../style/variables.scss';
+
+.error {
+    width: 100wh;
+    height: auto;
+    background-color: black;
+    padding-top: 20px;
+    color: $green;
+
+    &__title {
+        margin: 60px 0;
+        font-family: "IM Fell French Canon";
+        text-align: center;
+        font-size: 50px;
+        font-weight: 700;
+        letter-spacing: 20px;
+    }
+
+    .back {
+        cursor: pointer;
+        padding: 60px 0 0 0;
+        font-size: 30px;
+        text-align: center;
+        font-style: italic;
+        transition: 0.2s all;
+
+        &:hover {
+            color: $white;
+        }
+    }
+}

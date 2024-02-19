@@ -2,11 +2,13 @@ import React from 'react'
 import style from './category.module.scss'
 import { MovieCard } from '../moviecard/MovieCard'
 import { ButtonCategory } from './buttoncategory/ButtonCategory'
+import { Link, NavLink } from 'react-router-dom'
 
 const nameCategory = ['Movies', 'TVs Shows', 'Anime']
 const cardMovie = [1, 2, 3, 4]
 
 export const Category = () => {
+
     return <section className={style.category}>
         <div className={style.container}>
             <div className={style.category__info}>
@@ -23,7 +25,8 @@ export const Category = () => {
             </div>
 
             <div className={style.category__films}>
-                {cardMovie.map(card => <MovieCard key={card} />)}
+                {cardMovie.map(card =>
+                    <Link key={card} to={`movie/${card}`}><MovieCard /></Link>)}
             </div>
 
             <button className={style.more}>Show more...</button>
