@@ -12,7 +12,7 @@ export const usersAPI = {
     getMovieId(id: number) {
         return instance.get(`movie/${id}`)
     },
-    getMovie(page: number = 1, limit: number = 100) {
+    getMovie(page: number = 1, limit: number = 10) {
         // &selectFields=videos
         return instance.get(`movie?page=${page}&limit=${limit}`)
     },
