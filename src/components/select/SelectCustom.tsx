@@ -2,7 +2,6 @@ import React from 'react'
 import style from './selectcustom.module.scss'
 import { Option } from './Option'
 import { ReactComponent as ArrowDown } from '../../assets/img/arrow_up.svg';
-// import { Language } from '../header/Header';
 
 type SelectCustomType = {
     option: string[],

@@ -9,14 +9,17 @@ import { Films } from './page/Films';
 import { Series } from './page/Series';
 import { TvShow } from './page/TvShow';
 import { Header } from './components/header/Header';
+import { Movie } from './type/movie';
 
 function App() {
 
-  // let serials = []
+  useEffect(() => {
+    usersAPI.getMovieId(41519).then(res => console.log(res.data))
+    usersAPI.getMovie().then(res => console.log(res.data.docs[0]))
 
-  // useEffect(() => {
-  //   usersAPI.getSeason().then(res => console.log(res.data.docs))
-  // }, [])
+
+
+  }, [])
 
   return (<>
     <Header />
