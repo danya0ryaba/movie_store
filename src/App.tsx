@@ -16,16 +16,7 @@ function App() {
 
   const dispatch = useAppDispatch()
 
-  // const { list } = useAppSelector(state => state.movie)
-
-  // setTimeout(() => {
-  //   console.log(list);
-  // }, 3000)
-
   useEffect(() => {
-    // usersAPI.getMovieId(9).then(res => console.log(res.data))
-    // usersAPI.getMovie().then(res => console.log(res.data.docs[0]))
-    // usersAPI.getTopFilms().then(response => console.log(response.data.docs[0]))
     dispatch(getMovies())
   }, [])
 

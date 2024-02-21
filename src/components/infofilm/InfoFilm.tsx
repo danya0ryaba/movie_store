@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import style from './infofilm.module.scss'
 import { Button } from '../button/Button'
 import date from '../../assets/img/date.png'
@@ -6,13 +6,67 @@ import trailer from '../../assets/img/trailer.png'
 import { ReactComponent as Send } from '../../assets/img/send.svg';
 import { ReactComponent as Star } from '../../assets/img/star.svg';
 import { useNavigate } from 'react-router-dom'
+import { CurrentFilm } from '../../type/movieId'
 
-export const InfoFilm = () => {
+
+export const InfoFilm: React.FC<CurrentFilm> = ({
+
+    status,
+    rating,
+    votes,
+    backdrop,
+    movieLength,
+    id,
+    type,
+    name,
+    description,
+    year,
+    poster,
+    genres,
+    countries,
+    typeNumber,
+    alternativeName,
+    enName,
+    names,
+    ratingMpaa,
+    shortDescription,
+    ticketsOnSale,
+    ageRating,
+    logo,
+    top10,
+    top250,
+    isSeries,
+    seriesLength,
+    totalSeriesLength,
+
+    externalId,
+    distributors,
+    premiere,
+    slogan,
+    facts,
+    seasonsInfo,
+    persons,
+    images,
+    lists,
+    spokenLanguages,
+    productionCompanies,
+    budget,
+    networks,
+    subType,
+    fees,
+    updatedAt,
+    imagesInfo,
+    technology,
+    similarMovies,
+    sequelsAndPrequels,
+    watchability,
+    deletedAt,
+    audience,
+    videos
+}) => {
 
     const navigate = useNavigate()
-
     const onClickBack = () => navigate(-1)
-
 
     return (<section className={style.section__film}>
 

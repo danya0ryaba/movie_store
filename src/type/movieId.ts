@@ -74,7 +74,7 @@ interface ProductionCompanies extends BackdropAndPoster {
     readonly name: string
 }
 
-export interface CurrentFilms extends Movie {
+export interface CurrentFilm extends Movie {
     externalId: ExternalId,
     distributors: { distributor: string, distributorRelease: string },
     premiere: { world: string | null, russia?: string, dvd: string },

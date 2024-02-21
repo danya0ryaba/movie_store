@@ -45,7 +45,7 @@ export const MovieCard: React.FC<Movie> = ({
                 <div className={style.info}>
                     <h5 className={style.film__name}>{name}</h5>
 
-                    <span className={style.film__date}>2023</span>
+                    <span className={style.film__date}>{year}</span>
                 </div>
 
                 <div className={style.item__info}>
