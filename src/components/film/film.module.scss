@@ -34,6 +34,14 @@
                 padding-right: 20px;
             }
 
+            .poster {
+                img {
+                    width: 90px;
+                    height: 124px;
+                }
+
+            }
+
             .info {
                 padding-left: 18px;
                 display: flex;
@@ -42,6 +50,7 @@
                 .title {
                     font-size: 20px;
                     margin-bottom: 14px;
+                    // padding-bottom: 5px;
                 }
 
                 .aboutFilm {
@@ -60,6 +69,8 @@
                     border-radius: 10px;
                     transition: 0.3s all;
                     border: 1px solid $white;
+                    width: 100%;
+                    max-width: 210px;
 
                     .camera {
                         margin-right: 10px;
@@ -86,7 +97,7 @@
             }
 
             .view {
-                color: $light-gray;
+                color: $gray;
                 font-size: 14px;
                 padding-right: 14px;
             }

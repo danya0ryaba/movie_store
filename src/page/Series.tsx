@@ -25,9 +25,9 @@ export const Series = () => {
         <div className={style.genres}>
             <SelectCustom title={'Жанры'} option={options} />
         </div>
-        {bestFilms.map(film => <Link key={film} to={`909`}>
+        {/* {bestFilms.map(film => <Link key={film} to={`909`}>
             <Film />
-        </Link>)}
+        </Link>)} */}
         <Pagination />
     </div>
 }

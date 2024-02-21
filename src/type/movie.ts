@@ -27,6 +27,8 @@ export type GenresItem = {
 
 export type TypeMovie = 'movie' | 'tv-series' | 'cartoon' | 'anime' | 'animated-series' | 'tv-show'
 
+//27
+
 export interface Movie {
     status: string | null,
     rating: RatingAndVotes,

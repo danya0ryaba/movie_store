@@ -2,12 +2,14 @@ import React from 'react'
 import style from './category.module.scss'
 import { MovieCard } from '../moviecard/MovieCard'
 import { ButtonCategory } from './buttoncategory/ButtonCategory'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { useAppSelector } from '../../store/hooks/redux'
 
 const nameCategory = ['Movies', 'TVs Shows', 'Anime']
-const cardMovie = [1, 2, 3, 4]
 
 export const Category = () => {
+
+    const { list } = useAppSelector(state => state.movie)
 
     return <section className={style.category}>
         <div className={style.container}>
@@ -25,8 +27,9 @@ export const Category = () => {
             </div>
 
             <div className={style.category__films}>
-                {cardMovie.map(card =>
-                    <Link key={card} to={`movie/${card}`}><MovieCard /></Link>)}
+                {list.map(card => <Link key={card.id} to={`movie/${card.id}`}>
+                    <MovieCard {...card} />
+                </Link>)}
             </div>
 
             <button className={style.more}>Show more...</button>

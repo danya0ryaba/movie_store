@@ -2,6 +2,7 @@
 
 .category__films_item {
     cursor: pointer;
+    margin-bottom: 18px;
 
     .item_film {
         padding: 4px;
@@ -24,6 +25,8 @@
                 margin-bottom: 20px;
 
                 .film__name {
+                    width: 100%;
+                    max-width: 230px;
                     font-family: 'Electrolize', sans-serif;
                     font-size: 18px;
                     color: $white;
