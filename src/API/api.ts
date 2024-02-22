@@ -13,12 +13,11 @@ const instance = axios.create({
 export const usersAPI = {
 
     getMovieId(id: number) {
-        return instance.get(`movie/${id}`)
+        return instance.get(`movie/${id}?notNullFields=poster.url&notNullFields=videos.trailers.url&notNullFields=rating.imdb&notNullFields=backdrop.url`)
     },
     getMovie(page: number = 1, limit: number = 12) {
-        return instance.get(`movie?page=${page}&limit=${limit}&type=movie&notNullFields=poster.url&notNullFields=videos.trailers.url`)
+        return instance.get(`movie?page=${page}&limit=${limit}&type=movie&notNullFields=poster.url&notNullFields=videos.trailers.url&notNullFields=rating.imdb&notNullFields=backdrop.url`)
     },
-    // notNullFields=poster.url&notNullFields=videos.trailers.url
     getTopFilms() {
         return instance.get(`movie?page=1&limit=250&selectFields=top10&notNullFields=top10`)
     },

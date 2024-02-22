@@ -8,7 +8,7 @@ type NamesMovie = {
 
 export type RatingAndVotes = {
     readonly kp: number | null,
-    readonly imdb: number | null,
+    readonly imdb: number,
     readonly tmdb?: number | null,
     readonly kpHD?: string | null,
     readonly filmCritics: number | null,
@@ -17,8 +17,8 @@ export type RatingAndVotes = {
 }
 
 export type BackdropAndPoster = {
-    readonly url: string,
-    readonly previewUrl: string | null
+    readonly url: string | undefined,
+    readonly previewUrl: string | undefined
 }
 
 export type GenresItem = {

@@ -16,10 +16,6 @@ export const Films = () => {
 
     const { list } = useAppSelector(state => state.movie)
 
-    useEffect(() => {
-        window.scroll(0, 0)
-    }, [])
-
     return <div className={style.series}>
         <Title>Лучшие фильмов</Title>
         <Filters filterItem={filtersMovies} />
@@ -29,10 +25,10 @@ export const Films = () => {
         </div>
 
         {list.map(film => <Link key={film.id} to={`${film.id}`}>
-            <Film key={film.id}  {...film} />
+            <Film  {...film} />
         </Link>)}
 
-
         <Pagination />
+
     </div>
 }

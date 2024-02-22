@@ -61,8 +61,6 @@ export const Film: React.FC<Movie> = ({
                     </div>
                 </div>
 
-
-
                 <div className={style.card__rating}>
 
                     <span className={style.rating__value}>{rating.imdb}</span>

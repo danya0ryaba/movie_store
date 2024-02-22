@@ -16,6 +16,9 @@ for (let i = 1; i < 11; i++) {
     bestFilms.push(i)
 }
 
+// написать свои слайсы для сериалов 
+
+
 export const Series = () => {
 
     return <div className={style.series}>
