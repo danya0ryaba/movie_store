@@ -17,7 +17,7 @@ export type RatingAndVotes = {
 }
 
 export type BackdropAndPoster = {
-    readonly url: string | null,
+    readonly url: string,
     readonly previewUrl: string | null
 }
 

@@ -21,6 +21,7 @@
 
         .card {
             display: flex;
+            margin-bottom: 150px;
 
             &__trailer {
                 cursor: pointer;
@@ -73,16 +74,17 @@
 
                 .movie__title {
                     text-transform: uppercase;
+                    font-weight: 700;
                     font-family: 'Gurajada', sans-serif;
-                    font-size: 30px;
+                    font-size: 50px;
                     color: $green;
-                    font-weight: 400;
                     letter-spacing: 8px;
+                    margin-bottom: 10px;
                 }
 
                 .movie__subtitle {
                     font-family: 'Gurajada', sans-serif;
-                    font-size: 95px;
+                    font-size: 35px;
                     letter-spacing: 5px;
                     margin-bottom: 15px;
 
@@ -190,6 +192,15 @@
 
                 }
 
+                .card__info__text {
+                    line-height: 1.4;
+                    width: 100%;
+                    max-width: 600px;
+                    font-size: 16px;
+                }
+
+
+
                 &__text {
                     padding: 0 5px;
                     font-size: 24px;
@@ -198,6 +209,106 @@
                 }
 
             }
+        }
+
+        .about__film {
+
+            .aboutFilm {
+                text-align: center;
+                font-size: 30px;
+                font-weight: 700;
+                color: $green;
+                margin-bottom: 70px;
+            }
+
+            .container__about {
+                display: flex;
+                flex-wrap: wrap;
+
+                .video {
+                    width: 100%;
+                    max-width: 306px;
+
+                    &__trailer {
+                        width: 300px;
+                        height: 190px;
+                        background-color: #fff;
+                        margin-bottom: 20px;
+                    }
+
+                    .description {
+                        font-size: 16px;
+                        line-height: 1.3;
+                    }
+                }
+
+                .info {
+                    padding: 0 100px;
+                    flex-direction: column;
+
+                    &__film {
+                        display: flex;
+                        margin-bottom: 20px;
+
+                        .info__key {
+                            width: 200px;
+                            text-align: left;
+                        }
+
+                        .info__value {
+                            text-align-last: left;
+
+                        }
+                    }
+                }
+
+                .actor {
+
+                    .subtitle {
+                        font-size: 24px;
+                        margin-bottom: 20px;
+                    }
+
+                    .list {
+                        &__actor {
+                            padding: 10px 0;
+                            transition: 0.2s all;
+
+                            a {
+                                color: #fff;
+                            }
+
+                            &:hover {
+                                a {
+                                    color: $green;
+                                }
+                            }
+                        }
+                    }
+
+                    .more {
+                        padding: 5px 0;
+                        cursor: pointer;
+
+                        a {
+                            font-size: 12px;
+                            color: $light-gray;
+                            transition: 0.2s all;
+                        }
+
+                        &:hover {
+                            a {
+                                transform: scale(1.1);
+                                color: $green;
+                            }
+                        }
+                    }
+
+                }
+
+            }
+
+
         }
     }
 }

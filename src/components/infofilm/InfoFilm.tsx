@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import style from './infofilm.module.scss'
 import { Button } from '../button/Button'
+import poster from '../../assets/img/poster_film.png'
 import date from '../../assets/img/date.png'
-import trailer from '../../assets/img/trailer.png'
 import { ReactComponent as Send } from '../../assets/img/send.svg';
 import { ReactComponent as Star } from '../../assets/img/star.svg';
 import { useNavigate } from 'react-router-dom'
@@ -65,6 +65,9 @@ export const InfoFilm: React.FC<CurrentFilm> = ({
     videos
 }) => {
 
+    console.log(backdrop.url);
+
+
     const navigate = useNavigate()
     const onClickBack = () => navigate(-1)
 
@@ -77,22 +80,22 @@ export const InfoFilm: React.FC<CurrentFilm> = ({
             <div className={style.card}>
 
                 <div className={style.card__trailer}>
-                    <img src={trailer} alt="trailer film" />
+                    <img src={`${poster.url}`} alt="trailer film" />
                 </div>
 
                 <div className={style.card__info}>
 
-                    <h1 className={style.movie__title}>NEW EPISODES</h1>
+                    <h1 className={style.movie__title}>{name}</h1>
 
-                    <h2 className={style.movie__subtitle}>Free <span>Guy</span></h2>
+                    <h2 className={style.movie__subtitle}>Свободный <span>просмотр</span></h2>
 
                     <div className={style.about_film}>
-                        <div className={style.type}>Movie</div>
+                        <div className={style.type}>{type}</div>
                         <div className={style.quality}>HD</div>
                         <div className={style.category}>Action, Drama, Adventure, Science fiction</div>
                         <div className={style.data}>
                             <img src={date} alt="date" />
-                            <span>2023</span>
+                            <span>{year}</span>
                         </div>
                     </div>
 
@@ -109,7 +112,7 @@ export const InfoFilm: React.FC<CurrentFilm> = ({
 
                             <div className={style.grade}>
                                 <Star className={style.star} />
-                                <label htmlFor="#">7.0</label>
+                                <label htmlFor="#">{rating.imdb}</label>
                             </div>
 
                         </div>
@@ -118,12 +121,157 @@ export const InfoFilm: React.FC<CurrentFilm> = ({
 
                     </div>
 
-                    <p className="card__info__text">
-                        Ryan Reynolds as Guy / Blue Shirt Guy, a bank teller and non-player character (NPC) in Free City who is initially unaware that he is a video game character.
+                    <p className={style.card__info__text}>
+                        {shortDescription}
                     </p>
 
                 </div>
+
             </div>
+
+
+
+            <div className={style.about__film}>
+
+                <h5 className={style.aboutFilm}>О фильме</h5>
+
+                <div className={style.container__about}>
+
+                    <div className={style.video}>
+
+                        <div className={style.video__trailer}>
+                            <video className={style.video__video} src="">video</video>
+                        </div>
+
+                        <div className={style.description}>
+                            {description}
+                        </div>
+                    </div>
+
+                    <div className={style.info}>
+
+                        <div className={style.info__film}>
+                            <span className={style.info__key}>Год производства</span>
+                            <span className={style.info__value}>1999</span>
+                        </div>
+
+                        <div className={style.info__film}>
+                            <span className={style.info__key}>Страна</span>
+                            <span className={style.info__value}>USA</span>
+                        </div>
+
+                        <div className={style.info__film}>
+                            <span className={style.info__key}>Жанр</span>
+                            <span className={style.info__value}>драма, фэнтези, криминал</span>
+                        </div>
+
+                        <div className={style.info__film}>
+                            <span className={style.info__key}>Режиссер</span>
+                            <span className={style.info__value}>Фрэнк Дарабонт</span>
+                        </div>
+
+                        <div className={style.info__film}>
+                            <span className={style.info__key}>Сценарий</span>
+                            <span className={style.info__value}>Фрэнк Дарабонт, Стивен Кинг</span>
+                        </div>
+
+                        <div className={style.info__film}>
+                            <span className={style.info__key}>Продюсер</span>
+                            <span className={style.info__value}>Фрэнк Дарабонт, Дэвид Валдес</span>
+                        </div>
+
+                        <div className={style.info__film}>
+                            <span className={style.info__key}>Оператор</span>
+                            <span className={style.info__value}>Фрэнк Дарабонт</span>
+                        </div>
+
+                        <div className={style.info__film}>
+                            <span className={style.info__key}>Композитор</span>
+                            <span className={style.info__value}>Фрэнк Дарабонт</span>
+                        </div>
+
+                        <div className={style.info__film}>
+                            <span className={style.info__key}>Художник</span>
+                            <span className={style.info__value}>Фрэнк Дарабонт</span>
+                        </div>
+
+                        <div className={style.info__film}>
+                            <span className={style.info__key}>Монтаж</span>
+                            <span className={style.info__value}>Фрэнк Дарабонт</span>
+                        </div>
+
+                        <div className={style.info__film}>
+                            <span className={style.info__key}>Бюджет</span>
+                            <span className={style.info__value}>Фрэнк Дарабонт</span>
+                        </div>
+
+                        <div className={style.info__film}>
+                            <span className={style.info__key}>Маркетинг</span>
+                            <span className={style.info__value}>Фрэнк Дарабонт</span>
+                        </div>
+
+                        <div className={style.info__film}>
+                            <span className={style.info__key}>Зрители</span>
+                            <span className={style.info__value}>Фрэнк Дарабонт</span>
+                        </div>
+
+                        <div className={style.info__film}>
+                            <span className={style.info__key}>Премьера в мире</span>
+                            <span className={style.info__value}>Фрэнк Дарабонт</span>
+                        </div>
+
+                        <div className={style.info__film}>
+                            <span className={style.info__key}>Возраст</span>
+                            <span className={style.info__value}>Фрэнк Дарабонт</span>
+                        </div>
+
+                        <div className={style.info__film}>
+                            <span className={style.info__key}>Время</span>
+                            <span className={style.info__value}>Фрэнк Дарабонт</span>
+                        </div>
+
+                    </div>
+
+                    <div className={style.actor}>
+
+                        <h5 className={style.subtitle}>В главных ролях</h5>
+
+                        <ul className={style.list}>
+                            <li className={style.list__actor}>
+                                <a href="">Том Хэнкс</a>
+                                <div className="popup" style={{ display: 'none' }}></div>
+                            </li>
+                            <li className={style.list__actor}>
+                                <a href="">Том Хэнкс</a>
+                                <div className="popup" style={{ display: 'none' }}></div>
+                            </li>
+                            <li className={style.list__actor}>
+                                <a href="">Том Хэнкс</a>
+                                <div className="popup" style={{ display: 'none' }}></div>
+                            </li>
+                            <li className={style.list__actor}>
+                                <a href="">Том Хэнкс</a>
+                                <div className="popup" style={{ display: 'none' }}></div>
+                            </li>
+                            <li className={style.list__actor}>
+                                <a href="">Том Хэнкс</a>
+                                <div className="popup" style={{ display: 'none' }}></div>
+                            </li>
+                            <li className={style.list__actor}>
+                                <a href="">Том Хэнкс</a>
+                                <div className="popup" style={{ display: 'none' }}></div>
+                            </li>
+                        </ul>
+
+                        <span className={style.more}><a href="">посмотреть всех</a></span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
 
         </div>
     </section>

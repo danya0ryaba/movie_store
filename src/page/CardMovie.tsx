@@ -15,7 +15,9 @@ export const CardMovie = () => {
         dispatch(getInfoFilm(Number(id)))
     }, [id])
 
+
     const { film } = useAppSelector(state => state.film)
+    console.log(film);
 
     return (
         <div className={style.card__fullscreen}>
