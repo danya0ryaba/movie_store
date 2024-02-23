@@ -8,6 +8,8 @@ import { ReactComponent as Star } from '../../assets/img/star.svg';
 import { useNavigate } from 'react-router-dom'
 import { CurrentFilm } from '../../type/movieId'
 import { useAppSelector } from '../../store/hooks/redux'
+import { TypeMovie } from '../../type/movie'
+
 
 
 export const InfoFilm: React.FC<CurrentFilm> = ({
@@ -64,6 +66,15 @@ export const InfoFilm: React.FC<CurrentFilm> = ({
     audience,
     videos
 }) => {
+    // убрать any
+    const myType: any = {
+        movie: 'фильме',
+        ['tv-series']: 'сериале',
+    }
+
+    const currenType = myType[type]
+
+    console.log(currenType);
 
 
     const navigate = useNavigate()

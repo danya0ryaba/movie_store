@@ -7,30 +7,34 @@ import { Pagination } from '../components/pagination/Pagination'
 import { SelectCustom } from '../components/select/SelectCustom'
 import style from './series.module.scss'
 import { Link } from 'react-router-dom'
+import { useAppSelector } from '../store/hooks/redux'
+import { Footer } from '../components/footer/Footer'
 
 const filterSeries = ['С высоким рейтингом', 'Российские', 'Зарубежные']
 const options = ['Биография', 'Аниме', 'Боевики', 'Детективы', 'Документальные', 'Драмы']
-let bestFilms: number[] = []
 
-for (let i = 1; i < 11; i++) {
-    bestFilms.push(i)
-}
 
-// написать свои слайсы для сериалов 
 
 
 export const Series = () => {
 
+    const { series } = useAppSelector(state => state.series)
+
+    console.log(series);
+
     return <div className={style.series}>
-        <Title>Лучшие сериалы всех времен</Title>
+        <Title>Лучшие сериалы</Title>
         <Filters filterItem={filterSeries} />
         <InputCustom />
         <div className={style.genres}>
             <SelectCustom title={'Жанры'} option={options} />
         </div>
-        {/* {bestFilms.map(film => <Link key={film} to={`909`}>
-            <Film />
-        </Link>)} */}
+
+        {series.map(s => <Link key={s.id} to={`${s.id}`}>
+            <Film {...s} />
+        </Link>)}
+
         <Pagination />
+        {/* <Footer /> */}
     </div>
 }

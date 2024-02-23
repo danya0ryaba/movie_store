@@ -1,4 +1,10 @@
-export { }
+import { Movie } from "./movie";
 
+type Duration = {
+    readonly start: number,
+    readonly end: number
+}
 
-// написать на основе Movie одного свойства в сериалах не хватает
+export interface Series extends Movie {
+    releaseYears: Duration
+}

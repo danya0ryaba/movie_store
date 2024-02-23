@@ -27,6 +27,12 @@ export type GenresItem = {
 
 export type TypeMovie = 'movie' | 'tv-series' | 'cartoon' | 'anime' | 'animated-series' | 'tv-show'
 
+
+type Duration = {
+    readonly start: number,
+    readonly end: number
+}
+
 //27
 
 export interface Movie {
@@ -57,4 +63,6 @@ export interface Movie {
     isSeries: boolean,
     seriesLength: number | null,
     totalSeriesLength: number | null
+
+    releaseYears?: Duration
 }

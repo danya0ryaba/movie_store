@@ -10,7 +10,7 @@ import { TvShow } from './page/TvShow';
 import { Header } from './components/header/Header';
 import { useAppDispatch } from './store/hooks/redux';
 import { getMovies } from './store/movie/movieSlice';
-import { usersAPI } from './API/api';
+import { getSeries } from './store/series/seriesSlice';
 
 function App() {
 
@@ -18,7 +18,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getMovies())
-    usersAPI.getSeries().then(res => console.log(res.data.docs))
+    dispatch(getSeries())
   }, [dispatch])
 
   return (<>
