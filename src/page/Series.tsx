@@ -18,9 +18,7 @@ const options = ['Биография', 'Аниме', 'Боевики', 'Дете
 
 export const Series = () => {
 
-    const { series } = useAppSelector(state => state.series)
-
-    console.log(series);
+    const { series } = useAppSelector(state => state.series);
 
     return <div className={style.series}>
         <Title>Лучшие сериалы</Title>

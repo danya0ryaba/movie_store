@@ -1,40 +1,39 @@
 import { Action, PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { CartoonInterface } from "../../type/cartoon";
 import { usersAPI } from "../../API/api";
-import { CurrentFilm } from "../../type/movieId";
 
-interface initialState {
-    film: CurrentFilm,
+interface InitialState {
+    cartoon: CartoonInterface[],
     isLoading: boolean,
     error: null | string
 }
 
-export const getInfoFilm = createAsyncThunk<CurrentFilm, number, { rejectValue: string }>(
-    'film/getInfoFilm',
-    async (id, { rejectWithValue }) => {
-        const response = await usersAPI.getMovieId(id);
-        if (response.status == 200) return response.data
+export const getCartoon = createAsyncThunk<CartoonInterface[], undefined, { rejectValue: string }>(
+    'cartoon/getCartoon',
+    async (_, { rejectWithValue }) => {
+        const resp = await usersAPI.getCartoon();
+        if (resp.status === 200) return resp.data.docs
         else return rejectWithValue("Server Error!")
     }
 )
 
-
-const initialState: initialState = {
-    film: {} as CurrentFilm,
+const initialState: InitialState = {
+    cartoon: [],
     isLoading: false,
     error: null
 }
 
-const filmSlice = createSlice({
-    name: 'film',
+const cartoonSlice = createSlice({
+    name: 'cartoon',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(getInfoFilm.fulfilled, (state, { payload }) => {
-                state.film = payload
+            .addCase(getCartoon.fulfilled, (state, { payload }) => {
+                state.cartoon = payload
                 state.isLoading = false
             })
-            .addCase(getInfoFilm.pending, (state) => {
+            .addCase(getCartoon.pending, (state) => {
                 state.isLoading = true
                 state.error = null
             })
@@ -49,4 +48,4 @@ const isError = (action: Action) => {
     return action.type.endsWith('rejected');
 }
 
-export default filmSlice.reducer
+export default cartoonSlice.reducer

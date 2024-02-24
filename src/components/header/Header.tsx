@@ -23,12 +23,12 @@ export const Header = () => {
             </Link>
 
             <nav className={style.header__menu}>
-                <NavLink className={style.link} to={'/'}>HOME</NavLink>
-                <NavLink className={style.link} to={'/movie'}>MOVIE</NavLink>
-                <NavLink className={style.link} to={'/tv'}>TV SHOW</NavLink>
-                <NavLink className={style.link} to={'/series'}>series</NavLink>
-                {/* <NavLink className={style.link} to={'/'}>PRIMIUM</NavLink> */}
+                <NavLink className={style.link} to={'/'}>главная</NavLink>
+                <NavLink className={style.link} to={'/movie'}>кино</NavLink>
+                <NavLink className={style.link} to={'/tv'}>мультфильмы</NavLink>
+                <NavLink className={style.link} to={'/series'}>сериалы</NavLink>
             </nav>
+
             <Outlet />
 
             <div className={style.header__modes}>

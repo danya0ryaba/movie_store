@@ -66,15 +66,14 @@ export const InfoFilm: React.FC<CurrentFilm> = ({
     audience,
     videos
 }) => {
-    // убрать any
+
     const myType: any = {
-        movie: 'фильме',
+        ['movie']: 'фильме',
         ['tv-series']: 'сериале',
+        ['cartoon']: 'мультфильме',
     }
 
     const currenType = myType[type]
-
-    console.log(currenType);
 
 
     const navigate = useNavigate()
@@ -146,7 +145,7 @@ export const InfoFilm: React.FC<CurrentFilm> = ({
 
                 <div className={style.about__film}>
 
-                    <h5 className={style.aboutFilm}>О фильме</h5>
+                    <h5 className={style.aboutFilm}>О {currenType}</h5>
 
                     <div className={style.container__about}>
 
