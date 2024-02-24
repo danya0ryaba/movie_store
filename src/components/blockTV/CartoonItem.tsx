@@ -33,26 +33,21 @@ export const CartoonItem: React.FC<CartoonInterface> = ({
     totalSeriesLength
 }) => {
 
-    // ПЕРЕПИСАТЬ С НУЛЯ КАРТОЧКУ
+    return <div className={style.cards__item}>
 
-    return <div className={style.block__cartoon}>
+        <article className={style.card}>
 
-        <div className={style.wrapper}>
-
-            <div className={style.image}>
-                <img className={style.image__img} src={poster.previewUrl} alt="poster" />
+            <div className={style.card__image}>
+                <img src={poster.previewUrl} alt="poster" />
             </div>
 
-            <div className={style.info}>
-
+            <div className={style.card__content}>
                 <span className={style.age}>{ageRating}+</span>
-
-                <h4 className={style.title}>{name}</h4>
-
-                <p className={style.shortDescription}>{shortDescription}</p>
-
+                <h2 className={style.name}>{name}</h2>
+                <p className={style.short__desc}>{shortDescription}</p>
             </div>
 
-        </div>
-    </div >
+        </article>
+
+    </div>
 }

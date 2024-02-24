@@ -27,7 +27,6 @@ export const CardMovie = () => {
         <div style={{ background: `url(${bg})` }} className={style.card__fullscreen}>
             <div className={style.card__gradient}>
                 <InfoFilm {...film} />
-                <Footer />
             </div>
         </div>
     )

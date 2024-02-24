@@ -13,14 +13,15 @@ import { getMovies } from './store/movie/movieSlice';
 import { getSeries } from './store/series/seriesSlice';
 import { usersAPI } from './API/api';
 import { getCartoon } from './store/cartoon/cartoonSlice';
+import { Footer } from './components/footer/Footer';
 
 function App() {
 
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    // dispatch(getMovies())
-    // dispatch(getSeries())
+    dispatch(getMovies())
+    dispatch(getSeries())
     dispatch(getCartoon())
   }, [dispatch])
 
@@ -42,6 +43,8 @@ function App() {
 
       <Route path='*' element={<Error />} />
     </Routes>
+
+    <Footer />
 
   </>);
 }

@@ -10,7 +10,7 @@ export const CartoonBlock = () => {
 
     return <section className={style.tv}>
         <div className={style.tv__container}>
-            {cartoon.map(cartoon => (<Link key={cartoon.id} to={`${cartoon.id}`}>
+            {cartoon.map(cartoon => (<Link style={{ marginBottom: '10px' }} key={cartoon.id} to={`${cartoon.id}`}>
                 <CartoonItem {...cartoon} />
             </Link>))}
         </div>
