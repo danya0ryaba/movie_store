@@ -1,6 +1,5 @@
 import React from 'react'
 import style from './moviecard.module.scss'
-import poster from '../../assets/img/poster_film.png'
 import clock from '../../assets/img/clock.png'
 import star from '../../assets/img/star.png'
 import { Movie } from '../../type/movie'
@@ -44,7 +43,6 @@ export const MovieCard: React.FC<Movie> = ({
 
                 <div className={style.info}>
                     <h5 className={style.film__name}>{name}</h5>
-
                     <span className={style.film__date}>{year}</span>
                 </div>
 

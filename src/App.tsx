@@ -44,7 +44,9 @@ function App() {
       <Route path='*' element={<Error />} />
     </Routes>
 
-    <Footer />
+
+    {/* НА cARDmOVIE ПРОБЛЕМЫ С ОТОБРАЖЕНИЕМ FOOTER */}
+    {/* <Footer /> */}
 
   </>);
 }

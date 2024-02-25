@@ -24,15 +24,8 @@ export const usersAPI = {
     getCartoon(page: number = 1, limit: number = 12) {
         return instance.get(`movie?page=${page}&limit=${limit}&type=cartoon`)
     },
-
-
-    // getTopFilms() {
-    //     return instance.get(`movie?page=1&limit=250&selectFields=top10&notNullFields=top10`)
+    // getTopCartoon(page: number = 1, limit: number = 12) {
+    //     return instance.get(`movie?page=${page}&limit=${limit}&type=cartoon&rating.kp=7.2-10`)
     // },
-
-    // getStudio(page: number = 1, limit: number = 100) {
-    //     return instance.get(`studio`)
-    // },
-
 
 }
