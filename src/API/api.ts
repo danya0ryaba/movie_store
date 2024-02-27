@@ -18,14 +18,14 @@ export const usersAPI = {
     getMovie(page: number = 1, limit: number = 12) {
         return instance.get(`movie?page=${page}&limit=${limit}&type=movie&notNullFields=poster.url&notNullFields=videos.trailers.url&notNullFields=rating.imdb&notNullFields=backdrop.url`)
     },
-    getSeries() {
-        return instance.get(`movie?type=tv-series`)
+    getSeries(page: number = 1, limit: number = 12) {
+        return instance.get(`movie?page=${page}&limit=${limit}&type=tv-series`)
     },
     getCartoon(page: number = 1, limit: number = 12) {
         return instance.get(`movie?page=${page}&limit=${limit}&type=cartoon`)
     },
-    // getTopCartoon(page: number = 1, limit: number = 12) {
-    //     return instance.get(`movie?page=${page}&limit=${limit}&type=cartoon&rating.kp=7.2-10`)
-    // },
+    getAnime(page: number = 1, limit: number = 15) {
+        return instance.get(`movie?page=${page}&limit=${limit}&type=anime`)
+    },
 
 }

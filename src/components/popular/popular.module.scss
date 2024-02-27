@@ -10,7 +10,6 @@
         max-width: 1180px;
         width: 100%;
         padding: 0 10px;
-        // overflow: hidden;
         position: relative;
 
         .slider {
@@ -37,17 +36,28 @@
             }
         }
 
-        .gradient {
-            z-index: 1000;
+        .gradient__left {
+            z-index: 10;
             position: absolute;
-            right: 0;
-            top: 56px;
-            background-color: red;
+            left: 0;
+            top: 70px;
             width: 100px;
-            height: 280px;
+            height: 350px;
             padding: 5px;
             background: rgb(0, 0, 0);
-            background: linear-gradient(260deg, rgba(0, 0, 0, 1) 8%, rgba(0, 0, 0, 1) 24%, rgba(255, 255, 255, 0) 62%);
+            background: linear-gradient(90deg, rgba(0, 0, 0, 1) 23%, rgba(0, 0, 0, 0) 100%);
+        }
+
+        .gradient {
+            z-index: 10;
+            position: absolute;
+            right: 0;
+            top: 70px;
+            width: 100px;
+            height: 350px;
+            padding: 5px;
+            background: rgb(0, 0, 0);
+            background: linear-gradient(270deg, rgba(0, 0, 0, 1) 23%, rgba(0, 0, 0, 0) 100%);
         }
 
         .text__info {

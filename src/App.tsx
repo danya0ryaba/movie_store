@@ -11,9 +11,9 @@ import { Header } from './components/header/Header';
 import { useAppDispatch } from './store/hooks/redux';
 import { getMovies } from './store/movie/movieSlice';
 import { getSeries } from './store/series/seriesSlice';
-import { usersAPI } from './API/api';
 import { getCartoon } from './store/cartoon/cartoonSlice';
 import { Footer } from './components/footer/Footer';
+import { getAnime } from './store/anime/animeSlice';
 
 function App() {
 
@@ -23,6 +23,7 @@ function App() {
     dispatch(getMovies())
     dispatch(getSeries())
     dispatch(getCartoon())
+    dispatch(getAnime())
   }, [dispatch])
 
   return (<>

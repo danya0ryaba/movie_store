@@ -1,39 +1,40 @@
 import { Action, PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { usersAPI } from "../../API/api";
-import { CurrentFilm } from "../../type/movieId";
+import { Movie } from "../../type/movie";
 
 interface initialState {
-    film: CurrentFilm,
+    anime: Movie[],
     isLoading: boolean,
     error: null | string
 }
 
-export const getInfoFilm = createAsyncThunk<CurrentFilm, number, { rejectValue: string }>(
-    'film/getInfoFilm',
-    async (id, { rejectWithValue }) => {
-        const response = await usersAPI.getMovieId(id);
-        if (response.status == 200) return response.data
+export const getAnime = createAsyncThunk<Movie[], undefined, { rejectValue: string }>(
+    'film/getAnimeFilm',
+    async (_, { rejectWithValue }) => {
+        const response = await usersAPI.getAnime();
+        if (response.status == 200) return response.data.docs
         else return rejectWithValue("Server Error!")
     }
 )
 
+
 const initialState: initialState = {
-    film: {} as CurrentFilm,
+    anime: [],
     isLoading: false,
     error: null
 }
 
-const filmSlice = createSlice({
+const animeSlice = createSlice({
     name: 'film',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(getInfoFilm.fulfilled, (state, { payload }) => {
-                state.film = payload
+            .addCase(getAnime.fulfilled, (state, { payload }) => {
+                state.anime = payload
                 state.isLoading = false
             })
-            .addCase(getInfoFilm.pending, (state) => {
+            .addCase(getAnime.pending, (state) => {
                 state.isLoading = true
                 state.error = null
             })
@@ -48,4 +49,4 @@ const isError = (action: Action) => {
     return action.type.endsWith('rejected');
 }
 
-export default filmSlice.reducer
+export default animeSlice.reducer

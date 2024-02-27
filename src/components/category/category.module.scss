@@ -2,7 +2,6 @@
 
 .category {
     background: url('../../assets/img/categoryImage.png');
-    height: auto;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 80px 0;
@@ -56,8 +55,9 @@
     margin: 0 auto;
     text-align: center;
     font-size: 20px;
+    padding: 2px;
     color: $white;
-    transition: 0.3s all;
+    transition: 0.2s all;
 
     &:hover {
         color: $green;

@@ -6,10 +6,6 @@ import { ReactComponent as Send } from '../../assets/img/send.svg';
 import { ReactComponent as Star } from '../../assets/img/star.svg';
 import { useNavigate } from 'react-router-dom'
 import { CurrentFilm } from '../../type/movieId'
-import { useAppSelector } from '../../store/hooks/redux'
-import { TypeMovie } from '../../type/movie'
-
-
 
 export const InfoFilm: React.FC<CurrentFilm> = ({
     status,
@@ -70,19 +66,20 @@ export const InfoFilm: React.FC<CurrentFilm> = ({
         ['movie']: 'фильме',
         ['tv-series']: 'сериале',
         ['cartoon']: 'мультфильме',
+        ['anime']: 'аниме'
     }
-
-    // let personsSlice = persons.slice(0, 10)
-
-    // console.log(personsSlice);
-
-
     const currenType = myType[type]
-
 
     const navigate = useNavigate()
 
     const onClickBack = () => navigate(-1)
+
+    // const gentesStr = genres?.map((g, ind, genresArr) => {
+    //     if (ind === genresArr.length - 1) return `${g.name}`;
+    //     else return `${g.name}, `
+    // })
+
+    // console.log(gentesStr);
 
 
     return <>
@@ -95,9 +92,13 @@ export const InfoFilm: React.FC<CurrentFilm> = ({
 
                 <div className={style.card}>
 
+
+
+                    {/* ЗДЕСЬ ДЕЛАЮ */}
                     <div className={style.card__trailer}>
                         <img src={poster?.previewUrl} alt="trailer film" />
                     </div>
+                    {/* ЗДЕСЬ ДЕЛАЮ */}
 
                     <div className={style.card__info}>
 
@@ -108,7 +109,7 @@ export const InfoFilm: React.FC<CurrentFilm> = ({
                         <div className={style.about_film}>
                             <div className={style.type}>{type}</div>
                             <div className={style.quality}>HD</div>
-                            <div className={style.category}>Action, Drama, Adventure, Science fiction</div>
+                            {/* <div className={style.category}>{gentesStr.join('')}</div> */}
                             <div className={style.data}>
                                 <img src={date} alt="date" />
                                 <span>{year}</span>
@@ -133,7 +134,7 @@ export const InfoFilm: React.FC<CurrentFilm> = ({
 
                             </div>
 
-                            <Button>Play Now</Button>
+                            <Button>смотреть</Button>
 
                         </div>
 

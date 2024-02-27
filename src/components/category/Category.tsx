@@ -9,7 +9,7 @@ const nameCategory = ['Movies', 'TVs Shows', 'Anime']
 
 export const Category = () => {
 
-    const { list } = useAppSelector(state => state.movie)
+    const { movies } = useAppSelector(state => state.movie)
 
     return <section className={style.category}>
         <div className={style.container}>
@@ -17,7 +17,7 @@ export const Category = () => {
 
                 <div className={style.text}>
                     <h3 className={style.title}>ONLINE STREAMING</h3>
-                    <h4 className={style.subtitle}>Upcoming Movies</h4>
+                    <h4 className={style.subtitle}>Лучшие Фильмы</h4>
                 </div>
 
                 <div className={style.filters}>
@@ -27,12 +27,12 @@ export const Category = () => {
             </div>
 
             <div className={style.category__films}>
-                {list.map(card => <Link key={card.id} to={`movie/${card.id}`}>
+                {movies.map(card => <Link key={card.id} to={`movie/${card.id}`}>
                     <MovieCard {...card} />
                 </Link>)}
             </div>
 
-            <button className={style.more}>Show more...</button>
+            <button className={style.more}>посмотреть...</button>
         </div>
     </section>
 }

@@ -56,6 +56,16 @@
             }
 
         }
+
+        .link_active {
+            transition: 0.3s all;
+            text-transform: uppercase;
+            position: relative;
+            font-size: 17px;
+            color: $green;
+            padding: 0 18px;
+            font-weight: 900;
+        }
     }
 
     &__modes {

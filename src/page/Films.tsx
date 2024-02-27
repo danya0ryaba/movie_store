@@ -14,7 +14,7 @@ const options = ['Биография', 'Аниме', 'Боевики', 'Дете
 
 export const Films = () => {
 
-    const { list } = useAppSelector(state => state.movie)
+    const { movies } = useAppSelector(state => state.movie)
 
     return <div className={style.series}>
         <Title>Лучшие фильмов</Title>
@@ -24,7 +24,7 @@ export const Films = () => {
             <SelectCustom title={'Жанры'} option={options} />
         </div>
 
-        {list.map(film => <Link key={film.id} to={`${film.id}`}>
+        {movies.map(film => <Link key={film.id} to={`${film.id}`}>
             <Film  {...film} />
         </Link>)}
 
