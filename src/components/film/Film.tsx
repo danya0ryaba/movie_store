@@ -43,7 +43,7 @@ export const Film: React.FC<Movie> = ({
 
                 <div className={style.card__info}>
 
-                    {/* <span className={style.number}>1</span> */}
+                    <span className={style.number}>1</span>
 
                     <div className={style.poster}>
                         <img src={`${poster.previewUrl}`} alt="poster" />

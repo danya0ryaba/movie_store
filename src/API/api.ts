@@ -19,7 +19,8 @@ export const usersAPI = {
         return instance.get(`movie?page=${page}&limit=${limit}&type=movie&notNullFields=poster.url&notNullFields=videos.trailers.url&notNullFields=rating.imdb&notNullFields=backdrop.url`)
     },
     getSeries(page: number = 1, limit: number = 12) {
-        return instance.get(`movie?page=${page}&limit=${limit}&type=tv-series`)
+        return instance.get(`movie?page=${page}&limit=${limit}&type=tv-series&selectFields=name&notNullFields=rating.imdb&sortField=rating.imdb&sortType=-1`)
+        // &selectFields=name&selectFields=poster&notNullFields=rating.imdb&notNullFields=poster.url&notNullFields=&sortField=rating.imdb&sortType=-1
     },
     getCartoon(page: number = 1, limit: number = 12) {
         return instance.get(`movie?page=${page}&limit=${limit}&type=cartoon`)

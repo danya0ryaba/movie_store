@@ -19,6 +19,8 @@ function App() {
 
   const dispatch = useAppDispatch()
 
+
+  // надо звписать данные в localStorage, чтобы израсходавав лимит запросов брать оттуда
   useEffect(() => {
     dispatch(getMovies())
     dispatch(getSeries())

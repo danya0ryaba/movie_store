@@ -23,8 +23,7 @@ export const CardMovie: React.FC = () => {
 
     const bg = film.backdrop?.url ? film.backdrop.url : 'https://imagetmdb.com/t/p/original/vRTKNKNWLZ22fAgPa5kY8wT2b1F.jpg';
 
-    return isLoading ? <h1>Loading</h1>
-        :
+    return isLoading ? <h1>Loading</h1> :
         <div style={{
             background: `url(${bg})`,
             backgroundRepeat: 'no-repeat',
