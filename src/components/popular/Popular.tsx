@@ -2,20 +2,17 @@ import React from 'react'
 import style from './popular.module.scss'
 import { PopularFilm } from './popularfilm/PopularFilm'
 import { Title } from '../title/Title'
-// import { ReactComponent as ArrowRight } from '../../assets/img/right-arrow (1).svg'
-// import { ReactComponent as ArrowLeft } from '../../assets/img/left-arrow (2).svg'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Scrollbar } from 'swiper/modules';
-
 import 'swiper/css';
 import { useAppSelector } from '../../store/hooks/redux';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const Popular = () => {
 
-    const { series } = useAppSelector(state => state.series)
+    const { series, isLoading } = useAppSelector(state => state.series)
 
-    return <section className={style.popular}>
+    return isLoading ? <h2>Loading</h2> : <section className={style.popular}>
 
         <div className={style.container}>
 
@@ -23,15 +20,11 @@ export const Popular = () => {
 
             <div className={style.gradient__left} />
 
-            <Swiper
-                modules={[Scrollbar]}
-                spaceBetween={5}
-                slidesPerView={5}
-            >
+            <Swiper modules={[Scrollbar]} spaceBetween={5} slidesPerView={5}>
                 {series.map(s => <SwiperSlide key={s.id}>
-                    <Link to={`/movie/${s.id}`}>
-                        <PopularFilm {...s} />
-                    </Link>
+                    <NavLink to={`/movie/${s.id}`}>
+                        <PopularFilm previewUrl={s.poster.previewUrl} />
+                    </NavLink>
                 </SwiperSlide>)}
             </Swiper>
 

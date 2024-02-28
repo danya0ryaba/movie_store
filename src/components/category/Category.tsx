@@ -28,7 +28,7 @@ export const Category = () => {
 
             <div className={style.category__films}>
                 {movies.map(card => <Link key={card.id} to={`movie/${card.id}`}>
-                    <MovieCard {...card} />
+                    <MovieCard key={card.id} {...card} />
                 </Link>)}
             </div>
 

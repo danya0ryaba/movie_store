@@ -1,7 +1,6 @@
 import { Action, PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Series } from "../../type/series";
 import { usersAPI } from "../../API/api";
-import { error } from "console";
 
 interface SeriesInitialState {
     series: Series[],

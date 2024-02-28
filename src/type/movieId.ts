@@ -8,7 +8,7 @@ type FactsAboutFilms = {
     readonly spoiler: boolean
 }
 
-type Persons = {
+export type Persons = {
     readonly id: number,
     readonly photo: string,
     readonly name: string,
@@ -29,14 +29,14 @@ type SimilarMovies = {
     readonly rating: RatingAndVotes
 }
 
-type Trailer = {
-    readonly url: string,
-    readonly name: string,
-    readonly site: string,
-    readonly type: string
+export type Trailer = {
+    readonly url?: string,
+    readonly name?: string,
+    readonly site?: string,
+    readonly type?: string
 }
 
-type AudienceItem = {
+export type AudienceItem = {
     readonly count: number,
     readonly country: string
 }
@@ -65,7 +65,7 @@ type ImagesInfo = {
     readonly framesCount?: number
 }
 
-type Budget = {
+export type Budget = {
     readonly value?: number | null,
     readonly currency?: string | null
 }

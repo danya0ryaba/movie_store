@@ -43,7 +43,9 @@ export const SelectCustom: React.FC<SelectCustomType> = ({ option, title }) => {
         <div className={style.forOptionPosition}>
 
             {isOpen && arrayFiltered.map(lang => (<Option onClickOption={onClickOption}
-                key={lang}>{lang}</Option>)
+                key={lang}>
+                {lang}
+            </Option>)
             )}
 
         </div>

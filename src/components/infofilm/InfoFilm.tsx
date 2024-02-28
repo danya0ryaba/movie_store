@@ -104,29 +104,39 @@ export const InfoFilm: React.FC<CurrentFilm> = ({
 
                         <div className={style.rating}>
                             <h3 className={style.rating__title}>Оценить</h3>
-
                             <div className={style.grade}>
                                 <Star className={style.star} />
                                 {/* <label htmlFor="#">{rating.imdb}</label> */}
                             </div>
-
                         </div>
 
                         <Button>смотреть</Button>
-
                     </div>
 
-                    <p className={style.card__info__text}>
-                        {shortDescription}
-                    </p>
+                    <p className={style.card__info__text}>{shortDescription}</p>
 
                 </div>
 
             </div>
 
-
             {/* тут о фильме вставлять */}
-            <AboutFilm />
+            <AboutFilm
+                name={name}
+                ageRating={ageRating}
+                alternativeName={alternativeName}
+                audience={audience}
+                budget={budget}
+                countries={countries}
+                description={description}
+                fees={fees}
+                genres={genres}
+                logo={logo}
+                movieLength={movieLength}
+                persons={persons}
+                rating={rating}
+                year={year}
+                videos={videos}
+            />
 
         </div>
 

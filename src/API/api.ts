@@ -13,14 +13,72 @@ const instance = axios.create({
 export const usersAPI = {
 
     getMovieId(id: number) {
-        return instance.get(`movie/${id}?notNullFields=poster.url&notNullFields=videos.trailers.url&notNullFields=rating.imdb&notNullFields=backdrop.url`)
+        return instance.get(`movie/${id}?
+        notNullFields=poster.url&
+        notNullFields=videos.trailers.url&
+        notNullFields=rating.imdb&
+        notNullFields=backdrop.url`
+        )
     },
     getMovie(page: number = 1, limit: number = 12) {
-        return instance.get(`movie?page=${page}&limit=${limit}&type=movie&notNullFields=poster.url&notNullFields=videos.trailers.url&notNullFields=rating.imdb&notNullFields=backdrop.url`)
+        return instance.get(`movie?page=${page}&limit=${limit}&type=movie&
+        selectFields=id&
+        selectFields=name&
+        selectFields=enName&
+        selectFields=alternativeName&
+        selectFields=names&
+        selectFields=description&
+        selectFields=shortDescription&
+        selectFields=type&
+        selectFields=typeNumber&
+        selectFields=isSeries&
+        selectFields=status&
+        selectFields=year&
+        selectFields=rating&
+        selectFields=ratingMpaa&
+        selectFields=ageRating&
+        selectFields=votes&
+        selectFields=movieLength&
+        selectFields=seriesLength&
+        selectFields=totalSeriesLength&
+        selectFields=genres&
+        selectFields=countries&
+        selectFields=poster&
+        selectFields=backdrop&
+        selectFields=logo&
+        selectFields=ticketsOnSale&
+        selectFields=top10&
+        selectFields=top250&
+        notNullFields=poster.url&
+        notNullFields=videos.trailers.url&
+        notNullFields=rating.imdb&
+        notNullFields=backdrop.url&
+        notNullFields=description&
+        notNullFields=alternativeName&
+        notNullFields=fees.world.value&
+        notNullFields=countries.name&
+        notNullFields=name&
+        notNullFields=persons.id&
+        notNullFields=persons.name&
+        notNullFields=persons.photo&
+        notNullFields=persons.description&
+        notNullFields=persons.profession&
+        notNullFields=persons.enName&
+        notNullFields=persons.enProfession`
+        )
     },
-    getSeries(page: number = 1, limit: number = 12) {
-        return instance.get(`movie?page=${page}&limit=${limit}&type=tv-series&selectFields=name&notNullFields=rating.imdb&sortField=rating.imdb&sortType=-1`)
-        // &selectFields=name&selectFields=poster&notNullFields=rating.imdb&notNullFields=poster.url&notNullFields=&sortField=rating.imdb&sortType=-1
+    getSeries(page: number = 1, limit: number = 20) {
+        return instance.get(`movie?page=${page}&limit=${limit}&type=tv-series&
+        selectFields=name&
+        selectFields=poster&
+        selectFields=countries&
+        selectFields=genres&
+        selectFields=rating&
+        notNullFields=countries.name&
+        notNullFields=rating.imdb&
+        notNullFields=poster.url&
+        notNullFields=genres.name`
+        )
     },
     getCartoon(page: number = 1, limit: number = 12) {
         return instance.get(`movie?page=${page}&limit=${limit}&type=cartoon`)
@@ -28,5 +86,44 @@ export const usersAPI = {
     getAnime(page: number = 1, limit: number = 15) {
         return instance.get(`movie?page=${page}&limit=${limit}&type=anime`)
     },
-
 }
+// НУЖНО НАПИСАТЬ В API ВСЕ ПОЛЯ КОТОРЫЕ ОЖИДАЮ
+
+
+
+// из getMovie
+// notNullFields=poster.url&
+// notNullFields=videos.trailers.url&
+// notNullFields=rating.imdb&
+// notNullFields=backdrop.url
+
+
+
+
+// selectFields=id
+// selectFields=name
+// selectFields=enName
+// selectFields=alternativeName
+// selectFields=names
+// selectFields=description
+// selectFields=shortDescription
+// selectFields=type
+// selectFields=typeNumber
+// selectFields=isSeries
+// selectFields=status
+// selectFields=year
+// selectFields=rating
+// selectFields=ratingMpaa
+// selectFields=ageRating
+// selectFields=votes
+// selectFields=movieLength
+// selectFields=seriesLength
+// selectFields=totalSeriesLength
+// selectFields=genres
+// selectFields=countries
+// selectFields=poster
+// selectFields=backdrop
+// selectFields=logo
+// selectFields=ticketsOnSale
+// selectFields=top10
+// selectFields=top250

@@ -8,20 +8,15 @@ import { SelectCustom } from '../components/select/SelectCustom'
 import style from './series.module.scss'
 import { Link } from 'react-router-dom'
 import { useAppSelector } from '../store/hooks/redux'
-import { Footer } from '../components/footer/Footer'
 
 const filterSeries = ['С высоким рейтингом', 'Российские', 'Зарубежные']
 const options = ['Биография', 'Аниме', 'Боевики', 'Детективы', 'Документальные', 'Драмы']
 
-
-
-
 export const Series = () => {
 
-    const { series } = useAppSelector(state => state.series);
-    console.log(series);
+    const { series, isLoading } = useAppSelector(state => state.series);
 
-    return <div className={style.series}>
+    return isLoading ? <h2>Loading</h2> : <div className={style.series}>
         <Title>Лучшие сериалы</Title>
         <Filters filterItem={filterSeries} />
         <InputCustom />

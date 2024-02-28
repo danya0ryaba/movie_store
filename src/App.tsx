@@ -23,9 +23,9 @@ function App() {
   // надо звписать данные в localStorage, чтобы израсходавав лимит запросов брать оттуда
   useEffect(() => {
     dispatch(getMovies())
-    dispatch(getSeries())
-    dispatch(getCartoon())
-    dispatch(getAnime())
+    // dispatch(getSeries())
+    // dispatch(getCartoon())
+    // dispatch(getAnime())
   }, [dispatch])
 
   return (<>
