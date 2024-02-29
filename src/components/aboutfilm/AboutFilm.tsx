@@ -2,6 +2,7 @@ import React from 'react'
 import style from './aboutfilm.module.scss'
 import { GenresItem, RatingAndVotes } from '../../type/movie'
 import { AudienceItem, Budget, Persons, Trailer } from '../../type/movieId'
+import { PersonsLists } from '../persons/PersonsList'
 
 type AboutFilmType = {
     name: string
@@ -37,10 +38,10 @@ export const AboutFilm: React.FC<AboutFilmType> = ({
     alternativeName,
     logo,
     persons,
+    videos
 }) => {
 
-
-    // const { film } = useAppSelector(state => state.film)
+    // console.log(videos.trailers);
 
     // const myType: any = {
     //     ['movie']: 'фильме',
@@ -50,8 +51,6 @@ export const AboutFilm: React.FC<AboutFilmType> = ({
     // }
     // const currenType = myType[type]
 
-
-
     return <div className={style.about__film}>
 
         {/* <h5 className={style.aboutFilm}>О {currenType}</h5> */}
@@ -59,13 +58,12 @@ export const AboutFilm: React.FC<AboutFilmType> = ({
         <div className={style.container__about}>
 
             <div className={style.video}>
-
                 <div className={style.video__trailer}>
-                    <video className={style.video__video} src="">video</video>
+                    {videos.trailers[0].url ? (
+                        <iframe className={style.video__video} src={videos.trailers[0].url} allowFullScreen></iframe>
+                    ) : 'нет данных'}
                 </div>
-
                 <div className={style.description}>{description}</div>
-
             </div>
 
             <div className={style.info}>
@@ -78,47 +76,46 @@ export const AboutFilm: React.FC<AboutFilmType> = ({
                 <div className={style.info__film}>
                     <span className={style.info__key}>Страна</span>
                     <span className={style.info__value}>
-                        {/* {countries.length > 0 ? countries.map((c, ind, arr) => {
+                        {countries ? countries.map((c, ind, arr) => {
                             if (ind === arr.length - 1) return `${c.name}`
                             else return `${c.name}, `
-                        }) : false} */}
-                        {/* {countries.length > 0 && countries[0].name} */}
-                    </span>
+                        }) : 'нету данных'}</span>
                 </div>
 
                 <div className={style.info__film}>
                     <span className={style.info__key}>Жанр</span>
                     <span className={style.info__value}>
-                        {/* {film.genres.length > 0 ?
-                                film.genres.map((genre, index, arr) => {
-                                    if (index === arr.length - 1) return `${genre.name}`
-                                    else return `${genre.name}, `
-                                }) : false} */}
+                        {genres ? genres.map((genre, index, arr) => {
+                            if (index === arr.length - 1) return `${genre.name}`
+                            else return `${genre.name}, `
+                        }) : 'нету данных'}
                     </span>
                 </div>
 
                 <div className={style.info__film}>
                     <span className={style.info__key}>Бюджет</span>
-                    {/* <span className={style.info__value}>{`${film.budget.value} ${film.budget.currency}`}</span> */}
-                </div>
-
-                <div className={style.info__film}>
-                    <span className={style.info__key}>Рейтинг IMDB</span>
-                    {/* <span className={style.info__value}>{rating.imdb}</span> */}
-                </div>
-
-                <div className={style.info__film}>
-                    <span className={style.info__key}>Зрители</span>
                     <span className={style.info__value}>
-                        {/* {film.audience.reduce((prev, cur) => {
-                                return prev + cur.count
-                            }, 0)} */}
+                        {/* {budget.value && budget.currency ?
+                            `${budget?.value} ${budget?.currency}` :
+                            'нету данных'} */}
                     </span>
                 </div>
 
                 <div className={style.info__film}>
+                    <span className={style.info__key}>Рейтинг IMDB</span>
+                    <span className={style.info__value}>{rating ? rating.imdb : 'нету данных'}</span>
+                </div>
+
+                <div className={style.info__film}>
+                    <span className={style.info__key}>Зрители</span>
+                    <span className={style.info__value}>{audience ? audience.reduce((prev, cur) => (prev + cur.count), 0) : 'нету данных'}</span>
+                </div>
+
+                <div className={style.info__film}>
                     <span className={style.info__key}>Сборы</span>
-                    {/* <span className={style.info__value}>{fees.world.value !== null ? fees.world.value : false}</span> */}
+                    <span className={style.info__value}>
+                        {fees ? `${fees.world.value} ${fees.world?.currency}` : 'нету данных'}
+                    </span>
                 </div>
 
                 <div className={style.info__film}>
@@ -139,29 +136,18 @@ export const AboutFilm: React.FC<AboutFilmType> = ({
                 <div className={style.info__film}>
                     <span className={style.info__key}>Логотип</span>
                     <span className={style.info__value}>
-                        {/* <img style={{ width: '120px', height: '40px' }} src={`${film.logo.url}`} alt="logo" /> */}
+                        {logo ?
+                            <img style={{ width: '120px', height: '40px' }} src={`${logo.url}`} alt="logo" />
+                            : 'нету данных'
+                        }
                     </span>
                 </div>
 
             </div>
 
             <div className={style.actor}>
-
                 <h5 className={style.subtitle}>В главных ролях</h5>
-
-                <ul className={style.list}>
-
-                    {persons.slice(0, 10).map((man, i, arr) => {
-                        return (<li key={man.id} className={style.list__actor}>
-                            <a href="">{man.name}</a>
-                            <div className="popup" style={{ display: 'none' }}></div>
-                        </li>)
-                    })}
-
-                </ul>
-
-                <span className={style.more}><a href="">посмотреть всех</a></span>
-
+                <PersonsLists persons={persons} />
             </div>
 
         </div>

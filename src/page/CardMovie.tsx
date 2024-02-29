@@ -17,9 +17,7 @@ export const CardMovie: React.FC = () => {
         window.scroll(0, 0)
     }, [id, dispatch])
 
-
     const { film, isLoading } = useAppSelector(state => state.film)
-
 
     const bg = film.backdrop?.url ? film.backdrop.url : 'https://imagetmdb.com/t/p/original/vRTKNKNWLZ22fAgPa5kY8wT2b1F.jpg';
 

@@ -13,12 +13,7 @@ const instance = axios.create({
 export const usersAPI = {
 
     getMovieId(id: number) {
-        return instance.get(`movie/${id}?
-        notNullFields=poster.url&
-        notNullFields=videos.trailers.url&
-        notNullFields=rating.imdb&
-        notNullFields=backdrop.url`
-        )
+        return instance.get(`movie/${id}`)
     },
     getMovie(page: number = 1, limit: number = 12) {
         return instance.get(`movie?page=${page}&limit=${limit}&type=movie&
@@ -90,6 +85,12 @@ export const usersAPI = {
 // НУЖНО НАПИСАТЬ В API ВСЕ ПОЛЯ КОТОРЫЕ ОЖИДАЮ
 
 
+// ИЗ getMovieId
+// ?
+// notNullFields=poster.url&
+// notNullFields=videos.trailers.url&
+// notNullFields=rating.imdb&
+// notNullFields=backdrop.url
 
 // из getMovie
 // notNullFields=poster.url&
