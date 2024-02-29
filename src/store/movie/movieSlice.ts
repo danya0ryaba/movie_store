@@ -1,19 +1,28 @@
 import { Movie } from './../../type/movie';
 import { usersAPI } from '../../API/api';
 import { Action, PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { AxiosResponse } from 'axios';
 
 interface MovieInitialState {
     movies: Movie[],
+    page: number,
     isLoading: boolean,
     error: null | string
 }
 
+type DataResponseType = {
+    docs: Movie[],
+    limit: number,
+    page: number,
+    pages: number,
+    total: number
+}
 
-export const getMovies = createAsyncThunk<Movie[], undefined, { rejectValue: string }>(
+export const getMovies = createAsyncThunk<DataResponseType, number, { rejectValue: string }>(
     "movies/getMovies",
-    async (_, { rejectWithValue }) => {
-        const resp = await usersAPI.getMovie();
-        if (resp.status === 200) return resp.data.docs
+    async (page, { rejectWithValue }) => {
+        const resp = await usersAPI.getMovie(page);
+        if (resp.status === 200) return resp.data
         else return rejectWithValue("Server Error!")
     }
 )
@@ -21,6 +30,7 @@ export const getMovies = createAsyncThunk<Movie[], undefined, { rejectValue: str
 
 const initialState: MovieInitialState = {
     movies: [],
+    page: 1,
     isLoading: false,
     error: null
 }
@@ -33,7 +43,8 @@ const movieSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(getMovies.fulfilled, (state, { payload }) => {
-                state.movies = payload
+                state.movies = payload.docs
+                state.page = payload.page
                 state.isLoading = false
             })
             .addCase(getMovies.pending, (state) => {

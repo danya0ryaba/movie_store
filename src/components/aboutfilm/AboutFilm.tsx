@@ -41,27 +41,15 @@ export const AboutFilm: React.FC<AboutFilmType> = ({
     videos
 }) => {
 
-    // console.log(videos.trailers);
-
-    // const myType: any = {
-    //     ['movie']: 'фильме',
-    //     ['tv-series']: 'сериале',
-    //     ['cartoon']: 'мультфильме',
-    //     ['anime']: 'аниме'
-    // }
-    // const currenType = myType[type]
-
     return <div className={style.about__film}>
-
-        {/* <h5 className={style.aboutFilm}>О {currenType}</h5> */}
 
         <div className={style.container__about}>
 
             <div className={style.video}>
                 <div className={style.video__trailer}>
-                    {videos.trailers[0].url ? (
+                    {videos?.trailers && videos.trailers.length > 0 ?
                         <iframe className={style.video__video} src={videos.trailers[0].url} allowFullScreen></iframe>
-                    ) : 'нет данных'}
+                        : 'нет данных'}
                 </div>
                 <div className={style.description}>{description}</div>
             </div>
@@ -83,8 +71,7 @@ export const AboutFilm: React.FC<AboutFilmType> = ({
                 </div>
 
                 <div className={style.info__film}>
-                    <span className={style.info__key}>Жанр</span>
-                    <span className={style.info__value}>
+                    <span className={style.info__key}>Жанр</span><span className={style.info__value}>
                         {genres ? genres.map((genre, index, arr) => {
                             if (index === arr.length - 1) return `${genre.name}`
                             else return `${genre.name}, `
@@ -95,9 +82,11 @@ export const AboutFilm: React.FC<AboutFilmType> = ({
                 <div className={style.info__film}>
                     <span className={style.info__key}>Бюджет</span>
                     <span className={style.info__value}>
-                        {/* {budget.value && budget.currency ?
-                            `${budget?.value} ${budget?.currency}` :
-                            'нету данных'} */}
+                        {
+                            budget && budget.value && budget.currency ?
+                                `${budget?.value} ${budget?.currency}` :
+                                'нет данных'
+                        }
                     </span>
                 </div>
 
@@ -114,7 +103,7 @@ export const AboutFilm: React.FC<AboutFilmType> = ({
                 <div className={style.info__film}>
                     <span className={style.info__key}>Сборы</span>
                     <span className={style.info__value}>
-                        {fees ? `${fees.world.value} ${fees.world?.currency}` : 'нету данных'}
+                        {fees?.world?.value ? `${fees.world.value} ${fees.world?.currency}` : 'нету данных'}
                     </span>
                 </div>
 
@@ -136,10 +125,8 @@ export const AboutFilm: React.FC<AboutFilmType> = ({
                 <div className={style.info__film}>
                     <span className={style.info__key}>Логотип</span>
                     <span className={style.info__value}>
-                        {logo ?
-                            <img style={{ width: '120px', height: '40px' }} src={`${logo.url}`} alt="logo" />
-                            : 'нету данных'
-                        }
+                        {logo ? <img style={{ width: '120px', height: '40px' }} src={`${logo.url}`} alt="логотип" />
+                            : 'нету данных'}
                     </span>
                 </div>
 

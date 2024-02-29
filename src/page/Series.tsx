@@ -28,6 +28,6 @@ export const Series = () => {
             <Film {...s} />
         </Link>)}
 
-        <Pagination />
+        {/* <Pagination /> */}
     </div>
 }

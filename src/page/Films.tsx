@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Title } from '../components/title/Title'
 import { Filters } from '../components/filters/Filters'
 import { Film } from '../components/film/Film'
@@ -7,14 +7,21 @@ import style from './series.module.scss'
 import { InputCustom } from '../components/input/InputCustom'
 import { SelectCustom } from '../components/select/SelectCustom'
 import { Link } from 'react-router-dom'
-import { useAppSelector } from '../store/hooks/redux'
+import { useAppDispatch, useAppSelector } from '../store/hooks/redux'
+import { getMovies } from '../store/movie/movieSlice'
 
 const filtersMovies = ['С высоким рейтингом', 'Российские', 'Зарубежные']
 const options = ['Биография', 'Аниме', 'Боевики', 'Детективы', 'Документальные', 'Драмы']
 
 export const Films = () => {
 
-    const { movies } = useAppSelector(state => state.movie)
+    const dispatch = useAppDispatch()
+
+    const requestPage = (page: number) => {
+        dispatch(getMovies(page))
+    }
+
+    const { movies, page } = useAppSelector(state => state.movie)
 
     return <div className={style.series}>
         <Title>Лучшие фильмов</Title>
@@ -28,7 +35,7 @@ export const Films = () => {
             <Film  {...film} />
         </Link>)}
 
-        <Pagination />
+        <Pagination onRequestHandler={requestPage} page={page} />
 
     </div>
 }

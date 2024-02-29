@@ -44,6 +44,7 @@ export const usersAPI = {
         selectFields=ticketsOnSale&
         selectFields=top10&
         selectFields=top250&
+        selectFields=videos&
         notNullFields=poster.url&
         notNullFields=videos.trailers.url&
         notNullFields=rating.imdb&
@@ -59,7 +60,9 @@ export const usersAPI = {
         notNullFields=persons.description&
         notNullFields=persons.profession&
         notNullFields=persons.enName&
-        notNullFields=persons.enProfession`
+        notNullFields=persons.enProfession&
+        sortField=rating.imdb&
+        sortType=-1`
         )
     },
     getSeries(page: number = 1, limit: number = 20) {
@@ -82,49 +85,3 @@ export const usersAPI = {
         return instance.get(`movie?page=${page}&limit=${limit}&type=anime`)
     },
 }
-// НУЖНО НАПИСАТЬ В API ВСЕ ПОЛЯ КОТОРЫЕ ОЖИДАЮ
-
-
-// ИЗ getMovieId
-// ?
-// notNullFields=poster.url&
-// notNullFields=videos.trailers.url&
-// notNullFields=rating.imdb&
-// notNullFields=backdrop.url
-
-// из getMovie
-// notNullFields=poster.url&
-// notNullFields=videos.trailers.url&
-// notNullFields=rating.imdb&
-// notNullFields=backdrop.url
-
-
-
-
-// selectFields=id
-// selectFields=name
-// selectFields=enName
-// selectFields=alternativeName
-// selectFields=names
-// selectFields=description
-// selectFields=shortDescription
-// selectFields=type
-// selectFields=typeNumber
-// selectFields=isSeries
-// selectFields=status
-// selectFields=year
-// selectFields=rating
-// selectFields=ratingMpaa
-// selectFields=ageRating
-// selectFields=votes
-// selectFields=movieLength
-// selectFields=seriesLength
-// selectFields=totalSeriesLength
-// selectFields=genres
-// selectFields=countries
-// selectFields=poster
-// selectFields=backdrop
-// selectFields=logo
-// selectFields=ticketsOnSale
-// selectFields=top10
-// selectFields=top250

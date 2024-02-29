@@ -9,6 +9,6 @@ export const Cartoon = () => {
         <Title>Мультфильмы</Title>
         <InputCustom />
         <CartoonBlock />
-        <Pagination />
+        {/* <Pagination /> */}
     </>
 }
