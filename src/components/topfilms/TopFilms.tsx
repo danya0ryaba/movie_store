@@ -2,13 +2,19 @@ import React from 'react'
 import style from './topfilms.module.scss'
 import { TopFilmItem } from './topfilmitem/TopFilmItem'
 import { Title } from '../title/Title'
-import { useAppSelector } from '../../store/hooks/redux'
+import { useAppDispatch, useAppSelector } from '../../store/hooks/redux'
 import { Link } from 'react-router-dom'
+import { getAnime } from '../../store/anime/animeSlice'
 
 export const TopFilms = () => {
 
-    const { anime } = useAppSelector(state => state.anime)
+    const { anime, page } = useAppSelector(state => state.anime)
 
+    const dispatch = useAppDispatch()
+
+    const onViewMore = () => {
+        dispatch(getAnime(page + 1))
+    }
     return <>
         <Title>Аниме</Title>
         <section className={style.top__films}>
@@ -18,7 +24,7 @@ export const TopFilms = () => {
                 </Link>)}
             </ul>
 
-            <span className={style.more}>посмотреть...</span>
+            <span onClick={onViewMore} className={style.more}>посмотреть...</span>
 
         </section>
     </>

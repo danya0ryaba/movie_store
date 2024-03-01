@@ -1,24 +1,27 @@
 import { Action, PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { CartoonInterface } from "../../type/cartoon";
 import { usersAPI } from "../../API/api";
+import { DataResponseType } from "../movie/movieSlice";
 
 interface InitialState {
     cartoon: CartoonInterface[],
+    page: number,
     isLoading: boolean,
     error: null | string
 }
 
-export const getCartoon = createAsyncThunk<CartoonInterface[], undefined, { rejectValue: string }>(
+export const getCartoon = createAsyncThunk<DataResponseType, number, { rejectValue: string }>(
     'cartoon/getCartoon',
-    async (_, { rejectWithValue }) => {
-        const resp = await usersAPI.getCartoon();
-        if (resp.status === 200) return resp.data.docs
+    async (page, { rejectWithValue }) => {
+        const resp = await usersAPI.getCartoon(page);
+        if (resp.status === 200) return resp.data
         else return rejectWithValue("Server Error!")
     }
 )
 
 const initialState: InitialState = {
     cartoon: [],
+    page: 1,
     isLoading: false,
     error: null
 }
@@ -30,7 +33,8 @@ const cartoonSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(getCartoon.fulfilled, (state, { payload }) => {
-                state.cartoon = payload
+                state.cartoon = payload.docs
+                state.page = payload.page
                 state.isLoading = false
             })
             .addCase(getCartoon.pending, (state) => {

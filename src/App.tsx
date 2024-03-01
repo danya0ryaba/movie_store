@@ -22,10 +22,10 @@ function App() {
 
   // надо звписать данные в localStorage, чтобы израсходавав лимит запросов брать оттуда
   useEffect(() => {
-    dispatch(getMovies(1))
-    // dispatch(getSeries())
-    // dispatch(getCartoon())
-    // dispatch(getAnime())
+    // dispatch(getMovies(1))
+    // dispatch(getSeries(1))
+    // dispatch(getCartoon(1))
+    dispatch(getAnime(1))
   }, [dispatch])
 
   return (<>
@@ -47,9 +47,8 @@ function App() {
       <Route path='*' element={<Error />} />
     </Routes>
 
-
     {/* НА cARDmOVIE ПРОБЛЕМЫ С ОТОБРАЖЕНИЕМ FOOTER */}
-    {/* <Footer /> */}
+    <Footer />
 
   </>);
 }

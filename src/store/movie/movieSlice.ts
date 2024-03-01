@@ -10,7 +10,7 @@ interface MovieInitialState {
     error: null | string
 }
 
-type DataResponseType = {
+export type DataResponseType = {
     docs: Movie[],
     limit: number,
     page: number,

@@ -23,6 +23,7 @@ export const Films = () => {
 
     const { movies, page } = useAppSelector(state => state.movie)
 
+
     return <div className={style.series}>
         <Title>Лучшие фильмов</Title>
         <Filters filterItem={filtersMovies} />

@@ -6,5 +6,5 @@ type Duration = {
 }
 
 export interface Series extends Movie {
-    releaseYears: Duration
+    releaseYears?: Duration
 }

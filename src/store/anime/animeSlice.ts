@@ -1,18 +1,20 @@
 import { Action, PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { usersAPI } from "../../API/api";
 import { Movie } from "../../type/movie";
+import { DataResponseType } from "../movie/movieSlice";
 
 interface initialState {
     anime: Movie[],
+    page: number,
     isLoading: boolean,
     error: null | string
 }
 
-export const getAnime = createAsyncThunk<Movie[], undefined, { rejectValue: string }>(
+export const getAnime = createAsyncThunk<DataResponseType, number, { rejectValue: string }>(
     'film/getAnimeFilm',
-    async (_, { rejectWithValue }) => {
-        const response = await usersAPI.getAnime();
-        if (response.status == 200) return response.data.docs
+    async (page, { rejectWithValue }) => {
+        const response = await usersAPI.getAnime(page);
+        if (response.status == 200) return response.data
         else return rejectWithValue("Server Error!")
     }
 )
@@ -20,6 +22,7 @@ export const getAnime = createAsyncThunk<Movie[], undefined, { rejectValue: stri
 
 const initialState: initialState = {
     anime: [],
+    page: 1,
     isLoading: false,
     error: null
 }
@@ -31,7 +34,8 @@ const animeSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(getAnime.fulfilled, (state, { payload }) => {
-                state.anime = payload
+                state.anime = [...state.anime, ...payload.docs]
+                state.page = payload.page
                 state.isLoading = false
             })
             .addCase(getAnime.pending, (state) => {

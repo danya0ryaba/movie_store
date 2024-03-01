@@ -1,24 +1,27 @@
 import { Action, PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Series } from "../../type/series";
 import { usersAPI } from "../../API/api";
+import { DataResponseType } from "../movie/movieSlice";
 
 interface SeriesInitialState {
     series: Series[],
+    page: number,
     isLoading: boolean,
     error: null | string
 }
 
-export const getSeries = createAsyncThunk<Series[], undefined, { rejectValue: string }>(
+export const getSeries = createAsyncThunk<DataResponseType, number, { rejectValue: string }>(
     'series/getSeries',
-    async (_, { rejectWithValue }) => {
-        const res = await usersAPI.getSeries()
-        if (res.status === 200) return res.data.docs
+    async (page, { rejectWithValue }) => {
+        const res = await usersAPI.getSeries(page)
+        if (res.status === 200) return res.data
         else return rejectWithValue("Server Error!")
     }
 )
 
 const initialState: SeriesInitialState = {
     series: [],
+    page: 1,
     isLoading: false,
     error: null
 }
@@ -34,7 +37,8 @@ const seriesSlice = createSlice({
                 state.error = null
             })
             .addCase(getSeries.fulfilled, (state, { payload }) => {
-                state.series = payload
+                state.series = payload.docs
+                state.page = payload.page
                 state.isLoading = false
             })
             .addMatcher(isError, (state, action: PayloadAction<string>) => {

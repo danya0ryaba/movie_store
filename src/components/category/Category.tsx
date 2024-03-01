@@ -5,7 +5,7 @@ import { ButtonCategory } from './buttoncategory/ButtonCategory'
 import { Link } from 'react-router-dom'
 import { useAppSelector } from '../../store/hooks/redux'
 
-const nameCategory = ['Movies', 'TVs Shows', 'Anime']
+const nameCategory = ['Фильмы', 'ТВ-Шоу', 'Аниме']
 
 export const Category = () => {
 
@@ -31,8 +31,6 @@ export const Category = () => {
                     <MovieCard key={card.id} {...card} />
                 </Link>)}
             </div>
-
-            <button className={style.more}>посмотреть...</button>
         </div>
     </section>
 }
