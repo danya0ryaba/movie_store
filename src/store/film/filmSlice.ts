@@ -1,6 +1,7 @@
-import { Action, PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { usersAPI } from "../../API/api";
 import { CurrentFilm } from "../../type/movieId";
+import { isError } from "../../utils/isError";
 
 interface initialState {
     film: CurrentFilm,
@@ -43,9 +44,5 @@ const filmSlice = createSlice({
             })
     }
 })
-
-const isError = (action: Action) => {
-    return action.type.endsWith('rejected');
-}
 
 export default filmSlice.reducer

@@ -1,7 +1,8 @@
-import { Action, PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { CartoonInterface } from "../../type/cartoon";
 import { usersAPI } from "../../API/api";
-import { DataResponseType } from "../movie/movieSlice";
+import { DataResponseType } from "../../type/responseAxios";
+import { isError } from "../../utils/isError";
 
 interface InitialState {
     cartoon: CartoonInterface[],
@@ -47,9 +48,5 @@ const cartoonSlice = createSlice({
             })
     }
 })
-
-const isError = (action: Action) => {
-    return action.type.endsWith('rejected');
-}
 
 export default cartoonSlice.reducer

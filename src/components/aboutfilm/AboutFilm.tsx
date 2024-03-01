@@ -22,7 +22,6 @@ type AboutFilmType = {
     videos: { trailers: Trailer[] }
 }
 
-
 export const AboutFilm: React.FC<AboutFilmType> = ({
     name,
     description,
@@ -49,7 +48,7 @@ export const AboutFilm: React.FC<AboutFilmType> = ({
                 <div className={style.video__trailer}>
                     {videos?.trailers && videos.trailers.length > 0 ?
                         <iframe className={style.video__video} src={videos.trailers[0].url} allowFullScreen></iframe>
-                        : 'нет данных'}
+                        : 'трейлер отсутствует'}
                 </div>
                 <div className={style.description}>{description}</div>
             </div>

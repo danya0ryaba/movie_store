@@ -20,11 +20,11 @@ function App() {
   const dispatch = useAppDispatch()
 
 
-  // надо звписать данные в localStorage, чтобы израсходавав лимит запросов брать оттуда
+  // надо зaписать данные в localStorage, чтобы израсходавав лимит запросов брать оттуда
   useEffect(() => {
-    // dispatch(getMovies(1))
-    // dispatch(getSeries(1))
-    // dispatch(getCartoon(1))
+    dispatch(getMovies(1))
+    dispatch(getSeries(1))
+    dispatch(getCartoon(1))
     dispatch(getAnime(1))
   }, [dispatch])
 
@@ -45,6 +45,7 @@ function App() {
       <Route path='/series/:id' element={<CardMovie />} />
 
       <Route path='*' element={<Error />} />
+
     </Routes>
 
     {/* НА cARDmOVIE ПРОБЛЕМЫ С ОТОБРАЖЕНИЕМ FOOTER */}

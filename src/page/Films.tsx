@@ -9,20 +9,18 @@ import { SelectCustom } from '../components/select/SelectCustom'
 import { Link } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../store/hooks/redux'
 import { getMovies } from '../store/movie/movieSlice'
+import { Loader } from '../components/loader/Loader'
 
 const filtersMovies = ['С высоким рейтингом', 'Российские', 'Зарубежные']
 const options = ['Биография', 'Аниме', 'Боевики', 'Детективы', 'Документальные', 'Драмы']
 
-export const Films = () => {
+export const Films: React.FC = () => {
 
     const dispatch = useAppDispatch()
 
-    const requestPage = (page: number) => {
-        dispatch(getMovies(page))
-    }
+    const requestPage = (page: number) => dispatch(getMovies(page))
 
-    const { movies, page } = useAppSelector(state => state.movie)
-
+    const { movies, page, isLoading } = useAppSelector(state => state.movie)
 
     return <div className={style.series}>
         <Title>Лучшие фильмов</Title>
@@ -31,12 +29,11 @@ export const Films = () => {
         <div className={style.genres}>
             <SelectCustom title={'Жанры'} option={options} />
         </div>
-
-        {movies.map(film => <Link key={film.id} to={`${film.id}`}>
-            <Film  {...film} />
-        </Link>)}
-
+        {isLoading ? <Loader /> : <>
+            {movies.map(film => <Link key={film.id} to={`${film.id}`}>
+                <Film  {...film} />
+            </Link>)}
+        </>}
         <Pagination onRequestHandler={requestPage} page={page} />
-
     </div>
 }

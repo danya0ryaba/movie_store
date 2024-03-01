@@ -1,21 +1,14 @@
 import { Movie } from './../../type/movie';
 import { usersAPI } from '../../API/api';
-import { Action, PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { AxiosResponse } from 'axios';
+import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { DataResponseType } from '../../type/responseAxios';
+import { isError } from '../../utils/isError';
 
 interface MovieInitialState {
     movies: Movie[],
     page: number,
     isLoading: boolean,
     error: null | string
-}
-
-export type DataResponseType = {
-    docs: Movie[],
-    limit: number,
-    page: number,
-    pages: number,
-    total: number
 }
 
 export const getMovies = createAsyncThunk<DataResponseType, number, { rejectValue: string }>(
@@ -58,9 +51,5 @@ const movieSlice = createSlice({
 
     }
 })
-
-const isError = (action: Action) => {
-    return action.type.endsWith('rejected');
-}
 
 export default movieSlice.reducer

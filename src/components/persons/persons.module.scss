@@ -1,21 +1,21 @@
 @import '../../style/variables.scss';
 
-.list {
-    &__actor {
-        padding: 10px 0;
-        transition: 0.2s all;
+// .list {
+//     &__actor {
+//         padding: 10px 0;
+//         transition: 0.2s all;
 
-        a {
-            color: #fff;
-        }
+//         a {
+//             color: #fff;
+//         }
 
-        &:hover {
-            a {
-                color: $green;
-            }
-        }
-    }
-}
+//         &:hover {
+//             a {
+//                 color: $green;
+//             }
+//         }
+//     }
+// }
 
 .more {
     padding: 5px 0;

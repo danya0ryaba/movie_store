@@ -11,7 +11,6 @@ type PaginationType = {
 export const Pagination: React.FC<PaginationType> = ({ page, onRequestHandler }) => {
 
     const [activePage, setActivePage] = React.useState(page)
-    console.log(activePage);
 
     const onClickHandler = (num: number) => {
         setActivePage(num)
@@ -28,9 +27,6 @@ export const Pagination: React.FC<PaginationType> = ({ page, onRequestHandler })
         onRequestHandler(activePage + 1)
     }
 
-    // написать логику для стрелок влево вправо
-    // чтобы двигали по массиву или создавали новый массив или хз
-
     let pagination: number[] = []
 
     for (let i = 0; i < 10; i++) {
@@ -38,9 +34,7 @@ export const Pagination: React.FC<PaginationType> = ({ page, onRequestHandler })
     }
 
     return <section className={style.pagination}>
-
         <LeftArrow className={style.left__arrow} onClick={onLeftArrowHandler} />
-
         <div className={style.pag__container}>
             {pagination.map(num =>
                 <div onClick={() => onClickHandler(num)}
@@ -49,7 +43,6 @@ export const Pagination: React.FC<PaginationType> = ({ page, onRequestHandler })
                     {num}
                 </div>)}
         </div>
-
         <RightArrow className={style.right__arrow} onClick={onRightArrowHandler} />
     </section>
 }

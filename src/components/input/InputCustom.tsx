@@ -2,9 +2,7 @@ import React, { ChangeEvent } from 'react'
 import style from './inputcustom.module.scss'
 import { ReactComponent as Search } from '../../assets/img/search_black_svg.svg'
 
-// НАПИСАТЬ УНИВЕРСАЛЬНЫЙ ИНПУТ
-
-export const InputCustom = () => {
+export const InputCustom: React.FC = () => {
 
     const [input, setInput] = React.useState('')
 
@@ -12,10 +10,7 @@ export const InputCustom = () => {
         setInput(e.target.value)
     }
 
-    const onClickHandler = () => {
-        console.log(input)
-        setInput('')
-    }
+    const onClickHandler = () => setInput('')
 
     return <div className={style.input}>
         <div className={style.wrapperInp}>

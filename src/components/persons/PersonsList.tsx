@@ -1,6 +1,7 @@
 import React from 'react'
 import style from './persons.module.scss'
 import { Persons } from '../../type/movieId'
+import { Person } from './personitem/Person'
 
 type PersonsType = {
     persons: Persons[],
@@ -8,19 +9,16 @@ type PersonsType = {
 
 export const PersonsLists: React.FC<PersonsType> = ({ persons }) => {
 
+    console.log(persons);
+
+
     const [amount, setAmount] = React.useState(10)
 
     return persons ? <><ul className={style.list}>
-        {persons.slice(0, amount).map((man, i) => {
-            return (<li key={i} className={style.list__actor}>
-                <a href="">{man.name}</a>
-                <div className="popup" style={{ display: 'none' }}></div>
-            </li>)
-        })}
+        {persons.slice(0, amount).map((man, i) => <Person key={man.id} {...man} />)}
     </ul>
         {/* не робит кнопка */}
         <span onClick={() => alert('не робит кнопка')} className={style.more}><a href="">посмотреть всех</a></span>
     </>
-        :
-        <div>Нету данных</div>
+        : <div>Нету данных</div>
 }

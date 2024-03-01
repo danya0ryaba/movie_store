@@ -62,39 +62,36 @@ export const InfoFilm: React.FC<CurrentFilm> = ({
     audience,
     videos
 }) => {
-
     const navigate = useNavigate()
 
     const onClickBack = () => navigate(-1)
 
     return <section className={style.section__film}>
-
         <div className={style.container}>
-
             <button className={style.back} onClick={onClickBack}> &#129044; Назад</button>
-
             <div className={style.card}>
-
                 <div className={style.card__trailer}>
                     <img src={poster?.previewUrl} alt="trailer film" />
                 </div>
-
                 <div className={style.card__info}>
-
                     <h1 className={style.movie__title}>{name}</h1>
-
                     <h2 className={style.movie__subtitle}>Свободный <span>просмотр</span></h2>
-
                     <div className={style.about_film}>
                         <div className={style.type}>{type}</div>
                         <div className={style.quality}>HD</div>
-                        {/* <div className={style.category}>{gentesStr.join('')}</div> */}
+
+                        <div className={style.category}>
+                            {genres && genres.length > 0 ? genres.map((g, ind, arr) => {
+                                if (ind === arr.length - 1) return `${g.name}`
+                                else return `${g.name}, `
+                            }) : 'нет информации'}
+                        </div>
+
                         <div className={style.data}>
                             <img src={date} alt="date" />
                             <span>{year}</span>
                         </div>
                     </div>
-
                     <div className={style.movie__rating}>
 
                         <div className={style.send}>
@@ -112,14 +109,10 @@ export const InfoFilm: React.FC<CurrentFilm> = ({
 
                         <Button>смотреть</Button>
                     </div>
-
                     <p className={style.card__info__text}>{shortDescription}</p>
-
                 </div>
-
             </div>
 
-            {/* тут о фильме вставлять */}
             <AboutFilm
                 name={name}
                 ageRating={ageRating}
@@ -137,8 +130,6 @@ export const InfoFilm: React.FC<CurrentFilm> = ({
                 year={year}
                 videos={videos}
             />
-
         </div>
-
     </section>
 }

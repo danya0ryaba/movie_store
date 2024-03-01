@@ -7,29 +7,26 @@ import { Scrollbar } from 'swiper/modules';
 import 'swiper/css';
 import { useAppSelector } from '../../store/hooks/redux';
 import { NavLink } from 'react-router-dom';
+import { Loader } from '../loader/Loader';
 
-export const Popular = () => {
+export const Popular: React.FC = () => {
 
     const { series, isLoading } = useAppSelector(state => state.series)
 
-    return isLoading ? <h2>Loading</h2> : <section className={style.popular}>
-
+    return <section className={style.popular}>
         <div className={style.container}>
-
             <Title>сериалы</Title>
-
             <div className={style.gradient__left} />
-
-            <Swiper modules={[Scrollbar]} spaceBetween={5} slidesPerView={5}>
-                {series.map(s => <SwiperSlide key={s.id}>
-                    <NavLink to={`/movie/${s.id}`}>
-                        <PopularFilm previewUrl={s.poster.previewUrl} />
-                    </NavLink>
-                </SwiperSlide>)}
-            </Swiper>
-
+            {isLoading ? <Loader /> : <>
+                <Swiper modules={[Scrollbar]} spaceBetween={5} slidesPerView={5}>
+                    {series.map(s => <SwiperSlide key={s.id}>
+                        <NavLink to={`/movie/${s.id}`}>
+                            <PopularFilm previewUrl={s.poster.previewUrl} />
+                        </NavLink>
+                    </SwiperSlide>)}
+                </Swiper>
+            </>}
             <div className={style.gradient} />
-
             <p className={style.text__info}>
                 Filmagnet — это платформа онлайн-трансляции фильмов,
                 предлагающая пиратский контент, который не был выпущен.
@@ -40,7 +37,6 @@ export const Popular = () => {
                 поэтому вы можете использовать VPN и выбрать местоположение с доступом к Filmagnet.
                 Здесь мы обсудим фильммагнит.
             </p>
-
         </div>
     </section >
 }

@@ -1,7 +1,8 @@
-import { Action, PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Series } from "../../type/series";
 import { usersAPI } from "../../API/api";
-import { DataResponseType } from "../movie/movieSlice";
+import { isError } from "../../utils/isError";
+import { DataResponseType } from "../../type/responseAxios";
 
 interface SeriesInitialState {
     series: Series[],
@@ -47,9 +48,5 @@ const seriesSlice = createSlice({
             })
     }
 })
-
-const isError = (action: Action) => {
-    return action.type.endsWith('rejected');
-}
 
 export default seriesSlice.reducer

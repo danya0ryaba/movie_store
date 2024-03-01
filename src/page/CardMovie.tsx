@@ -5,6 +5,7 @@ import { InfoFilm } from '../components/infofilm/InfoFilm'
 import { useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../store/hooks/redux'
 import { getInfoFilm } from '../store/film/filmSlice'
+import { Loader } from '../components/loader/Loader'
 
 export const CardMovie: React.FC = () => {
 
@@ -21,7 +22,7 @@ export const CardMovie: React.FC = () => {
 
     const bg = film.backdrop?.url ? film.backdrop.url : 'https://imagetmdb.com/t/p/original/vRTKNKNWLZ22fAgPa5kY8wT2b1F.jpg';
 
-    return isLoading ? <h1>Loading</h1> :
+    return isLoading ? <Loader /> :
         <div style={{
             background: `url(${bg})`,
             backgroundRepeat: 'no-repeat',
@@ -31,6 +32,7 @@ export const CardMovie: React.FC = () => {
             height: '100vh'
         }}
             className={style.card__fullscreen}>
+
             <div className={style.card__gradient}>
                 <InfoFilm {...film} />
             </div>

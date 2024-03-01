@@ -9,6 +9,7 @@ import style from './series.module.scss'
 import { Link } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../store/hooks/redux'
 import { getSeries } from '../store/series/seriesSlice'
+import { Loader } from '../components/loader/Loader'
 
 const filterSeries = ['С высоким рейтингом', 'Российские', 'Зарубежные']
 const options = ['Биография', 'Аниме', 'Боевики', 'Детективы', 'Документальные', 'Драмы']
@@ -21,19 +22,18 @@ export const Series = () => {
 
     const requestPageSeries = (page: number) => dispatch(getSeries(page))
 
-    return isLoading ? <h2>Loading</h2> :
-        <div className={style.series}>
-            <Title>Лучшие сериалы</Title>
-            <Filters filterItem={filterSeries} />
-            <InputCustom />
-            <div className={style.genres}>
-                <SelectCustom title={'Жанры'} option={options} />
-            </div>
-
+    return <div className={style.series}>
+        <Title>Лучшие сериалы</Title>
+        <Filters filterItem={filterSeries} />
+        <InputCustom />
+        <div className={style.genres}>
+            <SelectCustom title={'Жанры'} option={options} />
+        </div>
+        {isLoading ? <Loader /> : <>
             {series.map(s => <Link key={s.id} to={`${s.id}`}>
                 <Film {...s} />
             </Link>)}
-
-            <Pagination page={page} onRequestHandler={requestPageSeries} />
-        </div>
+        </>}
+        <Pagination page={page} onRequestHandler={requestPageSeries} />
+    </div>
 }

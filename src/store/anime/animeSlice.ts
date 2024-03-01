@@ -1,7 +1,8 @@
-import { Action, PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { usersAPI } from "../../API/api";
 import { Movie } from "../../type/movie";
-import { DataResponseType } from "../movie/movieSlice";
+import { DataResponseType } from "../../type/responseAxios";
+import { isError } from "../../utils/isError";
 
 interface initialState {
     anime: Movie[],
@@ -48,9 +49,5 @@ const animeSlice = createSlice({
             })
     }
 })
-
-const isError = (action: Action) => {
-    return action.type.endsWith('rejected');
-}
 
 export default animeSlice.reducer
