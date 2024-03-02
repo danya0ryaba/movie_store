@@ -3,8 +3,6 @@ import style from './aboutfilm.module.scss'
 import { GenresItem, RatingAndVotes } from '../../type/movie'
 import { AudienceItem, Budget, Persons, Trailer } from '../../type/movieId'
 import { PersonsLists } from '../persons/PersonsList'
-import { Link } from 'react-router-dom'
-import { spawn } from 'child_process'
 
 type AboutFilmType = {
     name: string

@@ -1,17 +1,22 @@
 import React, { ChangeEvent } from 'react'
 import style from './inputcustom.module.scss'
 import { ReactComponent as Search } from '../../assets/img/search_black_svg.svg'
+import { usersAPI } from '../../API/api'
 
 export const InputCustom: React.FC = () => {
 
+    // состояния хранится тут (локально)
     const [input, setInput] = React.useState('')
 
+    // эта функция должна приходить из пропсов
     const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
         setInput(e.target.value)
     }
-
-    const onClickHandler = () => setInput('')
-
+    // эта функция должна приходить из пропсов или нет
+    const onClickHandler = () => {
+        usersAPI.getSearch(input).then(res => console.log(res.data))
+        setInput('')
+    }
     return <div className={style.input}>
         <div className={style.wrapperInp}>
             <input

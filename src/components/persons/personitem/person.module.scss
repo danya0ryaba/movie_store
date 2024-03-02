@@ -2,8 +2,8 @@
 
 .list {
     &__actor {
-
-        padding: 10px 0;
+        width: 180px;
+        padding: 10px 6px;
         transition: 0.2s all;
         color: #fff;
 
@@ -13,7 +13,6 @@
 
         .forPosition {
             position: relative;
-            background-color: #fff;
         }
     }
 }

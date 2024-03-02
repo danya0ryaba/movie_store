@@ -19,13 +19,12 @@ function App() {
 
   const dispatch = useAppDispatch()
 
-
   // надо зaписать данные в localStorage, чтобы израсходавав лимит запросов брать оттуда
   useEffect(() => {
-    // dispatch(getMovies(1))
+    dispatch(getMovies(1))
     // dispatch(getSeries(1))
     // dispatch(getCartoon(1))
-    dispatch(getAnime(1))
+    // dispatch(getAnime(1))
   }, [dispatch])
 
   return (<>

@@ -84,5 +84,8 @@ export const usersAPI = {
     getAnime(page: number = 1, limit: number = 15) {
         return instance.get(`movie?page=${page}&limit=${limit}&type=anime`)
     },
+    getSearch(name: string) {
+        return instance.get(`movie/search?page=1&limit=10&query=${name}`)
+    },
 
 }

@@ -65,22 +65,19 @@
             }
 
             .more {
-                padding: 5px 0;
+                padding: 5px 0 5px 6px;
                 cursor: pointer;
-
-
                 font-size: 12px;
                 color: $light-gray;
                 transition: 0.2s all;
 
-
                 &:hover {
-
-                    transform: scale(1.1);
+                    font-size: 14px;
                     color: $green;
-
                 }
+
             }
+
         }
     }
 
