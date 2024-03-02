@@ -1,7 +1,8 @@
 import React from 'react'
 import style from './person.module.scss'
+import { PersonCard } from '../personcard/PersonCard'
 
-type PersonType = {
+export type PersonType = {
     readonly name: string,
     readonly enName: string | null,
     readonly id: number,
@@ -9,8 +10,6 @@ type PersonType = {
     readonly profession: string
 }
 
-// повесить событие мыши и при наведении на list__actor
-// показывать мини-карточку чувака (popup)
 export const Person: React.FC<PersonType> = ({
     name,
     enName,
@@ -18,8 +17,28 @@ export const Person: React.FC<PersonType> = ({
     photo,
     profession,
 }) => {
-    return <li className={style.list__actor}>
-        <a href="">{name}</a>
-        <div className="popup" style={{ display: 'none' }}></div>
+
+    const [classList, setClassList] = React.useState(false)
+
+    const handleMouseEnter = () => {
+        setClassList(!classList)
+    }
+
+    const handleMouseLeave = () => {
+        setClassList(!classList)
+    }
+
+    return <li className={style.list__actor}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}>
+        {name}
+        <div className={style.forPosition}>
+            {classList && <PersonCard
+                name={name}
+                enName={enName}
+                id={id}
+                photo={photo}
+                profession={profession} />}
+        </div>
     </li>
 }

@@ -3,6 +3,8 @@ import style from './aboutfilm.module.scss'
 import { GenresItem, RatingAndVotes } from '../../type/movie'
 import { AudienceItem, Budget, Persons, Trailer } from '../../type/movieId'
 import { PersonsLists } from '../persons/PersonsList'
+import { Link } from 'react-router-dom'
+import { spawn } from 'child_process'
 
 type AboutFilmType = {
     name: string
@@ -39,6 +41,21 @@ export const AboutFilm: React.FC<AboutFilmType> = ({
     persons,
     videos
 }) => {
+
+    const [modeView, setModeView] = React.useState(true)
+    const [quantityPersons, setQuantityPersons] = React.useState(10)
+
+    const personsSlice = persons?.slice(0, quantityPersons)
+
+    const onViewAllPersons = () => {
+        setModeView(!modeView)
+        setQuantityPersons(persons.length)
+    }
+
+    const collapsePersons = () => {
+        setModeView(!modeView)
+        setQuantityPersons(10)
+    }
 
     return <div className={style.about__film}>
 
@@ -133,7 +150,11 @@ export const AboutFilm: React.FC<AboutFilmType> = ({
 
             <div className={style.actor}>
                 <h5 className={style.subtitle}>В главных ролях</h5>
-                <PersonsLists persons={persons} />
+                <PersonsLists persons={personsSlice} />
+                {modeView ?
+                    <span onClick={onViewAllPersons} className={style.more}>посмотреть всех</span> :
+                    <span onClick={collapsePersons} className={style.more}>свернуть</span>
+                }
             </div>
 
         </div>

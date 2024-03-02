@@ -2,17 +2,18 @@
 
 .list {
     &__actor {
+
         padding: 10px 0;
         transition: 0.2s all;
-
-        a {
-            color: #fff;
-        }
+        color: #fff;
 
         &:hover {
-            a {
-                color: $green;
-            }
+            color: $green;
+        }
+
+        .forPosition {
+            position: relative;
+            background-color: #fff;
         }
     }
 }
