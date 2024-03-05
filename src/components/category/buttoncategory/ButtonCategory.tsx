@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import style from './buttoncategory.module.scss'
 
 interface ButtonCategoryInterface {
-    children: ReactNode
+    readonly children: ReactNode
 }
 
 export const ButtonCategory: React.FC<ButtonCategoryInterface> = ({ children }) => {

@@ -4,8 +4,6 @@ import style from './auth.module.scss'
 
 export const Auth = () => {
     return <div className={style.auth}>
-        <Button>
-            sign in
-        </Button>
+        <Button>войти</Button>
     </div>
 }

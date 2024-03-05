@@ -1,7 +1,7 @@
 @import '../../style/variables.scss';
 
 .fullscreen {
-    // margin-top: -104px;
+    margin-top: -104px;
     width: 100vw;
     height: 100vh;
     background: url('https://imagetmdb.com/t/p/original/vRTKNKNWLZ22fAgPa5kY8wT2b1F.jpg');
@@ -11,8 +11,8 @@
     &__gradient {
         width: 100vw;
         height: 100vh;
-        background: rgb(164, 164, 170);
-        background: linear-gradient(90deg, rgba(164, 164, 170, 1) 0%, rgba(15, 15, 61, 0.6503851540616247) 37%, rgba(103, 119, 122, 1) 100%);
+        background: rgb(0, 0, 0);
+        background: linear-gradient(11deg, rgba(0, 0, 0, 0.9136904761904762) 14%, rgba(45, 45, 57, 0.7848389355742297) 37%, rgba(142, 146, 146, 0.8240546218487395) 99%);
 
         .fullscreen__info {
             position: absolute;

@@ -1,27 +1,22 @@
 import React from 'react'
 import style from './selectcustom.module.scss'
 import { Option } from './Option'
-
 import { ReactComponent as ArrowDown } from '../../assets/img/arrow_up.svg';
 
-export type Language = 'RU' | 'EN'
+type SelectCustomType = {
+    option: string[],
+    title: string
+}
 
-const arrayLanguage = ['RU', 'EN']
-
-
-export const SelectCustom = () => {
+export const SelectCustom: React.FC<SelectCustomType> = ({ option, title }) => {
 
     const [isOpen, setIsOpen] = React.useState(false)
-
-    const [isName, setIsName] = React.useState<Language>('EN')
-
-    const arrayFiltered = arrayLanguage.filter(l => l !== isName)
-
-    const onClickOption = (name: Language) => {
+    const [isName, setIsName] = React.useState(title)
+    const arrayFiltered = option.filter(l => l !== isName)
+    const onClickOption = (name: string) => {
         setIsName(name)
         setIsOpen(false)
     }
-
     let styleArrow = isOpen ? '0deg' : '180deg'
 
 
@@ -39,18 +34,22 @@ export const SelectCustom = () => {
         </svg>
 
         <span className={style.language} onClick={() => setIsOpen(!isOpen)}>
-
             {isName}
-
             <span className={style.arrow}>
-                <ArrowDown style={{ transform: `rotate(${styleArrow})`, margin: '0 3px', transition: ' 0.3s all' }} />
+                <ArrowDown className={style.arrow__item} style={{ transform: `rotate(${styleArrow})`, margin: '0 3px', transition: ' 0.3s all' }} />
             </span>
-
         </span>
 
-        {isOpen && arrayFiltered.map((lang, index) => {
-            return (<Option onClickOption={onClickOption} key={index} >{lang}</Option>)
-        })}
+        <div className={style.forOptionPosition}>
+
+            {isOpen && arrayFiltered.map(lang => (<Option onClickOption={onClickOption}
+                key={lang}>
+                {lang}
+            </Option>)
+            )}
+
+        </div>
+
     </div>
 }
 

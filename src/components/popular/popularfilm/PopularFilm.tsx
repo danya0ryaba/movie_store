@@ -1,9 +1,11 @@
 import React from 'react'
 import style from './popularfilm.module.scss'
-import film from '../../../assets/img/popular_film.png'
+import { BackdropAndPoster } from '../../../type/movie'
 
-export const PopularFilm = () => {
+type PopularFilmType = Pick<BackdropAndPoster, 'previewUrl'>
+
+export const PopularFilm: React.FC<PopularFilmType> = ({ previewUrl }) => {
     return <div className={style.item__film}>
-        <img src={film} alt="popular film" />
+        <img src={previewUrl} alt="popular film" />
     </div>
 }

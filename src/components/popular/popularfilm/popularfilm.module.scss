@@ -2,6 +2,13 @@
     cursor: pointer;
     padding: 0 10px;
     opacity: 80%;
+    cursor: e-resize;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 340px;
+    }
 
     &:first-child {
         padding-left: 0;

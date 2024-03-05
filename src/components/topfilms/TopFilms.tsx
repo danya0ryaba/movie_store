@@ -2,16 +2,30 @@ import React from 'react'
 import style from './topfilms.module.scss'
 import { TopFilmItem } from './topfilmitem/TopFilmItem'
 import { Title } from '../title/Title'
+import { useAppDispatch, useAppSelector } from '../../store/hooks/redux'
+import { Link } from 'react-router-dom'
+import { getAnime } from '../../store/anime/animeSlice'
+import { Loader } from '../loader/Loader'
 
-const topFilms = [1, 2, 3, 4, 5]
+export const TopFilms: React.FC = () => {
 
-export const TopFilms = () => {
+    const { anime, page, isLoading } = useAppSelector(state => state.anime)
+
+    const dispatch = useAppDispatch()
+
+    const onViewMore = () => dispatch(getAnime(page + 1))
+
     return <>
-        <Title>top films</Title>
+        <Title>Аниме</Title>
         <section className={style.top__films}>
-            <ul className={style.films}>
-                {topFilms.map(item => <TopFilmItem key={item} />)}
-            </ul>
+            {isLoading ? <Loader /> : <>
+                <ul className={style.films}>
+                    {anime.map(item => <Link key={item.id} to={`movie/${item.id}`}>
+                        <TopFilmItem poster={item.poster.previewUrl} />
+                    </Link>)}
+                </ul>
+                <span onClick={onViewMore} className={style.more}>посмотреть...</span>
+            </>}
         </section>
     </>
 }

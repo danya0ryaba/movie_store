@@ -1,0 +1,162 @@
+@import '../../style/variables.scss';
+
+.card__film {
+
+    margin: 20px 0;
+    color: black;
+
+    .container {
+        margin: 0 auto;
+        max-width: 1180px;
+        width: 100%;
+        padding: 0 10px;
+        overflow: hidden;
+    }
+
+    .card {
+        padding: 10px 16px;
+        border-radius: 10px;
+        margin: 0 auto;
+        max-width: 800px;
+        width: 100%;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        transition: 0.3s all;
+
+        &__info {
+            display: flex;
+            cursor: pointer;
+            padding-right: 10px;
+
+            .poster {
+                img {
+                    width: 90px;
+                    height: 124px;
+                }
+            }
+
+            .info {
+                padding-left: 18px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .title {
+                    padding-top: 8px;
+                    font-size: 22px;
+                    margin-bottom: auto;
+                }
+
+                .aboutFilm {
+                    line-height: 1.3;
+                    font-size: 12px;
+                    color: $gray;
+                    margin-bottom: auto;
+                }
+
+                .trailer {
+                    padding: 5px;
+                    font-size: 16px;
+                    border-radius: 10px;
+                    transition: 0.3s all;
+                    width: 210px;
+
+                    .camera {
+                        margin-right: 10px;
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                    &:hover {
+                        background-color: $green;
+                        transform: scale(1.1);
+                    }
+
+                }
+            }
+        }
+
+        &__rating {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: flex-start;
+            flex-grow: 1;
+
+            .rating__info {
+                width: 100%;
+                max-width: 220px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .rating__value {
+                    display: flex;
+                    align-items: center;
+                    font-size: 22px;
+                    font-weight: 900;
+                    color: gold;
+
+                    svg {
+                        margin-left: 4px;
+                    }
+                }
+
+                .view {
+                    color: $gray;
+                    font-size: 14px;
+                }
+
+                .view_btn {
+                    opacity: 0.8;
+                    padding: 6px 9px;
+                    border-radius: 10px;
+                    font-size: 14px;
+                    transition: 0.3s all;
+
+                    &:hover {
+                        transform: scale(1.1);
+                        background-color: $green;
+                    }
+                }
+            }
+
+            .desc {
+                width: 100%;
+                max-width: 420px;
+                text-align: right;
+                margin-top: auto;
+                font-size: 15px;
+            }
+
+        }
+
+        // .grade {
+        //     display: inline-block;
+        //     border-radius: 100%;
+        //     height: 25px;
+        //     width: 25px;
+        //     cursor: pointer;
+        //     position: relative;
+        //     background-color: red;
+
+        //     &__star {
+        //         width: 20px;
+        //         height: 20px;
+        //         position: absolute;
+        //         left: 50%;
+        //         top: 50%;
+        //         transform: translate(-50%, -50%);
+        //     }
+
+        // }
+
+        // &:hover {
+        //     background-color: $light-gray;
+        // }
+
+    }
+
+}

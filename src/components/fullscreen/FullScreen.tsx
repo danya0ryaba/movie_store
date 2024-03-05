@@ -14,20 +14,21 @@ export const FullScreen = () => {
                     <h2 className={style.title}>Filmagnet</h2>
 
                     <h3 className={style.subtitle}>
-                        Unlimited <span>Entertainment</span>,<br />Movies, TVs shows, & More.
+                        Безлимитные <span>развлечения</span>,<br /> Фильмы,
+                        телепередачи и многое другое
                     </h3>
 
                     <div className={style.about_film}>
-                        <div className={style.type}>Movie</div>
+                        <div className={style.type}>Фильмы</div>
                         <div className={style.quality}>HD</div>
-                        <div className={style.category}>Action, Drama</div>
+                        <div className={style.category}>Множество жанров</div>
                         <div className={style.data}>
                             <img src={date} alt="date" />
-                            <span>2023</span>
+                            <span>2024</span>
                         </div>
                     </div>
 
-                    <Button>play now</Button>
+                    <Button>смотреть сейчас</Button>
 
                 </div>
 

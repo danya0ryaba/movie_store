@@ -1,0 +1,88 @@
+@import '../../style/variables.scss';
+
+.pagination {
+    padding: 50px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .left__arrow {
+        background-color: black;
+        border: 2px solid $white;
+        border-radius: 100%;
+        padding: 5px;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        margin-right: 16px;
+        transition: 0.2s all;
+
+        &:hover {
+            background-color: $light-gray;
+        }
+    }
+
+    .pag__container {
+        display: flex;
+
+        .pag__value {
+            cursor: pointer;
+            padding: 14px;
+            background-color: $white;
+            color: black;
+            font-size: 24px;
+            margin-right: 10px;
+            border-radius: 10px;
+            border: 1px solid $white;
+            transition: 0.2s all;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &:hover {
+                background-color: black;
+                color: $white;
+            }
+        }
+
+        .pag__value_active {
+            cursor: pointer;
+            padding: 14px;
+            background-color: $green;
+            color: $light-gray;
+            font-size: 24px;
+            margin-right: 10px;
+            border-radius: 10px;
+            border: 1px solid $white;
+            transition: 0.2s all;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &:hover {
+                background-color: black;
+                color: $white;
+            }
+        }
+
+    }
+
+    .right__arrow {
+        background-color: black;
+        border: 2px solid $white;
+        border-radius: 100%;
+        padding: 5px;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        margin-left: 16px;
+        transition: 0.2s all;
+
+        &:hover {
+            background-color: $light-gray;
+        }
+    }
+
+}

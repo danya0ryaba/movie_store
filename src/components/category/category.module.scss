@@ -2,10 +2,9 @@
 
 .category {
     background: url('../../assets/img/categoryImage.png');
-    height: auto;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 80px 0;
+    padding: 50px 0;
 }
 
 .container {
@@ -46,6 +45,6 @@
 .category__films {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     margin-bottom: 70px;
 }

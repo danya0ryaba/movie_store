@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import style from './title.module.scss'
 
 interface TitleInterface {
-    children: ReactNode
+    readonly children: ReactNode
 }
 
 export const Title: React.FC<TitleInterface> = ({ children }) => {

@@ -10,24 +10,58 @@
         max-width: 1180px;
         width: 100%;
         padding: 0 10px;
-        overflow: hidden;
+        position: relative;
 
-        .title {
-            font-size: 34px;
-            text-transform: uppercase;
+        .slider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-            margin-bottom: 20px;
+            .wrapper__arrow {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .arrow {
+                    padding: 5px;
+                    background-color: $green;
+                    border-radius: 100%;
+                }
+            }
+
+            .popular__films {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
         }
 
-        .popular__films {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-bottom: 70px;
+        .gradient__left {
+            z-index: 10;
+            position: absolute;
+            left: 0;
+            top: 70px;
+            width: 100px;
+            height: 350px;
+            padding: 5px;
+            background: rgb(0, 0, 0);
+            background: linear-gradient(90deg, rgba(0, 0, 0, 1) 23%, rgba(0, 0, 0, 0) 100%);
+        }
+
+        .gradient {
+            z-index: 10;
+            position: absolute;
+            right: 0;
+            top: 70px;
+            width: 100px;
+            height: 350px;
+            padding: 5px;
+            background: rgb(0, 0, 0);
+            background: linear-gradient(270deg, rgba(0, 0, 0, 1) 23%, rgba(0, 0, 0, 0) 100%);
         }
 
         .text__info {
+            margin-top: 70px;
             font-size: 20px;
             line-height: 25px;
         }

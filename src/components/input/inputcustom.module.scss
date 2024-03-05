@@ -1,0 +1,29 @@
+.input {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+
+    .wrapperInp {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+
+        .customInput {
+            max-width: 800px;
+            width: 100%;
+            font-size: 18px;
+            border-radius: 20px;
+            padding: 10px 10px 10px 28px;
+        }
+
+        .search {
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 5px;
+            width: 30px;
+            height: 30px;
+            padding: 1px;
+        }
+    }
+}

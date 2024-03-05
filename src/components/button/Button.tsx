@@ -2,7 +2,7 @@ import React from 'react'
 import style from './button.module.scss'
 
 interface Button {
-    children: React.ReactNode
+    readonly children: React.ReactNode
 }
 
 export const Button: React.FC<Button> = ({ children }) => {

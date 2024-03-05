@@ -1,9 +1,11 @@
 @import '../../style/variables.scss';
 
 .select {
-    position: relative;
     display: flex;
     align-items: center;
+    position: relative;
+    padding: 0 10px;
+    position: relative;
 }
 
 .language {
@@ -12,11 +14,20 @@
     background-color: transparent;
     font-size: 18px;
     color: $white;
-    position: relative;
 }
 
 .arrow {
+    position: relative;
+
+    &__item {
+        position: absolute;
+        top: 0px;
+    }
+
+}
+
+.forOptionPosition {
     position: absolute;
-    top: 0px;
-    left: 22px;
+    top: 30px;
+    left: 34px;
 }
