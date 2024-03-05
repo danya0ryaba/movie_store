@@ -48,7 +48,6 @@ const movieSlice = createSlice({
                 state.error = action.payload
                 state.isLoading = false
             })
-
     }
 })
 

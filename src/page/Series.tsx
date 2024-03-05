@@ -25,7 +25,7 @@ export const Series = () => {
     return <div className={style.series}>
         <Title>Лучшие сериалы</Title>
         <Filters filterItem={filterSeries} />
-        <InputCustom />
+        {/* <InputCustom /> */}
         <div className={style.genres}>
             <SelectCustom title={'Жанры'} option={options} />
         </div>

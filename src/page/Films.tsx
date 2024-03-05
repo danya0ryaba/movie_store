@@ -10,6 +10,8 @@ import { Link } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../store/hooks/redux'
 import { getMovies } from '../store/movie/movieSlice'
 import { Loader } from '../components/loader/Loader'
+import { getSearchMovie } from '../store/search/searchSlice'
+import { SearchItem } from '../components/search/searchitem/SearchItem'
 
 const filtersMovies = ['С высоким рейтингом', 'Российские', 'Зарубежные']
 const options = ['Биография', 'Аниме', 'Боевики', 'Детективы', 'Документальные', 'Драмы']
@@ -21,11 +23,32 @@ export const Films: React.FC = () => {
     const requestPage = (page: number) => dispatch(getMovies(page))
 
     const { movies, page, isLoading } = useAppSelector(state => state.movie)
+    const { isExist, searchMovies } = useAppSelector(state => state.searchMovie)
+
+    const requestSearchName = (name: string) => dispatch(getSearchMovie(name))
+
 
     return <div className={style.series}>
         <Title>Лучшие фильмов</Title>
         <Filters filterItem={filtersMovies} />
-        <InputCustom />
+
+
+
+
+        <InputCustom requestSearchName={requestSearchName} />
+        {
+            isExist &&
+            <div className={style.searchFilms}>
+                <ul>
+                    {searchMovies.map(film => <SearchItem key={film.id} {...film} />)}
+                </ul>
+            </div>
+        }
+
+
+
+
+
         <div className={style.genres}>
             <SelectCustom title={'Жанры'} option={options} />
         </div>

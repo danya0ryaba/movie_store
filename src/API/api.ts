@@ -1,5 +1,7 @@
 import axios from "axios"
 
+
+// в конце возможно переписать это покрасивее
 const instance = axios.create({
     baseURL: 'https://api.kinopoisk.dev/v1.4/',
     headers: { "X-API-KEY": "MSHPGE9-G12MQGY-J328FX0-0HC7G9A" },

@@ -7,7 +7,6 @@ export const Cartoon = () => {
 
     return <>
         <Title>Мультфильмы</Title>
-        <InputCustom />
         <CartoonBlock />
     </>
 }

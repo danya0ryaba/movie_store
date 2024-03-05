@@ -1,6 +1,5 @@
 import React from 'react'
 import style from './tvitem.module.scss'
-import { Button } from '../button/Button'
 import { CartoonInterface } from '../../type/cartoon'
 
 export const CartoonItem: React.FC<CartoonInterface> = ({

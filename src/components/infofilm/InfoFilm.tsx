@@ -1,18 +1,15 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import style from './infofilm.module.scss'
 import { Button } from '../button/Button'
 import date from '../../assets/img/date.png'
 import { ReactComponent as Send } from '../../assets/img/send.svg';
 import { ReactComponent as Star } from '../../assets/img/star.svg';
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { CurrentFilm } from '../../type/movieId'
 import { AboutFilm } from '../aboutfilm/AboutFilm';
 
 export const InfoFilm: React.FC<CurrentFilm> = ({
-    status,
     rating,
-    votes,
-    backdrop,
     movieLength,
     id,
     type,
@@ -22,43 +19,13 @@ export const InfoFilm: React.FC<CurrentFilm> = ({
     poster,
     genres,
     countries,
-    typeNumber,
     alternativeName,
-    enName,
-    names,
-    ratingMpaa,
     shortDescription,
-    ticketsOnSale,
     ageRating,
     logo,
-    top10,
-    top250,
-    isSeries,
-    seriesLength,
-    totalSeriesLength,
-
-    externalId,
-    distributors,
-    premiere,
-    slogan,
-    facts,
-    seasonsInfo,
     persons,
-    images,
-    lists,
-    spokenLanguages,
-    productionCompanies,
     budget,
-    networks,
-    subType,
     fees,
-    updatedAt,
-    imagesInfo,
-    technology,
-    similarMovies,
-    sequelsAndPrequels,
-    watchability,
-    deletedAt,
     audience,
     videos
 }) => {
@@ -70,9 +37,14 @@ export const InfoFilm: React.FC<CurrentFilm> = ({
         <div className={style.container}>
             <button className={style.back} onClick={onClickBack}> &#129044; Назад</button>
             <div className={style.card}>
-                <div className={style.card__trailer}>
+
+                <Link to={videos?.trailers && videos.trailers.length > 0 ? `${videos.trailers[0].url}` : 'https://www.youtube.com/'}
+                    className={style.card__trailer}>
+
                     <img src={poster?.previewUrl} alt="trailer film" />
-                </div>
+
+                </Link>
+
                 <div className={style.card__info}>
                     <h1 className={style.movie__title}>{name}</h1>
                     <h2 className={style.movie__subtitle}>Свободный <span>просмотр</span></h2>

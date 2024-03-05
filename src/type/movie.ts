@@ -65,4 +65,6 @@ export interface Movie {
     totalSeriesLength: number | null
 
     releaseYears?: Duration
+    // externalId?: { imdb?: string, kpHD?: string, tmdb?: number }
+    externalId?: Partial<Pick<RatingAndVotes, 'imdb' | 'kpHD' | 'tmdb'>>
 }

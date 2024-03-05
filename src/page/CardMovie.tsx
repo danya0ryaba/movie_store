@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import style from './cardmovie.module.scss'
 import { InfoFilm } from '../components/infofilm/InfoFilm'
-// import { Footer } from '../components/footer/Footer'
 import { useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../store/hooks/redux'
 import { getInfoFilm } from '../store/film/filmSlice'
