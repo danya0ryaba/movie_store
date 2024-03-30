@@ -20,13 +20,9 @@ export const Person: React.FC<PersonType> = ({
 
     const [classList, setClassList] = React.useState(false)
 
-    const handleMouseEnter = () => {
-        setClassList(!classList)
-    }
+    const handleMouseEnter = () => setClassList(!classList)
 
-    const handleMouseLeave = () => {
-        setClassList(!classList)
-    }
+    const handleMouseLeave = () => setClassList(!classList)
 
     return <li className={style.list__actor}
         onMouseEnter={handleMouseEnter}

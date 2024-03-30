@@ -1,0 +1,67 @@
+.portal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 800px;
+    height: 340px;
+    padding: 20px;
+    background-color: #503d58;
+    border-radius: 30px;
+    transition: 0.3s all;
+    z-index: 2;
+    opacity: 0.95;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    color: white;
+
+    &__close {
+        position: relative;
+
+        .close {
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            fill: #fff;
+            transition: 0.2s all;
+
+            &:hover {
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    .title {
+        font-size: 40px;
+        font-weight: 600;
+        margin-bottom: 30px;
+    }
+
+    .subtitle {
+        font-size: 35px;
+        margin-bottom: 60px;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 34px;
+
+        &__btn {
+            margin: 0 10px;
+        }
+    }
+
+    .forgot {
+        opacity: 0.9;
+        cursor: pointer;
+        font-size: 24px;
+        text-decoration: underline;
+        transition: 0.3s all;
+
+        &:hover {
+            font-size: 26px;
+            text-decoration: none;
+        }
+    }
+}

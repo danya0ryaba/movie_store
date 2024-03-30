@@ -89,5 +89,8 @@ export const usersAPI = {
     getSearch(name: string) {
         return instance.get(`movie/search?page=1&limit=10&query=${name}`)
     },
+    getPersonId(id: number) {
+        return instance.get(`person/${id}`)
+    }
 
 }

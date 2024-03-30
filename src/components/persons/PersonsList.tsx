@@ -7,6 +7,8 @@ type PersonsType = {
 }
 
 export const PersonsLists: React.FC<PersonsType> = ({ persons }) => {
+    console.log(persons);
+
     return persons ?
         <ul>
             {persons.map(man => <Person key={man.id} {...man} />)}

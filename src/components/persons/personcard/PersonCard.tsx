@@ -1,6 +1,10 @@
 import React from 'react'
 import style from './personcard.module.scss'
 import { PersonType } from '../personitem/Person'
+import { createPortal } from 'react-dom'
+import { Portal } from '../../Portal/Portal'
+
+
 
 export const PersonCard: React.FC<PersonType> = ({
     name,

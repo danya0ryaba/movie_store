@@ -2,8 +2,16 @@ import React from 'react'
 import style from './fullscreen.module.scss'
 import { Button } from '../button/Button'
 import date from '../../assets/img/date.png'
+import { Portal } from '../Portal/Portal'
 
 export const FullScreen = () => {
+
+    const [popup, setPopup] = React.useState(false)
+
+    const onClose = () => setPopup(false)
+
+    const onClick = () => setPopup(true)
+
     return (
         <div className={style.fullscreen}>
 
@@ -28,8 +36,9 @@ export const FullScreen = () => {
                         </div>
                     </div>
 
-                    <Button>смотреть сейчас</Button>
+                    <Button onClick={onClick}>смотреть сейчас</Button>
 
+                    {popup ? <Portal onClose={onClose} /> : false}
                 </div>
 
             </div>
