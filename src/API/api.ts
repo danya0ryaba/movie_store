@@ -1,6 +1,5 @@
 import axios from "axios"
 
-
 // в конце возможно переписать это покрасивее
 const instance = axios.create({
     baseURL: 'https://api.kinopoisk.dev/v1.4/',

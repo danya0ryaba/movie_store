@@ -17,15 +17,14 @@ export const Popular: React.FC = () => {
         <div className={style.container}>
             <Title>сериалы</Title>
             <div className={style.gradient__left} />
-            {isLoading ? <Loader /> : <>
-                <Swiper modules={[Scrollbar]} spaceBetween={5} slidesPerView={5}>
-                    {series.map(s => <SwiperSlide key={s.id}>
-                        <NavLink to={`/movie/${s.id}`}>
-                            <PopularFilm previewUrl={s.poster.previewUrl} />
-                        </NavLink>
-                    </SwiperSlide>)}
-                </Swiper>
-            </>}
+            {isLoading ? <Loader /> : <Swiper modules={[Scrollbar]} spaceBetween={5} slidesPerView={5}>
+                {series.map(s => <SwiperSlide key={s.id}>
+                    <NavLink to={`/movie/${s.id}`}>
+                        <PopularFilm previewUrl={s.poster.previewUrl} />
+                    </NavLink>
+                </SwiperSlide>)}
+            </Swiper>
+            }
             <div className={style.gradient} />
             <p className={style.text__info}>
                 Filmagnet — это платформа онлайн-трансляции фильмов,

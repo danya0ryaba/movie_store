@@ -1,0 +1,83 @@
+.container {
+    margin: 0 auto;
+    max-width: 1180px;
+    width: 100%;
+    padding: 0 10px;
+    overflow: hidden;
+
+    .person {
+        margin: 48px 0;
+        color: white;
+        display: flex;
+
+        &__img {
+            margin-right: 50px;
+        }
+
+        &__info {
+
+            .name {
+                font-size: 40px;
+                font-weight: 900;
+                margin-bottom: 22px;
+            }
+
+            .en_name {
+                font-size: 30px;
+                font-weight: 300;
+                margin-bottom: 50px;
+            }
+
+            .about__person {
+
+                .about {
+                    font-size: 26px;
+                    font-weight: 600;
+                    margin-bottom: 30px;
+                }
+
+                .about_info {
+
+                    font-size: 14px;
+
+                    .about__info_block {
+                        display: flex;
+                        justify-content: space-between;
+                        margin-bottom: 28px;
+
+                        .key {
+                            color: rgb(197, 197, 197);
+                        }
+
+                        // .value {}
+
+                    }
+                }
+
+            }
+
+        }
+    }
+
+    .facts {
+        color: white;
+        margin: 8px 0;
+
+        h4 {
+            font-size: 30px;
+            text-transform: uppercase;
+            margin: 20px 0;
+        }
+
+        &__ul {
+            width: 100%;
+            max-width: 800px;
+            font-size: 18px;
+
+            &_li {
+                padding: 16px 0;
+            }
+        }
+    }
+
+}

@@ -14,6 +14,7 @@ import { getSeries } from './store/series/seriesSlice';
 import { getCartoon } from './store/cartoon/cartoonSlice';
 import { Footer } from './components/footer/Footer';
 import { getAnime } from './store/anime/animeSlice';
+import { Person } from './page/Person/Person';
 
 function App() {
 
@@ -42,6 +43,8 @@ function App() {
 
       <Route path='/series' element={<Series />} />
       <Route path='/series/:id' element={<CardMovie />} />
+
+      <Route path='person/:id' element={<Person />} />
 
       <Route path='*' element={<Error />} />
 
