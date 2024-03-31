@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './style/index.scss';
 import { Route, Routes } from 'react-router-dom';
 import { Home } from './page/Home';
@@ -21,7 +21,8 @@ function App() {
   const dispatch = useAppDispatch()
 
   // надо зaписать данные в localStorage, чтобы израсходавав лимит запросов брать оттуда
-  useEffect(() => {
+
+  React.useEffect(() => {
     dispatch(getMovies(1))
     dispatch(getSeries(1))
     dispatch(getCartoon(1))

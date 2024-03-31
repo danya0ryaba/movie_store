@@ -9,10 +9,9 @@
         margin: 48px 0;
         color: white;
         display: flex;
+        justify-content: space-between;
 
-        &__img {
-            margin-right: 50px;
-        }
+        // &__img {}
 
         &__info {
 

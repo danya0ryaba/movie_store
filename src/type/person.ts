@@ -18,7 +18,7 @@ type SpousesType = {
     relation: string
 }
 
-export interface Person {
+interface Person {
     age: number,
     birthPlace: UniversalType[],
     birthday: Date,
@@ -39,3 +39,5 @@ export interface Person {
     spouses: SpousesType[],
     updatedAt: Date
 }
+
+export type PersonI = Partial<Person> 

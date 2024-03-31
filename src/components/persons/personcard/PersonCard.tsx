@@ -3,9 +3,6 @@ import style from './personcard.module.scss'
 import { PersonType } from '../personitem/Person'
 import { Link } from 'react-router-dom'
 
-// ВЛОЖЕННЫЙ РОУТЕР РАЗБИРАТЬ
-
-
 export const PersonCard: React.FC<PersonType> = ({
     name,
     enName,
@@ -15,9 +12,11 @@ export const PersonCard: React.FC<PersonType> = ({
 }) => {
 
     return <div className={style.popup}>
+
         <div className={style.person__photo}>
             <img src={photo} alt="фото актера" />
         </div>
+
         <div className={style.person__info}>
             <h2 className={style.name}>
                 {name}
@@ -25,9 +24,8 @@ export const PersonCard: React.FC<PersonType> = ({
                 {enName}
             </h2>
             <span className={style.profession}>{profession}</span>
-
-            <Link to={`person/${id}`} className={style.moreBtn}>узнать больше</Link>
-
+            <Link to={`/person/${id}`} className={style.moreBtn}>узнать больше</Link>
         </div>
+
     </div >
 }

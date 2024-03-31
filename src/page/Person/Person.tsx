@@ -1,29 +1,37 @@
 import React from 'react'
 import s from './person.module.scss'
-
+import { PersonI } from '../../type/person'
 import { usersAPI } from '../../API/api'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { NavLink } from 'react-router-dom'
-import { Scrollbar } from 'swiper/modules'
+import { useParams } from 'react-router-dom'
+import { ImagesType } from '../../type/images'
 
 
 export const Person = () => {
 
-    // React.useEffect(() => {
-    //     usersAPI.getPersonId(797).then(res => console.log(res.data))
-    // })
+    const [person, setPerson] = React.useState<PersonI>({})
+    const [images, setImages] = React.useState<ImagesType>([])
+
+    const { id } = useParams()
+
+    React.useEffect(() => {
+        usersAPI.getPersonId(Number(id)).then(res => setPerson(res.data))
+        usersAPI.getImageId(1, 10, Number(id)).then(res => setImages(res.data.docs))
+    }, [id])
+    const movies = person.movies?.slice(0, 10)
+    // как-то фильмы отобразить(придумать как)
+    console.log(images);
 
     return <div className={s.container}>
         <section className={s.person}>
 
             <div className={s.person__img}>
-                <img src="https://avatars.mds.yandex.net/get-kinopoisk-image/1777765/7b37ed50-2bb0-4f22-adba-d94023ed9a38/280x420" alt="портрет" />
+                <img src={`${person.photo}`} alt="портрет" />
             </div>
 
             <div className={s.person__info}>
 
-                <h2 className={s.name}>Мэттью Макконахи</h2>
-                <h2 className={s.en_name}>Matthew McConaughey</h2>
+                <h2 className={s.name}>{person.name}</h2>
+                <h2 className={s.en_name}>{person.enName}</h2>
 
                 <div className={s.about__person}>
                     <h3 className={s.about}>О персоне</h3>
@@ -31,27 +39,33 @@ export const Person = () => {
 
                         <span className={s.about__info_block}>
                             <span className={s.key}>Карьера</span>
-                            <span className={s.value}>Актер, Продюсер, Режиссер, Сценарист</span>
+                            <span className={s.value}>{person.profession?.map((item, i, arr) => {
+                                if (arr.length - 1 === i) return <>{item.value}</>
+                                else return <>{item.value}, </>
+                            })}</span>
                         </span>
 
                         <span className={s.about__info_block}>
-                            <span className={s.key}>Карьера</span>
-                            <span className={s.value}>Актер, Продюсер, Режиссер, Сценарист</span>
+                            <span className={s.key}>Страна</span>
+                            <span className={s.value}>{person.birthPlace?.map((item, i, arr) => {
+                                if (arr.length - 1 === i) return <>{item.value}</>
+                                else return <>{item.value}, </>
+                            })}</span>
                         </span>
 
                         <span className={s.about__info_block}>
-                            <span className={s.key}>Карьера</span>
-                            <span className={s.value}>Актер, Продюсер, Режиссер, Сценарист</span>
+                            <span className={s.key}>Возраст</span>
+                            <span className={s.value}>{person.age} лет</span>
                         </span>
 
                         <span className={s.about__info_block}>
-                            <span className={s.key}>Карьера</span>
-                            <span className={s.value}>Актер, Продюсер, Режиссер, Сценарист</span>
+                            <span className={s.key}>Рост</span>
+                            <span className={s.value}>{person.growth}</span>
                         </span>
 
                         <span className={s.about__info_block}>
-                            <span className={s.key}>Карьера</span>
-                            <span className={s.value}>Актер, Продюсер, Режиссер, Сценарист</span>
+                            <span className={s.key}>Пол</span>
+                            <span className={s.value}>{person.sex}</span>
                         </span>
 
                     </div>
@@ -61,22 +75,13 @@ export const Person = () => {
 
         </section>
 
-        <div className="films">
-            {/* <Swiper modules={[Scrollbar]} spaceBetween={5} slidesPerView={5}>
-                {lalalala.map(s => <SwiperSlide key={s.id}>
-                    <NavLink to={`/movie/${s.id}`}>
-                        <PopularFilm previewUrl={s.poster.previewUrl} />
-                    </NavLink>
-                </SwiperSlide>)}
-            </Swiper> */}
-        </div>
-
         <div className={s.facts}>
-            <h4>Знаете ли вы?</h4>
+            <h4>Интересные факты:</h4>
             <ul className={s.facts__ul}>
-                <li className={s.facts__ul_li}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, unde!</li>
-                <li className={s.facts__ul_li}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, magni! Tempora eligendi quae ab!</li>
-                <li className={s.facts__ul_li}>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                {person.facts?.length === 0 ?
+                    <>Отсутсвуют</> :
+                    person.facts?.map((item, i) => <li key={i} className={s.facts__ul_li}>{item.value}</li>)
+                }
             </ul>
         </div>
     </div>
