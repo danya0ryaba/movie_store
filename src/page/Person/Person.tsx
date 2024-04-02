@@ -2,11 +2,15 @@ import React from 'react'
 import s from './person.module.scss'
 import { PersonI } from '../../type/person'
 import { usersAPI } from '../../API/api'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { ImagesType } from '../../type/images'
 
 
 export const Person = () => {
+
+    const navigate = useNavigate()
+
+    const onClickBack = () => navigate(-1)
 
     const [person, setPerson] = React.useState<PersonI>({})
     const [images, setImages] = React.useState<ImagesType>([])
@@ -17,11 +21,9 @@ export const Person = () => {
         usersAPI.getPersonId(Number(id)).then(res => setPerson(res.data))
         usersAPI.getImageId(1, 10, Number(id)).then(res => setImages(res.data.docs))
     }, [id])
-    const movies = person.movies?.slice(0, 10)
-    // как-то фильмы отобразить(придумать как)
-    console.log(images);
 
     return <div className={s.container}>
+        <button className={s.back} onClick={onClickBack}> &#129044; Назад</button>
         <section className={s.person}>
 
             <div className={s.person__img}>
@@ -84,5 +86,6 @@ export const Person = () => {
                 }
             </ul>
         </div>
+
     </div>
 }
