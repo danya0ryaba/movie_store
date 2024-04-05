@@ -16,6 +16,10 @@ const options = ['Биография', 'Аниме', 'Боевики', 'Дете
 
 export const Series = () => {
 
+    const [touch, setTouch] = React.useState(false)
+
+    const requestSearchName = (name: string) => { }
+
     const { series, isLoading, page } = useAppSelector(state => state.series);
 
     const dispatch = useAppDispatch()
@@ -25,7 +29,7 @@ export const Series = () => {
     return <div className={style.series}>
         <Title>Лучшие сериалы</Title>
         <Filters filterItem={filterSeries} />
-        {/* <InputCustom /> */}
+        <InputCustom touch={touch} setTouch={setTouch} requestSearchName={requestSearchName} />
         <div className={style.genres}>
             <SelectCustom title={'Жанры'} option={options} />
         </div>

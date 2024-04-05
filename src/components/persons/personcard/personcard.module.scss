@@ -3,7 +3,7 @@
     padding: 10px;
     border-radius: 10px;
     left: -270px;
-    top: -70px;
+    top: -180px;
     background-color: #fff;
     max-width: 400px;
     max-height: 340px;
@@ -35,6 +35,11 @@
 
         .profession {
             font-size: 12px;
+            margin-bottom: 10px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
 
         .moreBtn {

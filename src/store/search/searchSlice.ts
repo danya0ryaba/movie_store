@@ -30,7 +30,12 @@ export const getSearchMovie = createAsyncThunk<Movie[], string, { rejectValue: s
 export const searchSlice = createSlice({
     name: 'search',
     initialState,
-    reducers: {},
+    reducers: {
+        changeIsExist: (state, action: PayloadAction<boolean>) => {
+            console.log(action.payload);
+            state.isExist = action.payload
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(getSearchMovie.pending, (state) => {
@@ -48,5 +53,5 @@ export const searchSlice = createSlice({
             })
     }
 })
-
+export const { changeIsExist } = searchSlice.actions
 export default searchSlice.reducer

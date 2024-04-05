@@ -1,19 +1,34 @@
 import React, { ChangeEvent } from 'react'
 import style from './inputcustom.module.scss'
 import { ReactComponent as Search } from '../../assets/img/search_black_svg.svg'
+import { useAppDispatch } from '../../store/hooks/redux'
+import { changeIsExist } from '../../store/search/searchSlice'
 
 type InputCustomType = {
+    setTouch: (value: boolean) => void
+    touch: boolean
     requestSearchName: (name: string) => void
 }
 
-export const InputCustom: React.FC<InputCustomType> = ({ requestSearchName }) => {
+export const InputCustom: React.FC<InputCustomType> = ({ requestSearchName, setTouch, touch }) => {
+
+    const dispatch = useAppDispatch()
 
     const [input, setInput] = React.useState('')
 
     const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
         setInput(e.target.value)
-        if (input.length > 0) requestSearchName(input)
+        checkedValueInput()
+        // requestSearchName(input)
+        // if (input.length === 0) dispatch(changeIsExist(false))
+    }
 
+    const checkedValueInput = () => {
+
+        if (input.length > 0) requestSearchName(input)
+        if (input.length === 1) {
+            dispatch(changeIsExist(false))
+        }
     }
 
     const onClickHandler = () => {

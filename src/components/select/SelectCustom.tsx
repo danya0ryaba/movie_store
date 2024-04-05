@@ -19,7 +19,6 @@ export const SelectCustom: React.FC<SelectCustomType> = ({ option, title }) => {
     }
     let styleArrow = isOpen ? '0deg' : '180deg'
 
-
     return <div className={style.select}>
 
         <svg className={style.world} width="21" height="21" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -41,13 +40,10 @@ export const SelectCustom: React.FC<SelectCustomType> = ({ option, title }) => {
         </span>
 
         <div className={style.forOptionPosition}>
-
             {isOpen && arrayFiltered.map(lang => (<Option onClickOption={onClickOption}
                 key={lang}>
                 {lang}
-            </Option>)
-            )}
-
+            </Option>))}
         </div>
 
     </div>

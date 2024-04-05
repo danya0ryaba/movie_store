@@ -1,7 +1,7 @@
 import React from 'react'
 import s from './portal.module.scss'
 import { createPortal } from 'react-dom';
-import { ReactComponent as Close } from '../../assets/img/close.svg'
+// import { ReactComponent as Close } from '../../assets/img/close.svg'
 import { Button } from '../button/Button';
 
 const portal = document.getElementById('portal')

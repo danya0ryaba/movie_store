@@ -20,7 +20,11 @@
         display: flex;
 
         &__img {
-            padding-right: 180px;
+            margin-right: 180px;
+            width: 400px;
+            height: 620px;
+            border-radius: 15px;
+            overflow: hidden;
 
             img {
                 width: 400px;
@@ -60,10 +64,9 @@
                         margin-bottom: 40px;
 
                         .key {
+                            padding-right: 15px;
                             color: rgb(197, 197, 197);
                         }
-
-                        // .value {}
 
                     }
                 }
@@ -90,7 +93,7 @@
 
             &_li {
                 line-height: 1.6;
-                padding: 25px 0;
+                padding: 15px 0;
             }
         }
     }

@@ -19,9 +19,10 @@ export const CartoonBlock: React.FC = () => {
     return <section className={style.tv}>
         <div className={style.tv__container}>
             {isLoading ? <Loader /> : <>
-                {cartoon.map(cartoon => (<Link style={{ marginBottom: '10px' }} key={cartoon.id} to={`${cartoon.id}`}>
-                    <CartoonItem key={cartoon.id} {...cartoon} />
-                </Link>))}
+                {cartoon.map(cartoon =>
+                    <Link style={{ marginBottom: '10px' }} key={cartoon.id} to={`${cartoon.id}`}>
+                        <CartoonItem key={cartoon.id} {...cartoon} />
+                    </Link>)}
             </>}
         </div>
         <Pagination page={page} onRequestHandler={onRequestCartoon} />

@@ -1,6 +1,7 @@
 import React from 'react'
 import style from './person.module.scss'
 import { PersonCard } from '../personcard/PersonCard'
+import { Persons } from '../../../type/movieId'
 
 export type PersonType = {
     readonly name: string,
@@ -10,13 +11,8 @@ export type PersonType = {
     readonly profession: string
 }
 
-export const Person: React.FC<PersonType> = ({
-    name,
-    enName,
-    id,
-    photo,
-    profession,
-}) => {
+export const Person: React.FC<Persons> = (props) => {
+
 
     const [classList, setClassList] = React.useState(false)
 
@@ -27,14 +23,9 @@ export const Person: React.FC<PersonType> = ({
     return <li className={style.list__actor}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}>
-        {name}
+        {props.name}
         <div className={style.forPosition}>
-            {classList && <PersonCard
-                name={name}
-                enName={enName}
-                id={id}
-                photo={photo}
-                profession={profession} />}
+            {classList && <PersonCard {...props} />}
         </div>
     </li>
 }
