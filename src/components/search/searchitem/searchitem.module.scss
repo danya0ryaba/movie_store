@@ -2,15 +2,25 @@
 
 .item {
     cursor: pointer;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid $gray;
     display: flex;
     justify-content: space-between;
-    padding: 5px;
-    color: $green;
+    padding: 10px;
     transition: 0.3s all;
 
     &:hover {
         background-color: $light-gray;
+        border: 1px solid $green;
+
+        .desc {
+            color: $green;
+            transform: scale(1.05);
+        }
+
+        .info__film {
+            color: $green;
+        }
+
     }
 
     .poster {
@@ -18,19 +28,35 @@
         height: 86px;
     }
 
+    .desc {
+        transition: 0.3s all;
+        color: $gray;
+        font-size: 16px;
+        max-width: 500px;
+    }
+
     .info__film {
+        transition: 0.3s all;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: flex-end;
+        color: $gray;
 
         .name {
+            letter-spacing: 10px;
             font-size: 23px;
             font-weight: 900;
         }
 
         .rating {
+            letter-spacing: 5px;
             font-size: 18px;
+        }
+
+        .year {
+            text-transform: uppercase;
+            letter-spacing: 10px;
         }
 
     }

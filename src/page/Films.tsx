@@ -26,7 +26,7 @@ export const Films: React.FC = () => {
 
     const { movies, page, isLoading } = useAppSelector(state => state.movie)
 
-    const { isExist, searchMovies } = useAppSelector(state => state.searchMovie)
+    const { searchMovies } = useAppSelector(state => state.searchMovie)
 
     const requestSearchName = (name: string) => dispatch(getSearchMovie(name))
 
@@ -36,10 +36,8 @@ export const Films: React.FC = () => {
 
         <InputCustom touch={touch} setTouch={setTouch} requestSearchName={requestSearchName} />
 
-        {isExist && <div className={style.searchFilms}>
-            <ul>
-                {searchMovies.map(film => <SearchItem key={film.id} {...film} />)}
-            </ul>
+        {touch && <div className={style.searchFilms}>
+            <ul>{searchMovies.map(film => <SearchItem key={film.id} {...film} />)}</ul>
         </div>}
 
         <div className={style.genres}>

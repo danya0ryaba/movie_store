@@ -7,14 +7,12 @@ interface SearchInitialState {
     searchMovies: Movie[],
     isLoading: boolean,
     error: null | string,
-    isExist: boolean
 }
 
 const initialState: SearchInitialState = {
     searchMovies: [],
     isLoading: false,
     error: null,
-    isExist: false,
 }
 
 export const getSearchMovie = createAsyncThunk<Movie[], string, { rejectValue: string }>(
@@ -26,16 +24,10 @@ export const getSearchMovie = createAsyncThunk<Movie[], string, { rejectValue: s
     }
 )
 
-
 export const searchSlice = createSlice({
     name: 'search',
     initialState,
-    reducers: {
-        changeIsExist: (state, action: PayloadAction<boolean>) => {
-            console.log(action.payload);
-            state.isExist = action.payload
-        }
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(getSearchMovie.pending, (state) => {
@@ -45,7 +37,6 @@ export const searchSlice = createSlice({
             .addCase(getSearchMovie.fulfilled, (state, { payload }) => {
                 state.searchMovies = payload
                 state.isLoading = false
-                state.isExist = true
             })
             .addMatcher(isError, (state, action: PayloadAction<string>) => {
                 state.error = action.payload
@@ -53,5 +44,5 @@ export const searchSlice = createSlice({
             })
     }
 })
-export const { changeIsExist } = searchSlice.actions
+
 export default searchSlice.reducer

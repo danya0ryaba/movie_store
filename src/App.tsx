@@ -21,7 +21,6 @@ function App() {
   const dispatch = useAppDispatch()
 
   // надо зaписать данные в localStorage, чтобы израсходавав лимит запросов брать оттуда
-  // переписать InputCustom на нормальный
 
   React.useEffect(() => {
     dispatch(getMovies(1))
