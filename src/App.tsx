@@ -22,6 +22,10 @@ function App() {
 
   // надо зaписать данные в localStorage, чтобы израсходавав лимит запросов брать оттуда
 
+  // обязательно сделать пустоу изображение на страницу CardMovie если нет фото
+
+  // и сделать еще скелетон на практически все изображения
+
   React.useEffect(() => {
     dispatch(getMovies(1))
     dispatch(getSeries(1))
@@ -39,8 +43,8 @@ function App() {
       <Route path='movie' element={<Films />} />
       <Route path='movie/:id' element={<CardMovie />} />
 
-      <Route path='tv' element={<Cartoon />} />
-      <Route path='tv/:id' element={<CardMovie />} />
+      <Route path='cartoon' element={<Cartoon />} />
+      <Route path='cartoon/:id' element={<CardMovie />} />
 
       <Route path='/series' element={<Series />} />
       <Route path='/series/:id' element={<CardMovie />} />
@@ -51,7 +55,7 @@ function App() {
 
     </Routes>
 
-    {/* <Footer /> */}
+    <Footer />
 
   </>);
 }

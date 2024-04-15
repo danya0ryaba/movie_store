@@ -9,8 +9,8 @@ export const Footer = () => {
                     <li className={style.link_menu}>О нас</li>
                     <li className={style.link_menu}>Блог</li>
                     <li className={style.link_menu}>Контакты</li>
-                    <li className={style.link_menu}>Report broken links</li>
-                    <li className={style.link_menu}>Disclaimer</li>
+                    <li className={style.link_menu}>Ошибки</li>
+                    <li className={style.link_menu}>Ответственность</li>
                 </ul>
             </nav>
         </div>

@@ -25,7 +25,7 @@ export const Header = () => {
             <nav className={style.header__menu}>
                 <NavLink className={({ isActive }) => `${isActive ? style.link_active : style.link}`} to={'/'}>главная</NavLink>
                 <NavLink className={({ isActive }) => `${isActive ? style.link_active : style.link}`} to={'/movie'}>кино</NavLink>
-                <NavLink className={({ isActive }) => `${isActive ? style.link_active : style.link}`} to={'/tv'}>мультфильмы</NavLink>
+                <NavLink className={({ isActive }) => `${isActive ? style.link_active : style.link}`} to={'/cartoon'}>мультфильмы</NavLink>
                 <NavLink className={({ isActive }) => `${isActive ? style.link_active : style.link}`} to={'/series'}>сериалы</NavLink>
             </nav>
 

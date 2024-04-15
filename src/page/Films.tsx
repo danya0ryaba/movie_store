@@ -17,6 +17,7 @@ const filtersMovies = ['С высоким рейтингом', 'Российск
 const options = ['Биография', 'Аниме', 'Боевики', 'Детективы', 'Документальные', 'Драмы']
 
 export const Films: React.FC = () => {
+    // надо переписать логику подгрузки на главной странице
 
     const [touch, setTouch] = React.useState(false)
 
