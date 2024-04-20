@@ -14,7 +14,7 @@ export const CardMovie: React.FC = () => {
 
     useEffect(() => {
         dispatch(getInfoFilm(Number(id)))
-        window.scroll(0, 0) //?
+        window.scrollTo(0, 0)
     }, [id, dispatch])
 
     const { film, isLoading } = useAppSelector(state => state.film)

@@ -8,6 +8,7 @@ import { Loader } from '../../components/loader/Loader'
 export const Person = () => {
 
     const navigate = useNavigate()
+
     const { id } = useParams()
 
     const onClickBack = () => navigate(-1)
@@ -18,7 +19,7 @@ export const Person = () => {
         usersAPI.getPersonId(Number(id)).then(res => setPerson(res.data))
     }, [id])
 
-    return Object.keys(person).length === 0 ? <Loader /> : <div className={s.container}>
+    return Object.keys(person).length === 0 ? <Loader /> : <div className={s.fullscreen}><div className={s.container}>
         <button className={s.back} onClick={onClickBack}> &#129044; Назад</button>
 
         <section className={s.person}>
@@ -78,5 +79,6 @@ export const Person = () => {
             </ul>
         </div>
 
+    </div>
     </div>
 }

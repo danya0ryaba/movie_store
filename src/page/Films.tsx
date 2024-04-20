@@ -17,7 +17,6 @@ const filtersMovies = ['С высоким рейтингом', 'Российск
 const options = ['Биография', 'Аниме', 'Боевики', 'Детективы', 'Документальные', 'Драмы']
 
 export const Films: React.FC = () => {
-    // надо переписать логику подгрузки на главной странице
 
     const [touch, setTouch] = React.useState(false)
 
@@ -32,7 +31,9 @@ export const Films: React.FC = () => {
     const requestSearchName = (name: string) => dispatch(getSearchMovie(name))
 
     return <div className={style.series}>
+
         <Title>Лучшие фильмов</Title>
+
         <Filters filterItem={filtersMovies} />
 
         <InputCustom touch={touch} setTouch={setTouch} requestSearchName={requestSearchName} />

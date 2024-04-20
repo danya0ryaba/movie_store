@@ -30,7 +30,7 @@ export const FullScreen = () => {
                     </div>
                 </div>
                 <Button onClick={onClick}>смотреть сейчас</Button>
-                {popup ? <Portal onClose={onClose} /> : false}
+                {popup && <Portal onClose={onClose} />}
             </div>
         </div>
     </div>

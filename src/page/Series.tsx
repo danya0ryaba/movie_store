@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { InputCustom } from '../components/input/InputCustom'
 import { Filters } from '../components/filters/Filters'
 import { Title } from '../components/title/Title'

@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Scrollbar } from 'swiper/modules';
 import 'swiper/css';
 import { useAppSelector } from '../../store/hooks/redux';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Loader } from '../loader/Loader';
 
 export const Popular: React.FC = () => {
@@ -23,8 +23,8 @@ export const Popular: React.FC = () => {
                         <PopularFilm previewUrl={s.poster.previewUrl} />
                     </NavLink>
                 </SwiperSlide>)}
-            </Swiper>
-            }
+            </Swiper>}
+            <Link to={'/series'} className={style.more}>посмотреть...</Link>
             <div className={style.gradient} />
             <p className={style.text__info}>
                 Filmagnet — это платформа онлайн-трансляции фильмов,

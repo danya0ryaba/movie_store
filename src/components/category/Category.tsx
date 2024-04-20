@@ -33,11 +33,13 @@ export const Category = () => {
                         {nameCategory.map(item => <ButtonCategory key={item}>{item}</ButtonCategory>)}
                     </div>
                 </div>
+
                 <div className={style.category__films}>
                     {allMovies.map(card => <Link key={card.id} to={`movie/${card.id}`}>
                         <MovieCard key={card.id} {...card} />
                     </Link>)}
                 </div> </>}
+
             <span onClick={showMoreCards} className={style.more}>посмотреть...</span>
         </div>
     </section>

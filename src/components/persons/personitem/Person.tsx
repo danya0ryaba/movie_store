@@ -13,7 +13,6 @@ export type PersonType = {
 
 export const Person: React.FC<Persons> = (props) => {
 
-
     const [classList, setClassList] = React.useState(false)
 
     const handleMouseEnter = () => setClassList(!classList)

@@ -20,18 +20,15 @@ function App() {
 
   const dispatch = useAppDispatch()
 
-  // надо зaписать данные в localStorage, чтобы израсходавав лимит запросов брать оттуда
-
-  // обязательно сделать пустоу изображение на страницу CardMovie если нет фото
-
-  // и сделать еще скелетон на практически все изображения
-
   React.useEffect(() => {
     dispatch(getMovies(1))
     dispatch(getSeries(1))
     dispatch(getCartoon(1))
     dispatch(getAnime(1))
   }, [dispatch])
+
+  // написать нормальный инпут для мультиков и сериалов,
+  // возможно надо приклуеть выпадающий список к кастомному инпуту (переписать кастомный инпут)
 
   return (<>
     <Header />
@@ -55,7 +52,7 @@ function App() {
 
     </Routes>
 
-    <Footer />
+    {/* <Footer /> */}
 
   </>);
 }

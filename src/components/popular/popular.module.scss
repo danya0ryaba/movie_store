@@ -6,6 +6,7 @@
     color: $white;
 
     .container {
+        position: relative;
         margin: 0 auto;
         max-width: 1180px;
         width: 100%;
@@ -46,6 +47,23 @@
             padding: 5px;
             background: rgb(0, 0, 0);
             background: linear-gradient(90deg, rgba(0, 0, 0, 1) 23%, rgba(0, 0, 0, 0) 100%);
+        }
+
+        .more {
+            position: absolute;
+            bottom: 140px;
+            left: 50%;
+            transform: translate(-50%);
+            cursor: pointer;
+            font-size: 20px;
+            transition: 0.2s linear;
+            padding: 2px;
+            color: $white;
+            padding-top: 40px;
+
+            &:hover {
+                color: $green;
+            }
         }
 
         .gradient {
