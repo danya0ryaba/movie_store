@@ -74,7 +74,8 @@ export const InfoFilm: React.FC<CurrentFilm> = (props) => {
                                 <label htmlFor="#">{props.rating?.imdb}</label>
                             </div>
                             {grade && <div className={style.my_grade} onMouseLeave={onMouseLeaveFilm}>
-                                {gradeForFilms.map(star => <Star
+                                {gradeForFilms.map((star, i) => <Star
+                                    key={i}
                                     onCloseRating={onMouseLeaveFilm}
                                     selected={rating > star}
                                     setGradeValue={setRating}

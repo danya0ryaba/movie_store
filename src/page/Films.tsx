@@ -23,7 +23,6 @@ export const Films: React.FC = () => {
     const dispatch = useAppDispatch()
 
     const requestPage = (page: number) => dispatch(getMovies(page))
-
     const { movies, page, isLoading } = useAppSelector(state => state.movie)
 
     const { searchMovies } = useAppSelector(state => state.searchMovie)
@@ -33,7 +32,6 @@ export const Films: React.FC = () => {
     return <div className={style.series}>
 
         <Title>Лучшие фильмов</Title>
-
         <Filters filterItem={filtersMovies} />
 
         <InputCustom touch={touch} setTouch={setTouch} requestSearchName={requestSearchName} />
