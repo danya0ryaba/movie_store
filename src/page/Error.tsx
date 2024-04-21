@@ -5,7 +5,9 @@ import { useNavigate } from 'react-router-dom'
 export const Error = () => {
 
     const navigate = useNavigate()
+
     const onClickBack = () => navigate(-1)
+
     return <section className={style.error}>
 
         <h1 className={style.error__title}>Ошибка</h1>

@@ -1,0 +1,111 @@
+@import '../../style/variables.scss';
+
+.fullscreen {
+    height: 100vh;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8100490196078431) 0%, rgba(186, 203, 235, 0.7176120448179272) 50%, rgba(0, 0, 0, 0.6811974789915967) 100%);
+
+    .container {
+        margin: 0 auto;
+        max-width: 1180px;
+        width: 100%;
+        padding: 0 10px;
+        overflow: hidden;
+
+        .back {
+            color: $white;
+            background-color: transparent;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .person {
+            margin: 50px 0 30px 0;
+            color: white;
+            display: flex;
+            justify-content: center;
+
+            &__img {
+                box-shadow: 0px 5px 28px 9px rgba(0, 0, 0, 0.87);
+                margin-right: 180px;
+                width: 400px;
+                height: 600px;
+                overflow: hidden;
+
+                img {
+                    width: 400px;
+                    height: 580px;
+                    border-radius: 15px;
+                    overflow: hidden;
+                }
+            }
+
+            &__info {
+
+                .name {
+                    font-size: 48px;
+                    font-weight: 900;
+                    margin-bottom: 14px;
+                }
+
+                .en_name {
+                    font-size: 30px;
+                    font-weight: 300;
+                    margin-bottom: 60px;
+                    color: $green;
+                }
+
+                .about__person {
+
+                    .about {
+                        font-size: 26px;
+                        font-weight: 600;
+                        margin-bottom: 30px;
+                    }
+
+                    .about_info {
+
+                        font-size: 14px;
+
+                        .about__info_block {
+                            display: flex;
+                            justify-content: space-between;
+                            margin-bottom: 40px;
+
+                            .key {
+                                padding-right: 15px;
+                                color: rgb(197, 197, 197);
+                            }
+
+                        }
+                    }
+
+                }
+
+            }
+        }
+
+        .facts {
+            color: white;
+            padding: 20px 0;
+
+            h4 {
+                font-size: 34px;
+                text-transform: uppercase;
+                margin: 20px 0;
+            }
+
+            &__ul {
+                width: 100%;
+                max-width: 800px;
+                font-size: 18px;
+
+                &_li {
+                    line-height: 1.6;
+                    padding: 15px 0;
+                }
+            }
+        }
+
+    }
+}

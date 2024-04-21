@@ -5,14 +5,14 @@ import { DataResponseType } from '../../type/responseAxios';
 import { isError } from '../../utils/isError';
 
 interface MovieInitialState {
-    movies: Movie[],
+    loadingMovies: Movie[],
     page: number,
     isLoading: boolean,
     error: null | string
 }
 
-export const getMovies = createAsyncThunk<DataResponseType, number, { rejectValue: string }>(
-    "movies/getMovies",
+export const getLoadingMovies = createAsyncThunk<DataResponseType, number, { rejectValue: string }>(
+    "loadingMovies/getMovies",
     async (page, { rejectWithValue }) => {
         const resp = await usersAPI.getMovie(page);
         if (resp.status === 200) return resp.data
@@ -21,24 +21,24 @@ export const getMovies = createAsyncThunk<DataResponseType, number, { rejectValu
 )
 
 const initialState: MovieInitialState = {
-    movies: [],
+    loadingMovies: [],
     page: 1,
     isLoading: false,
     error: null
 }
 
-const movieSlice = createSlice({
-    name: 'movies',
+const loadingMovieSlice = createSlice({
+    name: 'loadingMovies',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(getMovies.fulfilled, (state, { payload }) => {
-                state.movies = payload.docs
+            .addCase(getLoadingMovies.fulfilled, (state, { payload }) => {
+                state.loadingMovies = [...state.loadingMovies, ...payload.docs]
                 state.page = payload.page
                 state.isLoading = false
             })
-            .addCase(getMovies.pending, (state) => {
+            .addCase(getLoadingMovies.pending, (state) => {
                 state.isLoading = true
                 state.error = null
             })
@@ -49,4 +49,4 @@ const movieSlice = createSlice({
     }
 })
 
-export default movieSlice.reducer
+export default loadingMovieSlice.reducer

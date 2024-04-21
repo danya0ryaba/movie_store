@@ -6,11 +6,11 @@ export const Footer = () => {
         <div className={style.container}>
             <nav className={style.navigate}>
                 <ul className={style.navigate__list}>
-                    <li className={style.link_menu}>About us</li>
-                    <li className={style.link_menu}>Vlog</li>
-                    <li className={style.link_menu}>Contact</li>
-                    <li className={style.link_menu}>Report broken links</li>
-                    <li className={style.link_menu}>Disclaimer</li>
+                    <li className={style.link_menu}>О нас</li>
+                    <li className={style.link_menu}>Блог</li>
+                    <li className={style.link_menu}>Контакты</li>
+                    <li className={style.link_menu}>Ошибки</li>
+                    <li className={style.link_menu}>Ответственность</li>
                 </ul>
             </nav>
         </div>

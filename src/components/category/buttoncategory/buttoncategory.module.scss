@@ -9,6 +9,11 @@
     margin: 0 11px;
     transition: 0.5s all;
 
+    &_active {
+        background: $light-gray;
+        color: $green;
+    }
+
     &:first-child {
         margin-left: 0;
     }

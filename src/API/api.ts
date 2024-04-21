@@ -1,6 +1,5 @@
 import axios from "axios"
 
-
 // в конце возможно переписать это покрасивее
 const instance = axios.create({
     baseURL: 'https://api.kinopoisk.dev/v1.4/',
@@ -91,6 +90,9 @@ export const usersAPI = {
     },
     getPersonId(id: number) {
         return instance.get(`person/${id}`)
-    }
+    },
+    // getImageId(page: number = 1, limit: number = 12, id: number) {
+    //     return instance.get(`image?page=${page}&limit=${limit}&movieId=${id}`)
+    // }
 
 }

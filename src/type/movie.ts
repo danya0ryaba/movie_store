@@ -33,8 +33,6 @@ type Duration = {
     readonly end: number
 }
 
-//27
-
 export interface Movie {
     status: string | null,
     rating: RatingAndVotes,
@@ -63,8 +61,6 @@ export interface Movie {
     isSeries: boolean,
     seriesLength: number | null,
     totalSeriesLength: number | null
-
     releaseYears?: Duration
-    // externalId?: { imdb?: string, kpHD?: string, tmdb?: number }
     externalId?: Partial<Pick<RatingAndVotes, 'imdb' | 'kpHD' | 'tmdb'>>
 }

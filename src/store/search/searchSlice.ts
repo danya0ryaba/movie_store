@@ -7,14 +7,12 @@ interface SearchInitialState {
     searchMovies: Movie[],
     isLoading: boolean,
     error: null | string,
-    isExist: boolean
 }
 
 const initialState: SearchInitialState = {
     searchMovies: [],
     isLoading: false,
     error: null,
-    isExist: false,
 }
 
 export const getSearchMovie = createAsyncThunk<Movie[], string, { rejectValue: string }>(
@@ -25,7 +23,6 @@ export const getSearchMovie = createAsyncThunk<Movie[], string, { rejectValue: s
         else return rejectWithValue("Server Error!")
     }
 )
-
 
 export const searchSlice = createSlice({
     name: 'search',
@@ -40,7 +37,6 @@ export const searchSlice = createSlice({
             .addCase(getSearchMovie.fulfilled, (state, { payload }) => {
                 state.searchMovies = payload
                 state.isLoading = false
-                state.isExist = true
             })
             .addMatcher(isError, (state, action: PayloadAction<string>) => {
                 state.error = action.payload

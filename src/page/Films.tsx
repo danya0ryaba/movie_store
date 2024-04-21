@@ -18,36 +18,27 @@ const options = ['Биография', 'Аниме', 'Боевики', 'Дете
 
 export const Films: React.FC = () => {
 
+    const [touch, setTouch] = React.useState(false)
+
     const dispatch = useAppDispatch()
 
     const requestPage = (page: number) => dispatch(getMovies(page))
-
     const { movies, page, isLoading } = useAppSelector(state => state.movie)
-    const { isExist, searchMovies } = useAppSelector(state => state.searchMovie)
+
+    const { searchMovies } = useAppSelector(state => state.searchMovie)
 
     const requestSearchName = (name: string) => dispatch(getSearchMovie(name))
 
-
     return <div className={style.series}>
+
         <Title>Лучшие фильмов</Title>
         <Filters filterItem={filtersMovies} />
 
+        <InputCustom touch={touch} setTouch={setTouch} requestSearchName={requestSearchName} />
 
-
-
-        <InputCustom requestSearchName={requestSearchName} />
-        {
-            isExist &&
-            <div className={style.searchFilms}>
-                <ul>
-                    {searchMovies.map(film => <SearchItem key={film.id} {...film} />)}
-                </ul>
-            </div>
-        }
-
-
-
-
+        {touch && <div className={style.searchFilms}>
+            <ul>{searchMovies.map(film => <SearchItem key={film.id} {...film} />)}</ul>
+        </div>}
 
         <div className={style.genres}>
             <SelectCustom title={'Жанры'} option={options} />

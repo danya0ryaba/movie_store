@@ -20,7 +20,6 @@ export const getAnime = createAsyncThunk<DataResponseType, number, { rejectValue
     }
 )
 
-
 const initialState: initialState = {
     anime: [],
     page: 1,

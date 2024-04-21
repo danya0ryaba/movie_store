@@ -1,0 +1,12 @@
+.star {
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 100%;
+
+    transition: 0.2s all;
+
+    &:hover {
+        transform: scale(1.13);
+        background-color: rgba(0, 0, 0, 0.76);
+    }
+}

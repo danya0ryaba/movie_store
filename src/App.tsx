@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './style/index.scss';
 import { Route, Routes } from 'react-router-dom';
 import { Home } from './page/Home';
@@ -14,18 +14,20 @@ import { getSeries } from './store/series/seriesSlice';
 import { getCartoon } from './store/cartoon/cartoonSlice';
 import { Footer } from './components/footer/Footer';
 import { getAnime } from './store/anime/animeSlice';
+import { Person } from './page/Person/Person';
 
 function App() {
 
   const dispatch = useAppDispatch()
 
-  // надо зaписать данные в localStorage, чтобы израсходавав лимит запросов брать оттуда
-  useEffect(() => {
+  React.useEffect(() => {
     dispatch(getMovies(1))
     dispatch(getSeries(1))
     dispatch(getCartoon(1))
     dispatch(getAnime(1))
   }, [dispatch])
+
+  // написать серверную фильтрацию и выделять активные фильтры
 
   return (<>
     <Header />
@@ -37,11 +39,13 @@ function App() {
       <Route path='movie' element={<Films />} />
       <Route path='movie/:id' element={<CardMovie />} />
 
-      <Route path='tv' element={<Cartoon />} />
-      <Route path='tv/:id' element={<CardMovie />} />
+      <Route path='cartoon' element={<Cartoon />} />
+      <Route path='cartoon/:id' element={<CardMovie />} />
 
       <Route path='/series' element={<Series />} />
       <Route path='/series/:id' element={<CardMovie />} />
+
+      <Route path='person/:id' element={<Person />} />
 
       <Route path='*' element={<Error />} />
 
