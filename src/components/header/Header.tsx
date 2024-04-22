@@ -11,6 +11,11 @@ export type Language = 'RU' | 'EN'
 const arrayLanguage = ['RU', 'EN']
 
 export const Header = () => {
+
+    const burgerMenu = () => {
+        alert('will be click on the burger menu')
+    }
+
     return <div className={style.container}>
 
         <header className={style.header}>
@@ -38,6 +43,8 @@ export const Header = () => {
             </div>
 
         </header>
+
+        <div className={style.burger} onClick={burgerMenu} />
 
     </div>
 }

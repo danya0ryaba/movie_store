@@ -11,10 +11,10 @@ interface MovieInitialState {
     error: null | string
 }
 
-export const getMovies = createAsyncThunk<DataResponseType, number, { rejectValue: string }>(
+export const getMovies = createAsyncThunk<DataResponseType, { page: number, filter?: string }, { rejectValue: string }>(
     "movies/getMovies",
-    async (page, { rejectWithValue }) => {
-        const resp = await usersAPI.getMovie(page);
+    async ({ page, filter }, { rejectWithValue }) => {
+        const resp = await usersAPI.getMovie(page, filter);
         if (resp.status === 200) return resp.data
         else return rejectWithValue("Server Error!")
     }

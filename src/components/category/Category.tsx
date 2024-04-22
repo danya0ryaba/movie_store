@@ -7,7 +7,9 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks/redux'
 import { Loader } from '../loader/Loader'
 import { getLoadingMovies } from '../../store/movie/loadingMovieSlice'
 
-const nameCategory = ['Фильмы', 'ТВ-Шоу', 'Аниме']
+const nameCategory = ['По рейтингу', 'Год', 'Страна']
+// rating.russianFilmCritics
+// rating.imdb
 
 export const Category = () => {
 

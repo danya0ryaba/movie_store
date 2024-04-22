@@ -21,13 +21,16 @@ function App() {
   const dispatch = useAppDispatch()
 
   React.useEffect(() => {
-    dispatch(getMovies(1))
+    dispatch(getMovies({ page: 1, filter: "rating.russianFilmCritics" }))
     dispatch(getSeries(1))
     dispatch(getCartoon(1))
     dispatch(getAnime(1))
   }, [dispatch])
 
+  // решить проблему с Fullscreen-ом
+  // написать бургер-меню
   // написать серверную фильтрацию и выделять активные фильтры
+
 
   return (<>
     <Header />

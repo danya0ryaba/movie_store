@@ -4,12 +4,10 @@ import { Button } from '../button/Button'
 import date from '../../assets/img/date.png'
 import { Portal } from '../Portal/Portal'
 
-export const FullScreen = () => {
+export const FullScreen: React.FC = () => {
 
     const [popup, setPopup] = React.useState(false)
-
     const onClose = () => setPopup(false)
-
     const onClick = () => setPopup(true)
 
     return <div className={style.fullscreen}>

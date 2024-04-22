@@ -22,7 +22,7 @@ export const Films: React.FC = () => {
 
     const dispatch = useAppDispatch()
 
-    const requestPage = (page: number) => dispatch(getMovies(page))
+    const requestPage = (page: number) => dispatch(getMovies({ page }))
     const { movies, page, isLoading } = useAppSelector(state => state.movie)
 
     const { searchMovies } = useAppSelector(state => state.searchMovie)

@@ -16,7 +16,7 @@ export const usersAPI = {
     getMovieId(id: number) {
         return instance.get(`movie/${id}`)
     },
-    getMovie(page: number = 1, limit: number = 12) {
+    getMovie(page: number = 1, filter: string = 'rating.imdb', limit: number = 12) {
         return instance.get(`movie?page=${page}&limit=${limit}&type=movie&
         selectFields=id&
         selectFields=name&
@@ -61,9 +61,11 @@ export const usersAPI = {
         notNullFields=persons.description&
         notNullFields=persons.profession&
         notNullFields=persons.enName&
-        notNullFields=persons.enProfession&
-        sortField=rating.imdb&
-        sortType=-1`
+        notNullFields=persons.enProfession&sortField=${filter}&sortType=-1`
+
+            // надо написать чтобы обязательно был постер
+            // movie?page=${page}&limit=${limit}&sortField=rating.russianFilmCritics&sortType=-1
+            // по такому запросу фильтрация работает
         )
     },
     getSeries(page: number = 1, limit: number = 20) {

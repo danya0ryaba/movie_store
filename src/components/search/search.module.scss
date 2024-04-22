@@ -10,3 +10,13 @@
     cursor: pointer;
     padding: 0 10px 0 8px;
 }
+
+@media (max-width:1120px) {
+    .input {
+        display: none;
+    }
+
+    .search {
+        display: none;
+    }
+}

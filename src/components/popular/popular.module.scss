@@ -85,3 +85,16 @@
         }
     }
 }
+
+@media (max-width:797px) {
+    .popular {
+        padding: 0px 0 30px 0;
+
+        .container {
+            .text__info {
+                font-size: 16px;
+            }
+        }
+
+    }
+}
