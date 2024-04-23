@@ -15,14 +15,12 @@ export const Person: React.FC<Persons> = (props) => {
 
     const [classList, setClassList] = React.useState(false)
 
-    const handleMouseEnter = () => setClassList(!classList)
-
-    const handleMouseLeave = () => setClassList(!classList)
+    const handlerMouse = () => setClassList(!classList)
 
     return <li className={style.list__actor}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}>
-        {props.name}
+        onMouseEnter={handlerMouse}
+        onMouseLeave={handlerMouse}>
+        {props.name || props.enName}
         <div className={style.forPosition}>
             {classList && <PersonCard {...props} />}
         </div>

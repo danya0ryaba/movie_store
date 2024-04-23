@@ -32,7 +32,9 @@ export const InfoFilm: React.FC<CurrentFilm> = (props) => {
 
     return <section className={style.section__film}>
         <div className={style.container}>
+
             <button className={style.back} onClick={onClickBack}> &#129044; Назад</button>
+
             <div className={style.card}>
 
                 <Link to={props.videos?.trailers && props.videos.trailers.length > 0 ? `${props.videos.trailers[0].url}` : 'https://www.youtube.com/'}
@@ -60,6 +62,7 @@ export const InfoFilm: React.FC<CurrentFilm> = (props) => {
                             <span>{props.year}</span>
                         </div>
                     </div>
+
                     <div className={style.movie__rating}>
 
                         <div className={style.send}>
@@ -89,9 +92,12 @@ export const InfoFilm: React.FC<CurrentFilm> = (props) => {
                         {modePortal && <Portal onClose={changeModePortal} />}
 
                     </div>
+
                     <p className={style.card__info__text}>{props.shortDescription}</p>
                 </div>
+
             </div>
+
             <AboutFilm {...props} />
         </div>
     </section>

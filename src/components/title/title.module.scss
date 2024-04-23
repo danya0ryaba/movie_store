@@ -7,3 +7,10 @@
     text-transform: uppercase;
     margin: 45px 0;
 }
+
+@media (max-width:747px) {
+    .title {
+        margin: 45px 0 25px;
+        font-size: 28px;
+    }
+}

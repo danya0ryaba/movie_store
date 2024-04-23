@@ -32,6 +32,7 @@ export const Films: React.FC = () => {
     return <div className={style.series}>
 
         <Title>Лучшие фильмов</Title>
+
         <Filters filterItem={filtersMovies} />
 
         <InputCustom touch={touch} setTouch={setTouch} requestSearchName={requestSearchName} />
@@ -43,6 +44,7 @@ export const Films: React.FC = () => {
         <div className={style.genres}>
             <SelectCustom title={'Жанры'} option={options} />
         </div>
+
         {isLoading ? <Loader /> : <>
             {movies.map(film => <Link key={film.id} to={`${film.id}`}>
                 <Film  {...film} />

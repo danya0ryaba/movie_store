@@ -32,7 +32,7 @@ export const Pagination: React.FC<PaginationType> = ({ page, onRequestHandler })
     for (let i = 0; i < 10; i++) {
         pagination.push(page++)
     }
-
+    // на ширине экрана около 385px надо отображать только 5 кнопок для пагинации
     return <section className={style.pagination}>
         <LeftArrow className={style.left__arrow} onClick={onLeftArrowHandler} />
         <div className={style.pag__container}>

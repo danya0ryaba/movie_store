@@ -86,3 +86,46 @@
     }
 
 }
+
+@media (max-width:747px) {
+    .pagination {
+        padding: 20px 8px;
+
+        .pag__container {
+
+            .pag__value_active {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 15px;
+                padding: 8px;
+            }
+
+            .pag__value {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 15px;
+                padding: 8px;
+            }
+        }
+
+    }
+}
+
+@media (max-width:488px) {
+    .pagination {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .left__arrow {
+            margin: 0 0 5px 0;
+        }
+
+        .right__arrow {
+            margin: 5px 0 0 0;
+        }
+
+    }
+}

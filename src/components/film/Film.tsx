@@ -8,6 +8,7 @@ export const Film: React.FC<Movie> = (props) => {
     return <div className={style.card__film}>
         <div className={style.container}>
             <div className={style.card}>
+
                 <div className={style.card__info}>
                     <div className={style.poster}>
                         <img src={`${props.poster.previewUrl}`} alt="poster" />
@@ -17,8 +18,6 @@ export const Film: React.FC<Movie> = (props) => {
                         <span className={style.aboutFilm}>
                             {props.countries[0].name} ({props.genres.map((i, index, arr) => {
                                 return (index == arr.length - 1) ? `${i.name}` : `${i.name}, `
-                                // if (index == arr.length - 1) return `${i.name}`
-                                // else return `${i.name}, `
                             })})
                             <br />
                             {props.year} год
@@ -29,6 +28,7 @@ export const Film: React.FC<Movie> = (props) => {
                         </button>
                     </div>
                 </div>
+
                 <div className={style.card__rating}>
                     <div className={style.rating__info}>
                         <span className={style.rating__value}>

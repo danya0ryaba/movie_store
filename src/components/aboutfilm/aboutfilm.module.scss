@@ -82,3 +82,40 @@
     }
 
 }
+
+@media (max-width:840px) {
+    .about__film {
+        .container__about {
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
+
+            .video {
+                max-width: 80%;
+                margin-bottom: 24px;
+
+                &__trailer {
+                    width: 300px;
+                    margin: 0 auto;
+                    margin-bottom: 6px;
+                }
+
+                .description {
+                    font-size: 15px;
+                    line-height: 1.5;
+                }
+            }
+
+            .info {
+                margin-bottom: 18px;
+                width: 80%;
+            }
+
+            .actor {
+                // margin: 0 auto;
+                width: 80%;
+            }
+
+        }
+    }
+}

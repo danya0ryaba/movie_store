@@ -22,9 +22,9 @@ function App() {
 
   React.useEffect(() => {
     dispatch(getMovies({ page: 1, filter: "rating.russianFilmCritics" }))
-    dispatch(getSeries(1))
-    dispatch(getCartoon(1))
-    dispatch(getAnime(1))
+    // dispatch(getSeries(1))
+    // dispatch(getCartoon(1))
+    // dispatch(getAnime(1))
   }, [dispatch])
 
   // решить проблему с Fullscreen-ом

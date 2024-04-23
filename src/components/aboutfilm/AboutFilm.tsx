@@ -62,10 +62,8 @@ export const AboutFilm: React.FC<CurrentFilm> = (props) => {
                 <div className={style.info__film}>
                     <span className={style.info__key}>Бюджет</span>
                     <span className={style.info__value}>
-                        {// props.budget && props.budget.value переписать как props.budget?.value?
-                            props.budget && props.budget.value && props.budget.currency ?
-                                `${props.budget?.value} ${props.budget?.currency}` :
-                                'нет данных'}
+                        {props.budget && props.budget.value && props.budget.currency ?
+                            `${props.budget?.value} ${props.budget?.currency}` : 'нет данных'}
                     </span>
                 </div>
 

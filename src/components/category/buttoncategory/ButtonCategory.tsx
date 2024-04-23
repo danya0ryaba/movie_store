@@ -6,6 +6,5 @@ interface ButtonCategoryInterface {
 }
 
 export const ButtonCategory: React.FC<ButtonCategoryInterface> = ({ children }) => {
-    // ПРИДЕТСЯ ПЕРЕПИСАТЬ ВСЮ ЛОГИКУ АКТИВНОЙ КНОПКИ, ПОТОМУ ЧТО ЭТО ЗАЛУПА
     return <button className={style.filters__item}>{children}</button>
 }
