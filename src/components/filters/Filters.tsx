@@ -7,10 +7,7 @@ interface FiltersInterface {
 }
 
 export const Filters: React.FC<FiltersInterface> = ({ filterItem }) => {
-
     return <div className={style.filters}>
-        <div className={style.filters__item}>
-            {filterItem.map(filter => (<ButtonCategory key={filter}>{filter}</ButtonCategory>))}
-        </div>
+        {filterItem.map(filter => (<ButtonCategory key={filter}>{filter}</ButtonCategory>))}
     </div>
 }

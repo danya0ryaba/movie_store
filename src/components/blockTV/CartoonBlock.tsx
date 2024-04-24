@@ -16,6 +16,11 @@ export const CartoonBlock: React.FC = () => {
 
     const onRequestCartoon = (page: number) => dispatch(getCartoon(page))
 
+    React.useEffect(() => {
+        window.scrollTo(0, 0)
+        return () => window.scrollTo(0, 0)
+    }, [page])
+
     return <section className={style.tv}>
         <div className={style.tv__container}>
             {isLoading ? <Loader /> : <>

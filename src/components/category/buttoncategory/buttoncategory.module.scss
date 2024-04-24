@@ -29,6 +29,15 @@
     }
 }
 
+@media (max-width:427px) {
+    .filters__item {
+        margin: 0 0 8px 0;
+
+        &:last-child {
+            margin: 0;
+        }
+    }
+}
 
 @media (max-width:338px) {
     .filters__item {

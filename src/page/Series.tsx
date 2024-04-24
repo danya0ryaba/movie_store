@@ -30,7 +30,7 @@ export const Series: React.FC = () => {
 
     React.useEffect(() => {
         window.scrollTo(0, 0)
-    }, [page])
+    }, [page, isLoading])
 
     return <div className={style.series}>
         <Title>Лучшие сериалы</Title>

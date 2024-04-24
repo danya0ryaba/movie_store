@@ -20,6 +20,7 @@ export const SelectCustom: React.FC<SelectCustomType> = ({ option, title }) => {
     let styleArrow = isOpen ? '0deg' : '180deg'
 
     return <div className={style.select}>
+
         {/* МОЖЕТ КАРТИНКУ ДЛЯ СЕЛЕКТА ПРОКИДЫВАТЬ В ПРПСАХ? */}
         {/* <svg className={style.world} width="21" height="21" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clipPath="url(#clip0_7_17)">
