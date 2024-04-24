@@ -13,11 +13,13 @@
         height: 100%;
         background: rgb(0, 0, 0);
         background: linear-gradient(11deg, rgba(0, 0, 0, 0.9136904761904762) 14%, rgba(45, 45, 57, 0.7848389355742297) 37%, rgba(142, 146, 146, 0.8240546218487395) 99%);
+        position: relative;
 
         .fullscreen__info {
             position: absolute;
-            top: 300px;
+            top: 220px;
             left: 200px;
+            max-width: 900px;
             text-shadow: -4px 4px 6px rgba(0, 0, 0, 0.71);
 
             .title {
@@ -84,6 +86,37 @@
 
     }
 
+}
+
+@media (max-width:986px) {
+    .fullscreen {
+        &__gradient {
+            .fullscreen__info {
+                top: 150px;
+
+                .subtitle {
+                    font-size: 46px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:870px) {
+    .fullscreen {
+        &__gradient {
+            .fullscreen__info {
+
+                .title {
+                    font-size: 27px;
+                }
+
+                .subtitle {
+                    font-size: 40px;
+                }
+            }
+        }
+    }
 }
 
 @media (max-width:797px) {

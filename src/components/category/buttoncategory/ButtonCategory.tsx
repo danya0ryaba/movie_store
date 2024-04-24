@@ -1,4 +1,4 @@
-import React, { MouseEvent, ReactNode } from "react";
+import React, { ReactNode } from "react";
 import style from './buttoncategory.module.scss'
 
 interface ButtonCategoryInterface {

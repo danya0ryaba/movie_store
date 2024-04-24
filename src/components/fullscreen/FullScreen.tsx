@@ -15,7 +15,7 @@ export const FullScreen: React.FC = () => {
             <div className={style.fullscreen__info}>
                 <h2 className={style.title}>Filmagnet</h2>
                 <h3 className={style.subtitle}>
-                    Безлимитные <span>развлечения</span>,<br /> Фильмы,
+                    Безлимитные <span>развлечения</span>, Фильмы,
                     телепередачи и многое другое
                 </h3>
                 <div className={style.about_film}>

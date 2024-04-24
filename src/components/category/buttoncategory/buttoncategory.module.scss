@@ -28,3 +28,18 @@
         color: black;
     }
 }
+
+
+@media (max-width:338px) {
+    .filters__item {
+        width: 100%;
+        max-width: 200px;
+        font-size: 16px;
+        padding: 5px 23px;
+        margin: 5px 0;
+
+        &:last-child {
+            margin: 5px 0 0 0;
+        }
+    }
+}

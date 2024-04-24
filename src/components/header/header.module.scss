@@ -20,7 +20,12 @@
         align-items: center;
         cursor: pointer;
 
+        img {
+            z-index: 100;
+        }
+
         h1 {
+            z-index: 100;
             font-family: 'IM Fell French Canon', sans-serif;
             font-size: 29.17px;
             color: $white;
@@ -34,6 +39,7 @@
     }
 
     &__menu {
+        z-index: 100;
 
         .link {
             text-transform: uppercase;
@@ -69,12 +75,14 @@
     }
 
     &__modes {
+        z-index: 100;
         display: flex;
         align-items: center;
     }
 }
 
 .burger {
+    z-index: 15;
     display: none;
     height: 40px;
     position: absolute;
@@ -108,9 +116,52 @@
     }
 }
 
+.burger__menu {
+    // z-index: 140;
+    background-color: $light-gray;
+    height: 100vh;
+    width: 100%;
+    position: relative;
 
+    .close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        fill: $white;
 
+        &::active {
+            fill: $green;
+        }
+    }
 
+    &__menu {
+        margin-bottom: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 80px 5px 20px 30px;
+
+        .link,
+        .link_active {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: $white;
+            font-weight: 600;
+        }
+
+        .link_active {
+            color: $green;
+        }
+
+    }
+
+    &__modes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
 
 @media (max-width:895px) {
     .container {
@@ -132,6 +183,7 @@
 
 @media (max-width:797px) {
     .container {
+        padding: 0;
 
         .header {
             display: none;
@@ -140,5 +192,6 @@
         .burger {
             display: block;
         }
+
     }
 }

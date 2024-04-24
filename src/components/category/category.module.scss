@@ -91,3 +91,23 @@
 
     }
 }
+
+
+@media (max-width:338px) {
+    .category {
+
+        .container {
+            .category__info {
+
+
+                .filters {
+                    flex-direction: column;
+                    align-items: center;
+                    margin: 0;
+                }
+
+            }
+        }
+
+    }
+}
