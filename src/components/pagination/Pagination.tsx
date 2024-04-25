@@ -2,6 +2,7 @@ import React from 'react'
 import style from './pagination.module.scss'
 import { ReactComponent as RightArrow } from '../../assets/img/right-arrow (1).svg'
 import { ReactComponent as LeftArrow } from '../../assets/img/left-arrow (2).svg'
+import { useResize } from '../../hook/useResize'
 
 type PaginationType = {
     page: number,
@@ -9,6 +10,8 @@ type PaginationType = {
 }
 
 export const Pagination: React.FC<PaginationType> = ({ page, onRequestHandler }) => {
+
+    let width = useResize()
 
     const [activePage, setActivePage] = React.useState(page)
 
@@ -28,11 +31,16 @@ export const Pagination: React.FC<PaginationType> = ({ page, onRequestHandler })
     }
 
     let pagination: number[] = []
-
-    for (let i = 0; i < 10; i++) {
-        pagination.push(page++)
+    if (width > 488) {
+        for (let i = 0; i < 10; i++) {
+            pagination.push(page++)
+        }
+    } else {
+        for (let i = 0; i < 5; i++) {
+            pagination.push(page++)
+        }
     }
-    // на ширине экрана около 385px надо отображать только 5 кнопок для пагинации
+
     return <section className={style.pagination}>
         <LeftArrow className={style.left__arrow} onClick={onLeftArrowHandler} />
         <div className={style.pag__container}>

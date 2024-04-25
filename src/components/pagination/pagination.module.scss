@@ -112,20 +112,3 @@
 
     }
 }
-
-@media (max-width:488px) {
-    .pagination {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        .left__arrow {
-            margin: 0 0 5px 0;
-        }
-
-        .right__arrow {
-            margin: 5px 0 0 0;
-        }
-
-    }
-}

@@ -57,3 +57,75 @@
         }
     }
 }
+
+@media (max-width:750px) {
+    .popup {
+        padding: 7px;
+        left: 100px;
+
+        .person__photo {
+            padding-right: 10px;
+
+            img {
+                width: 90px;
+                height: 100%;
+            }
+        }
+
+        .person__info {
+
+
+            .name {
+                font-size: 15px;
+            }
+
+            .profession {
+                font-size: 10px;
+                margin-bottom: 6px;
+            }
+
+            .moreBtn {
+                font-size: 10px;
+                padding: 4px 6px;
+            }
+        }
+
+    }
+}
+
+@media (max-width:498px) {
+    .popup {
+        padding: 5px;
+        top: 95%;
+        left: 50%;
+        transform: translate(-50%, -95%);
+
+        .person__photo {
+            padding-right: 10px;
+
+            img {
+                width: 90px;
+                height: 100%;
+            }
+        }
+
+        .person__info {
+
+
+            .name {
+                font-size: 15px;
+            }
+
+            .profession {
+                font-size: 10px;
+                margin-bottom: 6px;
+            }
+
+            .moreBtn {
+                font-size: 10px;
+                padding: 4px 6px;
+            }
+        }
+
+    }
+}

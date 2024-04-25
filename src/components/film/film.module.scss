@@ -161,6 +161,7 @@
                 &__rating {
 
                     .rating__info {
+
                         .view_btn {
                             padding: 5px 7px;
                             font-size: 13px;
@@ -214,9 +215,13 @@
                     align-items: center;
 
                     .rating__info {
+                        max-width: 260px;
+                        justify-content: center;
+
                         .view {
-                            font-weight: 800;
-                            font-size: 20px;
+                            margin-left: 10px;
+                            padding: 0 6px;
+                            font-size: 12px;
                             color: $green;
                         }
                     }
