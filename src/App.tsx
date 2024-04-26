@@ -8,7 +8,7 @@ import { Films } from './page/Films';
 import { Series } from './page/Series';
 import { Cartoon } from './page/Cartoon';
 import { Header } from './components/header/Header';
-import { useAppDispatch } from './store/hooks/redux';
+import { useAppDispatch, useAppSelector } from './store/hooks/redux';
 import { getMovies } from './store/movie/movieSlice';
 import { getSeries } from './store/series/seriesSlice';
 import { getCartoon } from './store/cartoon/cartoonSlice';
@@ -16,21 +16,43 @@ import { Footer } from './components/footer/Footer';
 import { getAnime } from './store/anime/animeSlice';
 import { Person } from './page/Person/Person';
 
+
+// выбрать какие-нибудь для фильтрации
+
+// rating.russianFilmCritics      по реутингу российских критиков (ru)
+// rating.imdb                    по рейтигу imdb
+// top250                         по top250
+// fees.russia.value              по сборам в росси
+// fees.usa.value                 по сборам в сша
+// fees.world.value               по мировым сборам
+// rating.filmCritics             по отзывам кинокритиков
+// votes.imdb                     по голосам на imdb
+// audience.count                 по количество зрителей
+
 function App() {
 
   const dispatch = useAppDispatch()
+  const { filter } = useAppSelector(state => state.movie)
 
   React.useEffect(() => {
-    dispatch(getMovies({ page: 1, filter: "rating.russianFilmCritics" }))
-    dispatch(getSeries(1))
-    dispatch(getCartoon(1))
-    dispatch(getAnime(1))
-  }, [dispatch])
+    dispatch(getMovies({ page: 1, filter: filter }))
+    // dispatch(getSeries(1))
+    // dispatch(getCartoon(1))
+    // dispatch(getAnime(1))
+  }, [dispatch, filter])
 
-  // написать серверную фильтрацию и выделять активные фильтры
-  // с фильтрацией какая-то жопа
+  console.log(filter);
+
+
+  // при подгрузке фильмов грузятся с страрым сосотояние filter
+
+  // + как-то оптимизировать загрузку изображения на карточки с фильмами
 
   // что-то с footer придумать
+
+  // есть хук useDebounce, но я его не использую
+
+  // написать авторизацию https://www.youtube.com/watch?v=ivtbRBEjLW8
 
   return (<>
     <Header />

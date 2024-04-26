@@ -5,16 +5,17 @@ import { DataResponseType } from '../../type/responseAxios';
 import { isError } from '../../utils/isError';
 
 interface MovieInitialState {
-    loadingMovies: Movie[],
-    page: number,
-    isLoading: boolean,
+    loadingMovies: Movie[]
+    page: number
+    isLoading: boolean
     error: null | string
+    filter: string
 }
 
-export const getLoadingMovies = createAsyncThunk<DataResponseType, number, { rejectValue: string }>(
+export const getLoadingMovies = createAsyncThunk<DataResponseType, { page: number, filter: string }, { rejectValue: string }>(
     "loadingMovies/getMovies",
-    async (page, { rejectWithValue }) => {
-        const resp = await usersAPI.getMovie(page);
+    async ({ page, filter }, { rejectWithValue }) => {
+        const resp = await usersAPI.getMovie(page, filter);
         if (resp.status === 200) return resp.data
         else return rejectWithValue("Server Error!")
     }
@@ -24,10 +25,11 @@ const initialState: MovieInitialState = {
     loadingMovies: [],
     page: 1,
     isLoading: false,
-    error: null
+    error: null,
+    filter: "top250"
 }
 
-const loadingMovieSlice = createSlice({
+export const loadingMovieSlice = createSlice({
     name: 'loadingMovies',
     initialState,
     reducers: {},

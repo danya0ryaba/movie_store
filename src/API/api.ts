@@ -23,6 +23,7 @@ export const usersAPI = {
         selectFields=enName&
         selectFields=alternativeName&
         selectFields=names&
+        selectFields=name&
         selectFields=description&
         selectFields=shortDescription&
         selectFields=type&
@@ -55,17 +56,17 @@ export const usersAPI = {
         notNullFields=fees.world.value&
         notNullFields=countries.name&
         notNullFields=name&
+        notNullFields=names.name&
         notNullFields=persons.id&
         notNullFields=persons.name&
         notNullFields=persons.photo&
         notNullFields=persons.description&
         notNullFields=persons.profession&
         notNullFields=persons.enName&
-        notNullFields=persons.enProfession&sortField=${filter}&sortType=-1`
-
+        notNullFields=persons.enProfession&&sortField=${filter}&sortType=-1`
+            // &sortField=${filter}&sortType=-1
             // надо написать чтобы обязательно был постер
             // movie?page=${page}&limit=${limit}&sortField=rating.russianFilmCritics&sortType=-1
-            // по такому запросу фильтрация работает
         )
     },
     getSeries(page: number = 1, limit: number = 20) {

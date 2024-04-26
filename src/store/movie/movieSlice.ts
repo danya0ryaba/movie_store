@@ -5,13 +5,14 @@ import { DataResponseType } from '../../type/responseAxios';
 import { isError } from '../../utils/isError';
 
 interface MovieInitialState {
-    movies: Movie[],
-    page: number,
-    isLoading: boolean,
+    movies: Movie[]
+    page: number
+    isLoading: boolean
     error: null | string
+    filter: string
 }
 
-export const getMovies = createAsyncThunk<DataResponseType, { page: number, filter?: string }, { rejectValue: string }>(
+export const getMovies = createAsyncThunk<DataResponseType, { page: number, filter: string }, { rejectValue: string }>(
     "movies/getMovies",
     async ({ page, filter }, { rejectWithValue }) => {
         const resp = await usersAPI.getMovie(page, filter);
@@ -24,13 +25,18 @@ const initialState: MovieInitialState = {
     movies: [],
     page: 1,
     isLoading: false,
-    error: null
+    error: null,
+    filter: "top250"
 }
 
-const movieSlice = createSlice({
+export const movieSlice = createSlice({
     name: 'movies',
     initialState,
-    reducers: {},
+    reducers: {
+        changeFilter: (state, { payload }: PayloadAction<string>) => {
+            state.filter = payload
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(getMovies.fulfilled, (state, { payload }) => {
@@ -48,5 +54,7 @@ const movieSlice = createSlice({
             })
     }
 })
+
+export const { changeFilter } = movieSlice.actions
 
 export default movieSlice.reducer
