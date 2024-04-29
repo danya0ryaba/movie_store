@@ -32,7 +32,11 @@ const initialState: MovieInitialState = {
 export const loadingMovieSlice = createSlice({
     name: 'loadingMovies',
     initialState,
-    reducers: {},
+    reducers: {
+        resetLoadingMovie: (state) => {
+            state.loadingMovies = []
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(getLoadingMovies.fulfilled, (state, { payload }) => {
@@ -50,5 +54,7 @@ export const loadingMovieSlice = createSlice({
             })
     }
 })
+
+export const { resetLoadingMovie } = loadingMovieSlice.actions
 
 export default loadingMovieSlice.reducer

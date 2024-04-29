@@ -1,6 +1,7 @@
 @import '../../../style/variables.scss';
 
-.filters__item {
+.filters__item,
+.filters__item_active {
     padding: 11px 43px;
     background: $gray;
     font-size: 18px;
@@ -10,10 +11,6 @@
     transition: 0.5s all;
     margin-bottom: 6px;
 
-    &_active {
-        background: $light-gray;
-        color: $green;
-    }
 
     &:first-child {
         margin-left: 0;
@@ -26,6 +23,17 @@
     &:hover {
         background-color: #fff;
         color: black;
+    }
+}
+
+.filters__item_active {
+    font-weight: 600;
+    color: black;
+    background: $green;
+
+    &:hover {
+        background-color: #fff;
+        color: $gray;
     }
 }
 

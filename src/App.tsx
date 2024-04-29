@@ -15,44 +15,31 @@ import { getCartoon } from './store/cartoon/cartoonSlice';
 import { Footer } from './components/footer/Footer';
 import { getAnime } from './store/anime/animeSlice';
 import { Person } from './page/Person/Person';
-
-
-// выбрать какие-нибудь для фильтрации
-
-// rating.russianFilmCritics      по реутингу российских критиков (ru)
-// rating.imdb                    по рейтигу imdb
-// top250                         по top250
-// fees.russia.value              по сборам в росси
-// fees.usa.value                 по сборам в сша
-// fees.world.value               по мировым сборам
-// rating.filmCritics             по отзывам кинокритиков
-// votes.imdb                     по голосам на imdb
-// audience.count                 по количество зрителей
+import { useAuth } from './hook/useAuth';
+import { Auth } from './page/Auth/Auth';
 
 function App() {
+
+  const auth = useAuth()
+  // console.log(auth);
+
 
   const dispatch = useAppDispatch()
   const { filter } = useAppSelector(state => state.movie)
 
   React.useEffect(() => {
-    dispatch(getMovies({ page: 1, filter: filter }))
+    // dispatch(getMovies({ page: 1, filter: filter }))
     // dispatch(getSeries(1))
     // dispatch(getCartoon(1))
     // dispatch(getAnime(1))
   }, [dispatch, filter])
 
-  console.log(filter);
-
-
-  // при подгрузке фильмов грузятся с страрым сосотояние filter
-
-  // + как-то оптимизировать загрузку изображения на карточки с фильмами
-
-  // что-то с footer придумать
-
   // есть хук useDebounce, но я его не использую
-
-  // написать авторизацию https://www.youtube.com/watch?v=ivtbRBEjLW8
+  // + как-то оптимизировать загрузку изображения на карточки с фильмами
+  // при первой загрузк страницы какая-то дичь с аниме дважды отображаются одни и теже
+  // что-то с footer придумать
+  // написать анимацию для всего (через библиотеки)
+  // в конце сделать lazy loading
 
   return (<>
     <Header />
@@ -71,6 +58,9 @@ function App() {
       <Route path='/series/:id' element={<CardMovie />} />
 
       <Route path='person/:id' element={<Person />} />
+
+      <Route path='auth' element={<Auth />} />
+
 
       <Route path='*' element={<Error />} />
 

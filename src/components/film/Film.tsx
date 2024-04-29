@@ -11,7 +11,7 @@ export const Film: React.FC<Movie> = (props) => {
 
                 <div className={style.card__info}>
                     <div className={style.poster}>
-                        <img src={`${props.poster.previewUrl}`} alt="poster" />
+                        <img src={`${props.poster?.previewUrl}`} alt="poster" />
                     </div>
                     <div className={style.info}>
                         <h4 className={style.title}>{props.name}</h4>

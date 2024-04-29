@@ -64,9 +64,6 @@ export const usersAPI = {
         notNullFields=persons.profession&
         notNullFields=persons.enName&
         notNullFields=persons.enProfession&&sortField=${filter}&sortType=-1`
-            // &sortField=${filter}&sortType=-1
-            // надо написать чтобы обязательно был постер
-            // movie?page=${page}&limit=${limit}&sortField=rating.russianFilmCritics&sortType=-1
         )
     },
     getSeries(page: number = 1, limit: number = 20) {

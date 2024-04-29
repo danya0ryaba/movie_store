@@ -21,12 +21,10 @@ export const Header: React.FC = () => {
 
         <header className={style.header}>
 
-            <Link to='/'>
-                <div className={style.header__logo}>
-                    <img src={logo} alt="logo" />
-                    <h1> Filmagnet </h1>
-                </div>
-            </Link>
+            <Link to='/'><div className={style.header__logo}>
+                <img src={logo} alt="logo" />
+                <h1> Filmagnet </h1>
+            </div></Link>
 
             <nav className={style.header__menu}>
                 <NavLink className={({ isActive }) => `${isActive ? style.link_active : style.link}`} to={'/'}>главная</NavLink>

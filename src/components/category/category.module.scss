@@ -29,33 +29,6 @@
     }
 }
 
-.category__info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    z-index: 100;
-    margin-bottom: 44px;
-
-    .text {
-        display: flex;
-        flex-direction: column;
-
-        .title {
-            font-size: 18px;
-            color: $green;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .subtitle {
-            font-family: 'Homenaje', serif;
-            font-size: 44px;
-            color: $white;
-        }
-    }
-}
-
 .category__films {
     display: flex;
     flex-wrap: wrap;

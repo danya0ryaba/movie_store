@@ -1,22 +1,14 @@
 @import '../../style/variables.scss';
 
 .filters {
-    margin: 80px 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
 
-@media (max-width:747px) {
-    .filters {
-        margin: 0;
-    }
-}
-
 @media (max-width:427px) {
     .filters {
-        margin: 0;
         align-items: center;
         flex-direction: column;
     }

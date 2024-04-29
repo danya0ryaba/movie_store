@@ -6,9 +6,11 @@ import seriesSlice from './series/seriesSlice'
 import cartoonSlice from './cartoon/cartoonSlice'
 import animeSlice from './anime/animeSlice'
 import searchSlice from './search/searchSlice'
+import authSlice from './auth/authSlice'
 
 export const store = configureStore({
     reducer: {
+        auth: authSlice,
         movie: movieSlice,
         loadingMovie: loadingMovieSlice,
         film: filmSlice,

@@ -23,6 +23,7 @@ export const Series: React.FC = () => {
     const [touch, setTouch] = React.useState(false)
     const [list, setList] = React.useState<Movie[]>([])
     const requestSearchName = (name: string) => usersAPI.getSearch(name).then(res => setList(res.data.docs))
+
     // для пагинации и записи в стейт текущих сериалов
     const { series, isLoading, page } = useAppSelector(state => state.series);
     const dispatch = useAppDispatch()
@@ -34,7 +35,7 @@ export const Series: React.FC = () => {
 
     return <div className={style.series}>
         <Title>Лучшие сериалы</Title>
-        <Filters filterItem={filterSeries} />
+        <Filters filters={filterSeries} />
 
         <InputCustom touch={touch} setTouch={setTouch} requestSearchName={requestSearchName} />
 

@@ -17,23 +17,25 @@ const filtersMovies = ['С высоким рейтингом', 'Российск
 const options = ['Биография', 'Аниме', 'Боевики', 'Детективы', 'Документальные', 'Драмы']
 
 export const Films: React.FC = () => {
-
+    // для инпута
     const [touch, setTouch] = React.useState(false)
+    const { searchMovies } = useAppSelector(state => state.searchMovie)
+    const requestSearchName = (name: string) => dispatch(getSearchMovie(name))
 
     const dispatch = useAppDispatch()
 
     const requestPage = (page: number) => dispatch(getMovies({ page, filter: 'rating.imdb' }))
     const { movies, page, isLoading } = useAppSelector(state => state.movie)
 
-    const { searchMovies } = useAppSelector(state => state.searchMovie)
-
-    const requestSearchName = (name: string) => dispatch(getSearchMovie(name))
+    React.useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [page, movies])
 
     return <div className={style.series}>
 
         <Title>Лучшие фильмов</Title>
 
-        <Filters filterItem={filtersMovies} />
+        <Filters filters={filtersMovies} />
 
         <InputCustom touch={touch} setTouch={setTouch} requestSearchName={requestSearchName} />
 
