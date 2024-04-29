@@ -3,7 +3,7 @@ import style from './button.module.scss'
 
 interface Button {
     readonly children: React.ReactNode
-    onClick?: () => void
+    onClick?: (e?: any) => void
     type?: "button" | "submit" | "reset"
 }
 

@@ -28,15 +28,17 @@ function App() {
   const { filter } = useAppSelector(state => state.movie)
 
   React.useEffect(() => {
-    // dispatch(getMovies({ page: 1, filter: filter }))
-    // dispatch(getSeries(1))
-    // dispatch(getCartoon(1))
-    // dispatch(getAnime(1))
+    dispatch(getMovies({ page: 1, filter: filter }))
+    dispatch(getSeries(1))
+    dispatch(getCartoon(1))
+    dispatch(getAnime(1))
   }, [dispatch, filter])
+
+  // когда аторизовался не показывать portal
+  // при первой загрузк страницы какая-то дичь с аниме дважды отображаются одни и теже
 
   // есть хук useDebounce, но я его не использую
   // + как-то оптимизировать загрузку изображения на карточки с фильмами
-  // при первой загрузк страницы какая-то дичь с аниме дважды отображаются одни и теже
   // что-то с footer придумать
   // написать анимацию для всего (через библиотеки)
   // в конце сделать lazy loading
@@ -60,7 +62,6 @@ function App() {
       <Route path='person/:id' element={<Person />} />
 
       <Route path='auth' element={<Auth />} />
-
 
       <Route path='*' element={<Error />} />
 

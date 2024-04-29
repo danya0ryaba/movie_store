@@ -1,16 +1,18 @@
 import React from 'react'
 import { Link, NavLink, Outlet } from 'react-router-dom'
 import style from './header.module.scss'
-import { Search } from '../search/Search'
 import logo from '../../assets/img/logo.png'
 import { Auth } from '../auth/Auth'
 import { SelectCustom } from '../select/SelectCustom'
+import { useAuth } from '../../hook/useAuth'
 
 export type Language = 'RU' | 'EN'
 
 const arrayLanguage = ['RU', 'EN']
 
 export const Header: React.FC = () => {
+
+    const { isAuth, email } = useAuth()
 
     const [burgerMenu, setBurgerMenu] = React.useState(false)
 
@@ -36,7 +38,7 @@ export const Header: React.FC = () => {
             <Outlet />
 
             <div className={style.header__modes}>
-                <Search />
+                <Link to={'/auth'} className={style.header__modes_guest}>{isAuth ? email : 'гость'}</Link>
                 <SelectCustom title='EN' option={arrayLanguage} />
                 <Auth />
             </div>

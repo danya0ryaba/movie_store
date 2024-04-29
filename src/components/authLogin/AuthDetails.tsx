@@ -4,6 +4,7 @@ import { auth } from '../../firebase'
 import style from './signup.module.scss'
 import { useAppDispatch } from '../../store/hooks/redux'
 import { removeAuth } from '../../store/auth/authSlice'
+import { Button } from '../button/Button'
 
 export const AuthDetails: React.FC = () => {
 
@@ -29,7 +30,7 @@ export const AuthDetails: React.FC = () => {
         {authUser ?
             <div className={style.exit__login}>
                 <p className={style.exit__login_p}>{`Вы вошли в аккаунт ${authUser.email}`}</p>
-                <button onClick={userSignOut}>Выйти</button>
+                <Button onClick={userSignOut}>Выйти</Button>
             </div>
             :
             <p className={style.exit__out}>Выйти из аккаунта</p>}

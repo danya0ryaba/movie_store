@@ -7,6 +7,7 @@ import { useAppDispatch } from '../../store/hooks/redux'
 import { setAuth } from '../../store/auth/authSlice'
 import { useNavigate } from 'react-router-dom'
 import { Loader } from '../loader/Loader'
+import { Button } from '../button/Button'
 
 export const SignIn: React.FC = () => {
 
@@ -45,7 +46,7 @@ export const SignIn: React.FC = () => {
                 <h2 className={style.form__title}>Войти</h2>
                 <input className={style.form__inp} placeholder='email' value={email} onChange={(e) => setEmail(e.currentTarget.value)} type="email" />
                 <input className={style.form__inp} placeholder='password' value={password} onChange={(e) => setPassword(e.currentTarget.value)} type="password" />
-                <button className={style.form__btn} onClick={logIn}>Войти</button>
+                <Button onClick={logIn}>Войти</Button>
                 {error ? <p style={{ color: 'red' }}>{error}</p> : false}
             </form>
             :
