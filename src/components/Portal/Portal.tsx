@@ -2,6 +2,7 @@ import React from 'react'
 import s from './portal.module.scss'
 import { createPortal } from 'react-dom';
 import { Button } from '../button/Button';
+import { Link } from 'react-router-dom';
 
 const portal = document.getElementById('portal')
 
@@ -19,10 +20,10 @@ export const Portal: React.FC<PortalType> = ({ onClose }) => {
             <p className={s.subtitle}>Необходимо авторизоваться</p>
             <div className={s.buttons}>
                 <span className={s.buttons__btn}>
-                    <Button>Войти</Button>
+                    <Button><Link to={'/auth'}>Войти</Link></Button>
                 </span>
                 <span className={s.buttons__btn}>
-                    <Button>Зарегистрироваться</Button>
+                    <Button><Link to={'/auth'}>Зарегистрироваться</Link></Button>
                 </span>
             </div>
             <span className={s.forgot}>Забили пароль?</span>

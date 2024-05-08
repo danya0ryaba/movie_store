@@ -2,10 +2,15 @@ import React from 'react'
 import style from './filters.module.scss'
 import { ButtonCategory } from '../category/buttoncategory/ButtonCategory'
 import { FiltersType } from '../../type/filters'
-import { filteringValues } from '../../utils/constants'
 
 export const Filters: React.FC<FiltersType> = ({ filters }) => {
+
+    const filtersArray = Object.keys(filters)
+
     return <div className={style.filters}>
-        {filters.map(filter => (<ButtonCategory filterCurrent={filteringValues[filter]} key={filter}>{filter}</ButtonCategory>))}
+        {filtersArray.map(filter => <ButtonCategory key={filter}
+            filterCurrent={filters[filter]}>
+            {filter}
+        </ButtonCategory>)}
     </div>
 }

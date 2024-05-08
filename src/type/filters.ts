@@ -1,3 +1,5 @@
 export type FiltersType = {
-    readonly filters: string[]
+    readonly filters: any
+    // readonly filteringObj?: any
+    // readonly valueFilterObj?: any
 }

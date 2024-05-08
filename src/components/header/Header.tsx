@@ -12,7 +12,11 @@ const arrayLanguage = ['RU', 'EN']
 
 export const Header: React.FC = () => {
 
+    // для селекта
+    const [activeOption, setActiveOption] = React.useState('')
+
     const { isAuth, email } = useAuth()
+
 
     const [burgerMenu, setBurgerMenu] = React.useState(false)
 
@@ -39,7 +43,7 @@ export const Header: React.FC = () => {
 
             <div className={style.header__modes}>
                 <Link to={'/auth'} className={style.header__modes_guest}>{isAuth ? email : 'гость'}</Link>
-                <SelectCustom title='EN' option={arrayLanguage} />
+                <SelectCustom activeOption={activeOption} setActiveOption={setActiveOption} title='EN' option={arrayLanguage} />
                 <Auth />
             </div>
 
@@ -65,7 +69,7 @@ export const Header: React.FC = () => {
             <Outlet />
 
             <div className={style.burger__menu__modes}>
-                <SelectCustom title='RU' option={arrayLanguage} />
+                <SelectCustom activeOption={activeOption} setActiveOption={setActiveOption} title='RU' option={arrayLanguage} />
                 <Auth />
             </div>
 

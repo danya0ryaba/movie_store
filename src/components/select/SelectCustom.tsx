@@ -6,17 +6,18 @@ import { ReactComponent as ArrowDown } from '../../assets/img/arrow_up.svg';
 type SelectCustomType = {
     option: string[],
     title: string
+    activeOption: string
+    setActiveOption: (value: string) => void
 }
 
-export const SelectCustom: React.FC<SelectCustomType> = ({ option, title }) => {
+export const SelectCustom: React.FC<SelectCustomType> = ({ option, title, activeOption, setActiveOption }) => {
 
     const [isOpen, setIsOpen] = React.useState(false)
-    const [isName, setIsName] = React.useState(title)
 
-    const arrayFiltered = option.filter(l => l !== isName)
+    const arrayFiltered = option.filter(l => l !== activeOption)
 
     const onClickOption = (name: string) => {
-        setIsName(name)
+        setActiveOption(name)
         setIsOpen(false)
     }
 
@@ -25,7 +26,7 @@ export const SelectCustom: React.FC<SelectCustomType> = ({ option, title }) => {
     return <div className={style.select}>
 
         <span className={style.language} onClick={() => setIsOpen(!isOpen)}>
-            {isName}
+            {activeOption || title}
             <span className={style.arrow}>
                 <ArrowDown className={style.arrow__item} style={{ transform: `rotate(${styleArrow})`, margin: '0 3px', transition: ' 0.3s all' }} />
             </span>

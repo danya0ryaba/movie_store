@@ -91,8 +91,20 @@ export const usersAPI = {
     getPersonId(id: number) {
         return instance.get(`person/${id}`)
     },
-    // getImageId(page: number = 1, limit: number = 12, id: number) {
-    //     return instance.get(`image?page=${page}&limit=${limit}&movieId=${id}`)
-    // }
 
+}
+
+
+
+// ХЗ
+const additionalInstance = axios.create({
+    baseURL: 'https://api.kinopoisk.dev/v1/movie/type?field=',
+    headers: { "X-API-KEY": "MSHPGE9-G12MQGY-J328FX0-0HC7G9A" },
+    params: {}
+})
+
+export const userApiFilter = {
+    getOptions(filter: string = 'genres.name') {
+        return additionalInstance.get(`${filter}`)
+    },
 }

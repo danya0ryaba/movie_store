@@ -35,7 +35,7 @@ export const SignIn: React.FC = () => {
                 setPassword("")
                 setTimeout(() => {
                     navigate('/')
-                }, 2000)
+                }, 1500)
             })
             .catch((error) => setError(`account didn't search. ${error.message}`))
     }

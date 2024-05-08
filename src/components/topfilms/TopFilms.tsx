@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks/redux'
 import { Link } from 'react-router-dom'
 import { getAnime } from '../../store/anime/animeSlice'
 import { Loader } from '../loader/Loader'
+import { More } from '../more/More'
 
 export const TopFilms: React.FC = () => {
 
@@ -24,7 +25,8 @@ export const TopFilms: React.FC = () => {
                         <TopFilmItem poster={item.poster.previewUrl} />
                     </Link>)}
                 </ul>
-                <span onClick={onViewMore} className={style.more}>посмотреть...</span>
+                {/* <span onClick={onViewMore} className={style.more}>посмотреть...</span> */}
+                <More handlerClick={onViewMore} />
             </>}
         </section>
     </>

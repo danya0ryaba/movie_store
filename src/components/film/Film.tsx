@@ -16,9 +16,9 @@ export const Film: React.FC<Movie> = (props) => {
                     <div className={style.info}>
                         <h4 className={style.title}>{props.name}</h4>
                         <span className={style.aboutFilm}>
-                            {props.countries[0].name} ({props.genres.map((i, index, arr) => {
+                            {/* {props.countries[0].name} ({props.genres.map((i, index, arr) => {
                                 return (index == arr.length - 1) ? `${i.name}` : `${i.name}, `
-                            })})
+                            })}) */}
                             <br />
                             {props.year} год
                         </span>

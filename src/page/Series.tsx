@@ -13,11 +13,15 @@ import { Loader } from '../components/loader/Loader'
 import { SearchItem } from '../components/search/searchitem/SearchItem'
 import { usersAPI } from '../API/api'
 import { Movie } from '../type/movie'
+import { filteringSeriesPage } from '../utils/constants'
 
-const filterSeries = ['С высоким рейтингом', 'Российские', 'Зарубежные']
+// const filterSeries = ['С высоким рейтингом', 'Российские', 'Зарубежные']
+
 const options = ['Биография', 'Аниме', 'Боевики', 'Детективы', 'Документальные', 'Драмы']
 
 export const Series: React.FC = () => {
+    // для селекта
+    const [activeOption, setActiveOption] = React.useState('')
 
     // для инпута
     const [touch, setTouch] = React.useState(false)
@@ -34,8 +38,10 @@ export const Series: React.FC = () => {
     }, [page, isLoading])
 
     return <div className={style.series}>
+
         <Title>Лучшие сериалы</Title>
-        <Filters filters={filterSeries} />
+
+        <Filters filters={filteringSeriesPage} />
 
         <InputCustom touch={touch} setTouch={setTouch} requestSearchName={requestSearchName} />
 
@@ -44,7 +50,7 @@ export const Series: React.FC = () => {
         </div>}
 
         <div className={style.genres}>
-            <SelectCustom title={'Жанры'} option={options} />
+            <SelectCustom activeOption={activeOption} setActiveOption={setActiveOption} title={'Жанры'} option={options} />
         </div>
         {isLoading ? <Loader /> : <>
             {series.map(s => <Link key={s.id} to={`${s.id}`}>

@@ -7,13 +7,20 @@ import { useResize } from '../../hook/useResize'
 type PaginationType = {
     page: number,
     onRequestHandler: (page: number) => void
+    filter?: any
 }
 
-export const Pagination: React.FC<PaginationType> = ({ page, onRequestHandler }) => {
+export const Pagination: React.FC<PaginationType> = ({ page, onRequestHandler, filter }) => {
 
     let width = useResize()
 
     const [activePage, setActivePage] = React.useState(page)
+
+    // надо придумать как избавиться от этого, не прокидывать фильтр в Pagination
+    // но кажется избавиться от этого не получится тк надо будет переписывать фильтрацию
+    React.useEffect(() => {
+        setActivePage(1)
+    }, [filter])
 
     const onClickHandler = (num: number) => {
         setActivePage(num)

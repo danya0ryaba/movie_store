@@ -7,8 +7,6 @@ export const filteringValues: { [key: string]: string } = {
     "По количеству зрителей": "audience.count",
     "По оценкам imdb": "votes.imdb",
 }
-
-
 // rating.russianFilmCritics      по реутингу российских критиков (ru)
 // rating.imdb                    по рейтигу imdb
 // top250                         по top250
@@ -18,3 +16,17 @@ export const filteringValues: { [key: string]: string } = {
 // rating.filmCritics             по отзывам кинокритиков
 // votes.imdb                     по голосам на imdb
 // audience.count                 по количество зрителей
+
+// это объект фильрации для фильмов
+export const filteringFilmsPage: { [key: string]: string } = {
+    "С высоким рейтингом": "votes.imdb",
+    "Российские": "votes.russianFilmCritics",
+    "Зарубежные": "fees.usa.value"
+}
+
+// это объект фильрации для сериалов
+export const filteringSeriesPage: { [key: string]: string } = {
+    "С высоким рейтингом": "votes.imdb",
+    "Российские": "votes.russianFilmCritics",
+    "Зарубежные": "fees.usa.value"
+}

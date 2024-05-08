@@ -4,13 +4,11 @@ import { auth } from '../../firebase'
 import style from './signup.module.scss'
 import { useAppDispatch } from '../../store/hooks/redux'
 import { setAuth } from '../../store/auth/authSlice'
-import { useAuth } from '../../hook/useAuth'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '../button/Button'
 
 export const SignUp: React.FC = () => {
-    // const { isAuth } = useAuth()
-    // console.log(isAuth);
+
     const navigate = useNavigate()
 
     const dispatch = useAppDispatch()

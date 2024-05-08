@@ -20,7 +20,7 @@ export const Popular: React.FC = () => {
             {isLoading ? <Loader /> : <Swiper modules={[Scrollbar]} spaceBetween={5} slidesPerView={5}>
                 {series.map(s => <SwiperSlide key={s.id}>
                     <NavLink to={`/movie/${s.id}`}>
-                        <PopularFilm previewUrl={s.poster.previewUrl} />
+                        <PopularFilm previewUrl={s.poster?.previewUrl ? s.poster.previewUrl : ""} />
                     </NavLink>
                 </SwiperSlide>)}
             </Swiper>}

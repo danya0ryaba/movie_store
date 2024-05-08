@@ -12,11 +12,14 @@ import { getMovies } from '../store/movie/movieSlice'
 import { Loader } from '../components/loader/Loader'
 import { getSearchMovie } from '../store/search/searchSlice'
 import { SearchItem } from '../components/search/searchitem/SearchItem'
+import { filteringFilmsPage } from '../utils/constants'
 
-const filtersMovies = ['С высоким рейтингом', 'Российские', 'Зарубежные']
 const options = ['Биография', 'Аниме', 'Боевики', 'Детективы', 'Документальные', 'Драмы']
 
 export const Films: React.FC = () => {
+
+    // для селекта
+    const [activeOption, setActiveOption] = React.useState('')
     // для инпута
     const [touch, setTouch] = React.useState(false)
     const { searchMovies } = useAppSelector(state => state.searchMovie)
@@ -24,18 +27,23 @@ export const Films: React.FC = () => {
 
     const dispatch = useAppDispatch()
 
-    const requestPage = (page: number) => dispatch(getMovies({ page, filter: 'rating.imdb' }))
-    const { movies, page, isLoading } = useAppSelector(state => state.movie)
+    const { movies, page, isLoading, filter } = useAppSelector(state => state.movie)
+
+    // вот эта функция на пагинацию
+    const requestPage = (page: number) => dispatch(getMovies({ page, filter }))
 
     React.useEffect(() => {
         window.scrollTo(0, 0)
-    }, [page, movies])
+        // это для селекта
+        // тут надо делать запрос на сервер за фильмами и передавать в query параметр activeOption
+        // и отрисовывать эти фильмы
+    }, [page, movies, activeOption])
 
     return <div className={style.series}>
 
         <Title>Лучшие фильмов</Title>
 
-        <Filters filters={filtersMovies} />
+        <Filters filters={filteringFilmsPage} />
 
         <InputCustom touch={touch} setTouch={setTouch} requestSearchName={requestSearchName} />
 
@@ -44,7 +52,7 @@ export const Films: React.FC = () => {
         </div>}
 
         <div className={style.genres}>
-            <SelectCustom title={'Жанры'} option={options} />
+            <SelectCustom title={'Жанры'} option={options} activeOption={activeOption} setActiveOption={setActiveOption} />
         </div>
 
         {isLoading ? <Loader /> : <>
@@ -52,6 +60,8 @@ export const Films: React.FC = () => {
                 <Film  {...film} />
             </Link>)}
         </>}
-        <Pagination onRequestHandler={requestPage} page={page} />
+
+        <Pagination filter={filter} onRequestHandler={requestPage} page={page} />
+
     </div>
 }

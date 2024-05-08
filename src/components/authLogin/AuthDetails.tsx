@@ -14,6 +14,8 @@ export const AuthDetails: React.FC = () => {
 
     React.useEffect(() => {
         const listen = onAuthStateChanged(auth, (user) => {
+            // console.log();
+
             if (user) setAuthUser(user)
             else setAuthUser(null)
         })
@@ -31,8 +33,6 @@ export const AuthDetails: React.FC = () => {
             <div className={style.exit__login}>
                 <p className={style.exit__login_p}>{`Вы вошли в аккаунт ${authUser.email}`}</p>
                 <Button onClick={userSignOut}>Выйти</Button>
-            </div>
-            :
-            <p className={style.exit__out}>Выйти из аккаунта</p>}
+            </div> : <p className={style.exit__out}>Выйти из аккаунта</p>}
     </div>
 }
