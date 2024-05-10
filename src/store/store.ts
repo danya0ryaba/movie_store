@@ -18,8 +18,8 @@ export const store = configureStore({
         cartoon: cartoonSlice,
         anime: animeSlice,
         searchMovie: searchSlice,
-
     },
+    devTools: process.env.NODE_ENV !== 'production',
 })
 
 

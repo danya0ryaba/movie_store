@@ -4,7 +4,7 @@ import { Movie } from "../../type/movie";
 import { DataResponseType } from "../../type/responseAxios";
 import { isError } from "../../utils/isError";
 
-interface initialState {
+interface initialStateAnime {
     anime: Movie[],
     page: number,
     isLoading: boolean,
@@ -15,12 +15,12 @@ export const getAnime = createAsyncThunk<DataResponseType, number, { rejectValue
     'film/getAnimeFilm',
     async (page, { rejectWithValue }) => {
         const response = await usersAPI.getAnime(page);
-        if (response.status == 200) return response.data
+        if (response.status === 200) return response.data
         else return rejectWithValue("Server Error!")
     }
 )
 
-const initialState: initialState = {
+const initialState: initialStateAnime = {
     anime: [],
     page: 1,
     isLoading: false,

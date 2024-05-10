@@ -10,9 +10,9 @@ import { More } from '../more/More'
 
 export const TopFilms: React.FC = () => {
 
-    const { anime, page, isLoading } = useAppSelector(state => state.anime)
-
     const dispatch = useAppDispatch()
+
+    const { anime, page, isLoading } = useAppSelector(state => state.anime)
 
     const onViewMore = () => dispatch(getAnime(page + 1))
 
@@ -22,7 +22,8 @@ export const TopFilms: React.FC = () => {
             {isLoading ? <Loader /> : <>
                 <ul className={style.films}>
                     {anime.map(item => <Link key={item.id} to={`movie/${item.id}`}>
-                        <TopFilmItem poster={item.poster.previewUrl} />
+                        <TopFilmItem poster={item.poster?.previewUrl ? item.poster?.previewUrl :
+                            "https://image.openmoviedb.com/kinopoisk-images/10809116/e1befa7a-c495-4a4a-be01-220b92724e43/x1000"} />
                     </Link>)}
                 </ul>
                 {/* <span onClick={onViewMore} className={style.more}>посмотреть...</span> */}

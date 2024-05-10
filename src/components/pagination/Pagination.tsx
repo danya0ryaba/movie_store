@@ -11,16 +11,18 @@ type PaginationType = {
 }
 
 export const Pagination: React.FC<PaginationType> = ({ page, onRequestHandler, filter }) => {
+    console.log(filter);
 
     let width = useResize()
 
     const [activePage, setActivePage] = React.useState(page)
 
+
     // надо придумать как избавиться от этого, не прокидывать фильтр в Pagination
     // но кажется избавиться от этого не получится тк надо будет переписывать фильтрацию
     React.useEffect(() => {
         setActivePage(1)
-    }, [filter])
+    }, [filter, setActivePage])
 
     const onClickHandler = (num: number) => {
         setActivePage(num)
@@ -38,6 +40,7 @@ export const Pagination: React.FC<PaginationType> = ({ page, onRequestHandler, f
     }
 
     let pagination: number[] = []
+
     if (width > 488) {
         for (let i = 0; i < 10; i++) {
             pagination.push(page++)

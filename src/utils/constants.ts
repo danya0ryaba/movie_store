@@ -20,13 +20,15 @@ export const filteringValues: { [key: string]: string } = {
 // это объект фильрации для фильмов
 export const filteringFilmsPage: { [key: string]: string } = {
     "С высоким рейтингом": "votes.imdb",
-    "Российские": "votes.russianFilmCritics",
+    "По отзывам критиков": "rating.filmCritics",
     "Зарубежные": "fees.usa.value"
 }
 
 // это объект фильрации для сериалов
 export const filteringSeriesPage: { [key: string]: string } = {
     "С высоким рейтингом": "votes.imdb",
-    "Российские": "votes.russianFilmCritics",
-    "Зарубежные": "fees.usa.value"
+    // "Российские": "votes.russianFilmCritics",
+    "Зарубежные": "fees.usa.value",
+    "Новые": "releaseYears.start",
 }
+// releaseYears.start

@@ -15,15 +15,17 @@ import { getCartoon } from './store/cartoon/cartoonSlice';
 import { Footer } from './components/footer/Footer';
 import { getAnime } from './store/anime/animeSlice';
 import { Person } from './page/Person/Person';
-import { useAuth } from './hook/useAuth';
 import { Auth } from './page/Auth/Auth';
 import { auth } from './firebase';
 import { setAuth } from './store/auth/authSlice';
 
+// НАДО КАК-ТО ПЕРЕПИСАТЬ ФИЛТРАЦИЮ, А ТО ЭТО КАКАЯ-ТО ЗАЛУПА
+
 function App() {
 
+  console.log('render App');
+
   const dispatch = useAppDispatch()
-  const { filter } = useAppSelector(state => state.movie)
 
   React.useEffect(() => {
     if (auth.currentUser?.email && auth.currentUser?.uid) {
@@ -33,27 +35,16 @@ function App() {
         id: auth.currentUser?.uid,
       }))
     }
-    dispatch(getMovies({ page: 1, filter: filter }))
-    // dispatch(getSeries(1))
+    // dispatch(getSeries({ page: 1, filter: "votes.imdb" }))
     // dispatch(getCartoon(1))
     // dispatch(getAnime(1))
-  }, [dispatch, filter])
+  }, [dispatch])
 
   // ЧТО-ТО ПРИДУМАТЬ С ФИЛЬТРАЦИЕЙ НА СТРАНИЦАХ (возможно переписать компоненты)
 
   // сделать фильрацию на страниче Films и Series
-  // сделать активные ссылки - активными 
-
-  // когда аторизовался не показывать portal
-
-  // при первой загрузк страницы какая-то дичь с аниме дважды отображаются одни и теже
-
-  // есть хук useDebounce, но я его не использую
-
-  // + как-то оптимизировать загрузку изображения на карточки с фильмами
 
   // что-то с footer придумать
-
 
   // написать анимацию для всего (через библиотеки)
   // в конце сделать lazy loading
@@ -83,7 +74,7 @@ function App() {
 
     </Routes>
 
-    {/* <Footer /> */}
+    <Footer />
 
   </>);
 }

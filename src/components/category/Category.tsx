@@ -8,6 +8,8 @@ import { getLoadingMovies } from '../../store/movie/loadingMovieSlice'
 import { CategoryHeader } from '../categoryHeader/CategoryHeader'
 import { filteringValues } from '../../utils/constants'
 import { More } from '../more/More'
+import { getMovies } from '../../store/movie/movieSlice'
+import { motion } from 'framer-motion'
 
 export const Category: React.FC = () => {
 
@@ -21,16 +23,41 @@ export const Category: React.FC = () => {
 
     const showMoreCards = () => dispatch(getLoadingMovies({ page: page + 1, filter }))
 
+    React.useEffect(() => {
+        dispatch(getMovies({ page: 1, filter }))
+    }, [dispatch, filter])
+
+
+    const listVariants = {
+        visible: (i: any) => ({
+            opacity: 1,
+            y: 0,
+            transition: {
+                delay: i * 0.5
+            },
+        }),
+        hidden: { opacity: 0, y: 100 }
+    }
+
     return <section className={style.category}>
         <div className={style.container}>
+
             <CategoryHeader filters={filteringValues} />
+
             {isLoading ? <Loader /> : <>
-                <div className={style.category__films}>
+                <ul className={style.category__films}>
                     {allMovies.map(card => <Link key={card.id} to={`movie/${card.id}`}>
-                        <MovieCard key={card.id} {...card} />
+                        <motion.li
+                            key={card.id}
+                            variants={listVariants}
+                            initial="hidden"
+                            animate="visible"
+                            custom={card.id}>
+                            <MovieCard {...card} />
+                        </motion.li>
                     </Link>)}
-                </div> </>}
+                </ul> </>}
             <More handlerClick={showMoreCards} />
         </div>
-    </section>
+    </section >
 }

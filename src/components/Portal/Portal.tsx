@@ -10,7 +10,7 @@ type PortalType = {
     onClose: () => void
 }
 
-export const Portal: React.FC<PortalType> = ({ onClose }) => {
+export const Portal: React.FC<PortalType> = React.memo(({ onClose }) => {
     return createPortal(<div className={s.portal}>
         <div className={s.portal__close}>
             <svg onClick={onClose} className={s.close} height="30px" version="1.1" viewBox="0 0 512 512" width="30px"  >
@@ -29,4 +29,4 @@ export const Portal: React.FC<PortalType> = ({ onClose }) => {
             <span className={s.forgot}>Забили пароль?</span>
         </div>
     </div>, portal!)
-}
+})

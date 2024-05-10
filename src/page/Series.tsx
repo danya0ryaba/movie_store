@@ -31,7 +31,7 @@ export const Series: React.FC = () => {
     // для пагинации и записи в стейт текущих сериалов
     const { series, isLoading, page } = useAppSelector(state => state.series);
     const dispatch = useAppDispatch()
-    const requestPageSeries = (page: number) => dispatch(getSeries(page))
+    const requestPageSeries = (page: number) => dispatch(getSeries({ page, filter: "votes.imdb" }))
 
     React.useEffect(() => {
         window.scrollTo(0, 0)

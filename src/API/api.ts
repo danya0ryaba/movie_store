@@ -66,7 +66,7 @@ export const usersAPI = {
         notNullFields=persons.enProfession&&sortField=${filter}&sortType=-1`
         )
     },
-    getSeries(page: number = 1, limit: number = 20) {
+    getSeries(page: number = 1, filter: string = "votes.imdb", limit: number = 20) {
         return instance.get(`movie?page=${page}&limit=${limit}&type=tv-series&
         selectFields=name&
         selectFields=poster&
@@ -76,7 +76,7 @@ export const usersAPI = {
         notNullFields=countries.name&
         notNullFields=rating.imdb&
         notNullFields=poster.url&
-        notNullFields=genres.name`
+        notNullFields=genres.name&sortField=${filter}&sortType=-1`
         )
     },
     getCartoon(page: number = 1, limit: number = 12) {

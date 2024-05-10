@@ -34,18 +34,16 @@ export const Films: React.FC = () => {
 
     React.useEffect(() => {
         window.scrollTo(0, 0)
-        // это для селекта
-        // тут надо делать запрос на сервер за фильмами и передавать в query параметр activeOption
-        // и отрисовывать эти фильмы
-    }, [page, movies, activeOption])
+        dispatch(getMovies({ page, filter }))
+    }, [page, filter, dispatch, movies])
 
     return <div className={style.series}>
 
-        <Title>Лучшие фильмов</Title>
+        {/* <Title>Лучшие фильмов</Title> */}
 
-        <Filters filters={filteringFilmsPage} />
+        <Filters filter={filter} filters={filteringFilmsPage} />
 
-        <InputCustom touch={touch} setTouch={setTouch} requestSearchName={requestSearchName} />
+        {/* <InputCustom touch={touch} setTouch={setTouch} requestSearchName={requestSearchName} />
 
         {touch && <div className={style.searchFilms}>
             <ul>{searchMovies.map(film => <SearchItem key={film.id} {...film} />)}</ul>
@@ -53,7 +51,7 @@ export const Films: React.FC = () => {
 
         <div className={style.genres}>
             <SelectCustom title={'Жанры'} option={options} activeOption={activeOption} setActiveOption={setActiveOption} />
-        </div>
+        </div> */}
 
         {isLoading ? <Loader /> : <>
             {movies.map(film => <Link key={film.id} to={`${film.id}`}>

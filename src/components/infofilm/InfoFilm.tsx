@@ -9,15 +9,24 @@ import { CurrentFilm } from '../../type/movieId'
 import { AboutFilm } from '../aboutfilm/AboutFilm';
 import { Portal } from '../Portal/Portal';
 import { Star } from '../star/Star';
+import { useAuth } from '../../hook/useAuth';
 
 const gradeForFilms = [1, 2, 3, 4, 5]
 
 export const InfoFilm: React.FC<CurrentFilm> = (props) => {
 
+    const { isAuth } = useAuth()
+
     // для портала (popup)
     const [modePortal, setModePortal] = React.useState(false)
-    const changeModePortal = () => setModePortal(prev => !prev)
 
+    const changeModePortal = () => {
+        if (!isAuth) {
+            setModePortal(prev => !prev)
+        } else {
+            alert("Спасибо, что авторизовались, но это бутафорский сайт")
+        }
+    }
     // вернуться назад
     const navigate = useNavigate()
     const onClickBack = () => navigate(-1)

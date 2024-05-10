@@ -9,7 +9,7 @@ export const MovieCard: React.FC<Movie> = (props) => {
 
         <div className={style.item_film}>
 
-            <img src={`${props.poster?.url || props.poster?.previewUrl || false}`} className={style.poster} alt="poster films" />
+            <img loading='lazy' src={`${props.poster?.url || props.poster?.previewUrl || false}`} className={style.poster} alt="poster films" />
 
             <div className={style.item_film_info}>
 

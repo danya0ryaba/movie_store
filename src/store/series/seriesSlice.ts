@@ -9,12 +9,13 @@ interface SeriesInitialState {
     page: number,
     isLoading: boolean,
     error: null | string
+    filter: string
 }
 
-export const getSeries = createAsyncThunk<DataResponseType, number, { rejectValue: string }>(
+export const getSeries = createAsyncThunk<DataResponseType, { page: number, filter: string }, { rejectValue: string }>(
     'series/getSeries',
-    async (page, { rejectWithValue }) => {
-        const res = await usersAPI.getSeries(page)
+    async ({ page, filter }, { rejectWithValue }) => {
+        const res = await usersAPI.getSeries(page, filter)
         if (res.status === 200) return res.data
         else return rejectWithValue("Server Error!")
     }
@@ -24,7 +25,8 @@ const initialState: SeriesInitialState = {
     series: [],
     page: 1,
     isLoading: false,
-    error: null
+    error: null,
+    filter: ""
 }
 
 const seriesSlice = createSlice({
