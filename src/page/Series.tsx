@@ -41,7 +41,7 @@ export const Series: React.FC = () => {
 
         <Title>Лучшие сериалы</Title>
 
-        <Filters filters={filteringSeriesPage} />
+        {/* <Filters filters={filteringSeriesPage} /> */}
 
         <InputCustom touch={touch} setTouch={setTouch} requestSearchName={requestSearchName} />
 

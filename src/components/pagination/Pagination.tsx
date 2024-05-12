@@ -2,7 +2,8 @@ import React from 'react'
 import style from './pagination.module.scss'
 import { ReactComponent as RightArrow } from '../../assets/img/right-arrow (1).svg'
 import { ReactComponent as LeftArrow } from '../../assets/img/left-arrow (2).svg'
-import { useResize } from '../../hook/useResize'
+// import { useResize } from '../../hook/useResize'
+import { createPag } from '../../utils/pag'
 
 type PaginationType = {
     page: number,
@@ -11,44 +12,32 @@ type PaginationType = {
 }
 
 export const Pagination: React.FC<PaginationType> = ({ page, onRequestHandler, filter }) => {
-    console.log(filter);
 
-    let width = useResize()
+    // ОСТАЛОСЬ ПРИДУМАТЬ ЧТО ДЕЛАТЬ С ШИРИНОЙ ЭКРАНА let width = useResize()
 
     const [activePage, setActivePage] = React.useState(page)
 
-
-    // надо придумать как избавиться от этого, не прокидывать фильтр в Pagination
-    // но кажется избавиться от этого не получится тк надо будет переписывать фильтрацию
-    React.useEffect(() => {
-        setActivePage(1)
-    }, [filter, setActivePage])
+    const [pagination, setPagination] = React.useState<number[]>(createPag(1))
 
     const onClickHandler = (num: number) => {
+        setPagination(createPag(num))
         setActivePage(num)
         onRequestHandler(num)
     }
 
     const onLeftArrowHandler = () => {
-        setActivePage(activePage - 1)
-        onRequestHandler(activePage - 1)
+        const num = activePage - 1
+        if (num < 1) return
+        setPagination(createPag(num))
+        setActivePage(num)
+        onRequestHandler(num)
     }
 
     const onRightArrowHandler = () => {
-        setActivePage(activePage + 1)
-        onRequestHandler(activePage + 1)
-    }
-
-    let pagination: number[] = []
-
-    if (width > 488) {
-        for (let i = 0; i < 10; i++) {
-            pagination.push(page++)
-        }
-    } else {
-        for (let i = 0; i < 5; i++) {
-            pagination.push(page++)
-        }
+        const num = activePage + 1
+        setPagination(createPag(num))
+        setActivePage(num)
+        onRequestHandler(num)
     }
 
     return <section className={style.pagination}>

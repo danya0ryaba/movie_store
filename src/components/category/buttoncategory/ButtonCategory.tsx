@@ -1,27 +1,20 @@
 import React from "react";
 import style from './buttoncategory.module.scss'
-import { useAppDispatch, useAppSelector } from "../../../store/hooks/redux";
-import { changeFilter } from "../../../store/movie/movieSlice";
-import { resetLoadingMovie } from "../../../store/movie/loadingMovieSlice";
 
 interface ButtonCategoryInterface {
     readonly children: React.ReactNode
-    readonly filterCurrent: string
+    readonly filterValue: any
+    readonly currentFilter: string
+    onChangeFilter: (value: string) => void
 }
 
-export const ButtonCategory: React.FC<ButtonCategoryInterface> = ({ children, filterCurrent }) => {
+export const ButtonCategory: React.FC<ButtonCategoryInterface> = ({ children,
+    filterValue,
+    currentFilter,
+    onChangeFilter }) => {
 
-    const dispatch = useAppDispatch()
-
-    const { filter } = useAppSelector(state => state.movie)
-
-    const onChangeFilter = () => {
-        dispatch(resetLoadingMovie())
-        filterCurrent && dispatch(changeFilter(filterCurrent))
-    }
-
-    return <button onClick={onChangeFilter}
-        className={filter === filterCurrent ? `${style.filters__item_active}` : style.filters__item}>
+    return <button onClick={() => onChangeFilter(filterValue)}
+        className={currentFilter === filterValue ? `${style.filters__item_active}` : style.filters__item}>
         {children}
     </button>
 }

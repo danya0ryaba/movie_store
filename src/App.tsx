@@ -23,7 +23,7 @@ import { setAuth } from './store/auth/authSlice';
 
 function App() {
 
-  console.log('render App');
+  // console.log('render App');
 
   const dispatch = useAppDispatch()
 
@@ -74,7 +74,7 @@ function App() {
 
     </Routes>
 
-    <Footer />
+    {/* <Footer /> */}
 
   </>);
 }

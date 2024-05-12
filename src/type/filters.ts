@@ -1,7 +1,5 @@
 export type FiltersType = {
-    readonly filters: any,
-    readonly onChangeFilter?: () => void
-    readonly filter?: string
-    // readonly filteringObj?: any
-    // readonly valueFilterObj?: any
+    readonly filtersObject: { [key: string]: string },
+    readonly onChangeFilter: (value: string) => void
+    readonly currentFilter: string
 }

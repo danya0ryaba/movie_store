@@ -14,6 +14,25 @@
     width: 100%;
     padding: 0 10px;
     overflow: hidden;
+
+    .text {
+        display: flex;
+        flex-direction: column;
+
+        .title {
+            font-size: 18px;
+            color: $green;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-family: 'Homenaje', serif;
+            font-size: 44px;
+            color: $white;
+            margin-bottom: 20px;
+        }
+    }
 }
 
 .category__films {

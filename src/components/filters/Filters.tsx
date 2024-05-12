@@ -3,12 +3,16 @@ import style from './filters.module.scss'
 import { ButtonCategory } from '../category/buttoncategory/ButtonCategory'
 import { FiltersType } from '../../type/filters'
 
-export const Filters: React.FC<FiltersType> = ({ filters }) => {
+export const Filters: React.FC<FiltersType> = ({ filtersObject, onChangeFilter, currentFilter }) => {
 
-    const filtersArray = Object.keys(filters)
+    const valueFilters = Object.values(filtersObject)
 
     return <div className={style.filters}>
-        {filtersArray.map(filter => <ButtonCategory key={filter} filterCurrent={filters[filter]}>
+        {Object.keys(filtersObject).map((filter, i) => <ButtonCategory
+            key={filter}
+            onChangeFilter={onChangeFilter}
+            filterValue={valueFilters[i]}
+            currentFilter={currentFilter}>
             {filter}
         </ButtonCategory>)}
     </div>

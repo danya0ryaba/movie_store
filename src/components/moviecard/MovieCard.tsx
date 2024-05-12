@@ -5,11 +5,13 @@ import star from '../../assets/img/star.png'
 import { Movie } from '../../type/movie'
 
 export const MovieCard: React.FC<Movie> = (props) => {
-    return <div className={style.category__films_item}>
+
+    return <li className={style.category__films_item}>
 
         <div className={style.item_film}>
 
-            <img loading='lazy' src={`${props.poster?.url || props.poster?.previewUrl || false}`} className={style.poster} alt="poster films" />
+            <img src={`${props.poster?.url || props.poster?.previewUrl || false}`}
+                className={style.poster} alt="poster films" />
 
             <div className={style.item_film_info}>
 
@@ -34,5 +36,5 @@ export const MovieCard: React.FC<Movie> = (props) => {
 
         </div>
 
-    </div>
+    </li>
 }

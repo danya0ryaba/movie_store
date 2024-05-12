@@ -4,19 +4,19 @@ import { MovieCard } from '../moviecard/MovieCard'
 import { Link } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../store/hooks/redux'
 import { Loader } from '../loader/Loader'
-import { getLoadingMovies } from '../../store/movie/loadingMovieSlice'
-import { CategoryHeader } from '../categoryHeader/CategoryHeader'
+import { getLoadingMovies, resetLoadingMovie } from '../../store/movie/loadingMovieSlice'
 import { filteringValues } from '../../utils/constants'
 import { More } from '../more/More'
-import { getMovies } from '../../store/movie/movieSlice'
-import { motion } from 'framer-motion'
+import { changeFilter, getMovies } from '../../store/movie/movieSlice'
+import { Filters } from '../filters/Filters'
 
 export const Category: React.FC = () => {
+    console.log('render Category');
+
 
     const dispatch = useAppDispatch()
 
     const { loadingMovies, page } = useAppSelector(state => state.loadingMovie)
-
     const { movies, isLoading, filter } = useAppSelector(state => state.movie)
 
     const allMovies = [...movies, ...loadingMovies]
@@ -27,36 +27,28 @@ export const Category: React.FC = () => {
         dispatch(getMovies({ page: 1, filter }))
     }, [dispatch, filter])
 
-
-    const listVariants = {
-        visible: (i: any) => ({
-            opacity: 1,
-            y: 0,
-            transition: {
-                delay: i * 0.5
-            },
-        }),
-        hidden: { opacity: 0, y: 100 }
+    const onChangeFilter = (updatedFilter: string) => {
+        dispatch(resetLoadingMovie())
+        dispatch(changeFilter(updatedFilter))
     }
 
     return <section className={style.category}>
         <div className={style.container}>
 
-            <CategoryHeader filters={filteringValues} />
+            <div className={style.text}>
+                <h3 className={style.title}>ONLINE STREAMING</h3>
+                <h4 className={style.subtitle}>Лучшие Фильмы</h4>
+            </div>
 
-            {isLoading ? <Loader /> : <>
+            <Filters currentFilter={filter} filtersObject={filteringValues} onChangeFilter={onChangeFilter} />
+
+            {isLoading ? <Loader /> :
                 <ul className={style.category__films}>
                     {allMovies.map(card => <Link key={card.id} to={`movie/${card.id}`}>
-                        <motion.li
-                            key={card.id}
-                            variants={listVariants}
-                            initial="hidden"
-                            animate="visible"
-                            custom={card.id}>
-                            <MovieCard {...card} />
-                        </motion.li>
+                        <MovieCard {...card} />
                     </Link>)}
-                </ul> </>}
+                </ul>}
+
             <More handlerClick={showMoreCards} />
         </div>
     </section >
