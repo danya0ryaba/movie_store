@@ -8,14 +8,12 @@ import { SelectCustom } from '../components/select/SelectCustom'
 import style from './series.module.scss'
 import { Link } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../store/hooks/redux'
-import { getSeries } from '../store/series/seriesSlice'
+import { changeFilterSeries, getSeries } from '../store/series/seriesSlice'
 import { Loader } from '../components/loader/Loader'
 import { SearchItem } from '../components/search/searchitem/SearchItem'
 import { usersAPI } from '../API/api'
 import { Movie } from '../type/movie'
 import { filteringSeriesPage } from '../utils/constants'
-
-// const filterSeries = ['С высоким рейтингом', 'Российские', 'Зарубежные']
 
 const options = ['Биография', 'Аниме', 'Боевики', 'Детективы', 'Документальные', 'Драмы']
 
@@ -29,19 +27,20 @@ export const Series: React.FC = () => {
     const requestSearchName = (name: string) => usersAPI.getSearch(name).then(res => setList(res.data.docs))
 
     // для пагинации и записи в стейт текущих сериалов
-    const { series, isLoading, page } = useAppSelector(state => state.series);
     const dispatch = useAppDispatch()
-    const requestPageSeries = (page: number) => dispatch(getSeries({ page, filter: "votes.imdb" }))
+    const { series, isLoading, page, filter } = useAppSelector(state => state.series);
+    const requestPageSeries = (page: number) => dispatch(getSeries({ page, filter }))
 
     React.useEffect(() => {
         window.scrollTo(0, 0)
-    }, [page, isLoading])
+        dispatch(getSeries({ page, filter }))
+    }, [page, filter, dispatch])
+
+    const onChangeFilter = (updatedFilter: string) => dispatch(changeFilterSeries(updatedFilter))
 
     return <div className={style.series}>
 
         <Title>Лучшие сериалы</Title>
-
-        {/* <Filters filters={filteringSeriesPage} /> */}
 
         <InputCustom touch={touch} setTouch={setTouch} requestSearchName={requestSearchName} />
 
@@ -52,11 +51,16 @@ export const Series: React.FC = () => {
         <div className={style.genres}>
             <SelectCustom activeOption={activeOption} setActiveOption={setActiveOption} title={'Жанры'} option={options} />
         </div>
+
+        <Filters onChangeFilter={onChangeFilter} currentFilter={filter} filtersObject={filteringSeriesPage} />
+
         {isLoading ? <Loader /> : <>
             {series.map(s => <Link key={s.id} to={`${s.id}`}>
                 <Film {...s} />
             </Link>)}
         </>}
+
         <Pagination page={page} onRequestHandler={requestPageSeries} />
+
     </div>
 }

@@ -26,13 +26,17 @@ const initialState: SeriesInitialState = {
     page: 1,
     isLoading: false,
     error: null,
-    filter: ""
+    filter: "votes.imdb"
 }
 
 const seriesSlice = createSlice({
     name: 'series',
     initialState,
-    reducers: {},
+    reducers: {
+        changeFilterSeries: (state, { payload }: PayloadAction<string>) => {
+            state.filter = payload
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(getSeries.pending, (state) => {
@@ -50,5 +54,7 @@ const seriesSlice = createSlice({
             })
     }
 })
+
+export const { changeFilterSeries } = seriesSlice.actions
 
 export default seriesSlice.reducer

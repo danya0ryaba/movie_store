@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import { Title } from '../components/title/Title'
 import { Filters } from '../components/filters/Filters'
 import { Film } from '../components/film/Film'
@@ -21,11 +21,11 @@ export const Films: React.FC = () => {
 
 
     // для селекта
-    // const [activeOption, setActiveOption] = React.useState('')
+    const [activeOption, setActiveOption] = React.useState('')
     // для инпута
-    // const [touch, setTouch] = React.useState(false)
-    // const { searchMovies } = useAppSelector(state => state.searchMovie)
-    // const requestSearchName = (name: string) => dispatch(getSearchMovie(name))
+    const [touch, setTouch] = React.useState(false)
+    const { searchMovies } = useAppSelector(state => state.searchMovie)
+    const requestSearchName = (name: string) => dispatch(getSearchMovie(name))
 
     const { movies, page, isLoading, filter } = useAppSelector(state => state.movie)
 
@@ -48,22 +48,19 @@ export const Films: React.FC = () => {
 
     return <div className={style.series}>
 
-        {/* <Title>Лучшие фильмов</Title> */}
+        <Title>Лучшие фильмов</Title>
 
-        {/* <InputCustom touch={touch} setTouch={setTouch} requestSearchName={requestSearchName} />
+        <InputCustom touch={touch} setTouch={setTouch} requestSearchName={requestSearchName} />
 
         {touch && <div className={style.searchFilms}>
-        <ul>{searchMovies.map(film => <SearchItem key={film.id} {...film} />)}</ul>
+            <ul>{searchMovies.map(film => <SearchItem key={film.id} {...film} />)}</ul>
         </div>}
 
         <div className={style.genres}>
-        <SelectCustom title={'Жанры'} option={options} activeOption={activeOption} setActiveOption={setActiveOption} />
-        </div> */}
+            <SelectCustom title={'Жанры'} option={options} activeOption={activeOption} setActiveOption={setActiveOption} />
+        </div>
 
-        <Filters
-            currentFilter={filter}
-            onChangeFilter={onChangeFilter}
-            filtersObject={filteringFilmsPage} />
+        <Filters currentFilter={filter} onChangeFilter={onChangeFilter} filtersObject={filteringFilmsPage} />
 
         {isLoading ? <Loader /> : <>
             {movies.map(film => <Link key={film.id} to={`${film.id}`}>

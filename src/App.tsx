@@ -35,20 +35,19 @@ function App() {
         id: auth.currentUser?.uid,
       }))
     }
-    // dispatch(getSeries({ page: 1, filter: "votes.imdb" }))
+    dispatch(getSeries({ page: 1, filter: "votes.imdb" }))
     // dispatch(getCartoon(1))
     // dispatch(getAnime(1))
   }, [dispatch])
 
-  // ЧТО-ТО ПРИДУМАТЬ С ФИЛЬТРАЦИЕЙ НА СТРАНИЦАХ (возможно переписать компоненты)
+  // ГЛАВНАЯ ПРОБЛЕМА ЭТО ПАГИНАЦИЯ ПРИ ИЗМЕНЕНИИ ФИЛЬТРА
 
-  // сделать фильрацию на страниче Films и Series
-
+  // добавить побольше фильтров на страницу фильмы
   // что-то с footer придумать
 
   // написать анимацию для всего (через библиотеки)
   // в конце сделать lazy loading
-  // оптимизировать все (memo? useMeme? useCallback)
+  // оптимизировать все (memo? useMeme? useCallback?)
 
   return (<>
     <Header />

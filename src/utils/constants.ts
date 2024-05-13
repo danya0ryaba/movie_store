@@ -1,3 +1,4 @@
+// это для главной страницы
 export const filteringValues: { [key: string]: string } = {
     "По российским сборам": "fees.russia.value",
     "По рейтингу критиков": "rating.filmCritics",
@@ -27,8 +28,8 @@ export const filteringFilmsPage: { [key: string]: string } = {
 // это объект фильрации для сериалов
 export const filteringSeriesPage: { [key: string]: string } = {
     "С высоким рейтингом": "votes.imdb",
-    // "Российские": "votes.russianFilmCritics",
+    "По отзывам критиков": "rating.filmCritics",
+    "Аудитория": "audience.count",
     "Зарубежные": "fees.usa.value",
-    "Новые": "releaseYears.start",
+    "Сиквелы и приквелы": "sequelsAndPrequels.rating.imdb",
 }
-// releaseYears.start
