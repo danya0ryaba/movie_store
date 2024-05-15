@@ -1,7 +1,6 @@
 import React from 'react'
 import { Title } from '../components/title/Title'
 import { Filters } from '../components/filters/Filters'
-import { Film } from '../components/film/Film'
 import { Pagination } from '../components/pagination/Pagination'
 import style from './series.module.scss'
 import { InputCustom } from '../components/input/InputCustom'
@@ -14,11 +13,11 @@ import { getSearchMovie } from '../store/search/searchSlice'
 import { SearchItem } from '../components/search/searchitem/SearchItem'
 import { filteringFilmsPage } from '../utils/constants'
 import { resetLoadingMovie } from '../store/movie/loadingMovieSlice'
+import { Film } from '../components/film/Film'
 
 const options = ['Биография', 'Аниме', 'Боевики', 'Детективы', 'Документальные', 'Драмы']
 
 export const Films: React.FC = () => {
-
 
     // для селекта
     const [activeOption, setActiveOption] = React.useState('')
@@ -45,7 +44,6 @@ export const Films: React.FC = () => {
     // ВСЕ РАВНО ПРИ ИЗМЕНЕНИИ ФИЛЬРА БЕРЕТ СТРАНИЦУ ИЗ СТАРОГО СОСТОЯНИЯ
     const requestPage = (page: number) => dispatch(getMovies({ page, filter }))
 
-
     return <div className={style.series}>
 
         <Title>Лучшие фильмов</Title>
@@ -62,11 +60,12 @@ export const Films: React.FC = () => {
 
         <Filters currentFilter={filter} onChangeFilter={onChangeFilter} filtersObject={filteringFilmsPage} />
 
-        {isLoading ? <Loader /> : <>
-            {movies.map(film => <Link key={film.id} to={`${film.id}`}>
-                <Film  {...film} />
-            </Link>)}
-        </>}
+        {isLoading ?
+            <Loader /> : <>
+                {movies.map(film => <Link key={film.id} to={`${film.id}`}>
+                    <Film  {...film} />
+                </Link>)}
+            </>}
 
         <Pagination filter={filter} onRequestHandler={requestPage} page={page} />
 

@@ -29,6 +29,7 @@ export const CartoonBlock: React.FC = () => {
                         <CartoonItem key={cartoon.id} {...cartoon} />
                     </Link>)}
             </>}
+            {isLoading === false ? error : false}
         </div>
         <Pagination page={page} onRequestHandler={onRequestCartoon} />
     </section>

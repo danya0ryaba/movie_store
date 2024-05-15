@@ -7,6 +7,7 @@ import { usersAPI } from '../API/api'
 import style from './cartoon.module.scss'
 import { Movie } from '../type/movie'
 
+
 export const Cartoon: React.FC = () => {
 
     const [touch, setTouch] = React.useState(false)
@@ -14,7 +15,9 @@ export const Cartoon: React.FC = () => {
     const requestSearchName = (name: string) => usersAPI.getSearch(name).then(res => setList(res.data.docs))
 
     return <>
+
         <Title>Мультфильмы</Title>
+
         <InputCustom touch={touch} setTouch={setTouch} requestSearchName={requestSearchName} />
 
         {touch && <div className={style.searchFilms}>

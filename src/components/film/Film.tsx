@@ -2,12 +2,25 @@ import React from 'react'
 import style from './film.module.scss'
 import camera from '../../assets/img/camera.png'
 import { Movie } from '../../type/movie'
+import { motion } from 'framer-motion'
 
 export const Film: React.FC<Movie> = (props) => {
 
     return <div className={style.card__film}>
         <div className={style.container}>
-            <div className={style.card}>
+            <motion.div className={style.card}
+                initial={{
+                    x: -1200,
+                    opacity: 0
+                }}
+                animate={{
+                    x: 0,
+                    opacity: 1,
+                }}
+                transition={{
+                    type: "spring",
+                    duration: 0.15
+                }}>
 
                 <div className={style.card__info}>
                     <div className={style.poster}>
@@ -46,7 +59,7 @@ export const Film: React.FC<Movie> = (props) => {
                         {props.shortDescription ? `${props.shortDescription}.` : 'описание отсутствует'}
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </div>
     </div>
 }

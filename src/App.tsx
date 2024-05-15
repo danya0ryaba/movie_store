@@ -36,8 +36,8 @@ function App() {
       }))
     }
     dispatch(getSeries({ page: 1, filter: "votes.imdb" }))
-    // dispatch(getCartoon(1))
-    // dispatch(getAnime(1))
+    dispatch(getCartoon(1))
+    dispatch(getAnime(1))
   }, [dispatch])
 
   // ГЛАВНАЯ ПРОБЛЕМА ЭТО ПАГИНАЦИЯ ПРИ ИЗМЕНЕНИИ ФИЛЬТРА
@@ -45,7 +45,10 @@ function App() {
   // добавить побольше фильтров на страницу фильмы
   // что-то с footer придумать
 
-  // написать анимацию для всего (через библиотеки)
+  // какие-то проблемы с api у мультиков
+  // поправить вертску изображения бэтмена
+
+  // написать анимацию для всего (через библиотеки) НА АНИМЕ
   // в конце сделать lazy loading
   // оптимизировать все (memo? useMeme? useCallback?)
 

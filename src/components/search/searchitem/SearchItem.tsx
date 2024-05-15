@@ -7,7 +7,7 @@ export const SearchItem: React.FC<Movie> = (props) => {
 
     return <Link to={`${props.id}`} className={style.item}>
         <div className={style.info__poster}>
-            <img src={props.poster.previewUrl} alt="poster" className={style.poster} />
+            <img src={props.poster?.previewUrl} alt="poster" className={style.poster} />
             <div className={style.desc}>{props.shortDescription ? props.shortDescription : 'описание отсутствует'}</div>
         </div>
 

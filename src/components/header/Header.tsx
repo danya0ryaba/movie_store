@@ -5,6 +5,7 @@ import logo from '../../assets/img/logo.png'
 import { Auth } from '../auth/Auth'
 import { SelectCustom } from '../select/SelectCustom'
 import { useAuth } from '../../hook/useAuth'
+import { motion } from 'framer-motion'
 
 export type Language = 'RU' | 'EN'
 
@@ -12,16 +13,13 @@ const arrayLanguage = ['RU', 'EN']
 
 export const Header: React.FC = () => {
 
-    // для селекта
     const [activeOption, setActiveOption] = React.useState('')
 
     const { isAuth, email } = useAuth()
 
-
     const [burgerMenu, setBurgerMenu] = React.useState(false)
 
     const onClickBurgerMenu = () => setBurgerMenu(!burgerMenu)
-
 
     return <div className={style.container}>
 
@@ -32,12 +30,24 @@ export const Header: React.FC = () => {
                 <h1> Filmagnet </h1>
             </div></Link>
 
-            <nav className={style.header__menu}>
+            <motion.nav className={style.header__menu}
+                initial={{
+                    x: -1200,
+                    opacity: 0
+                }}
+                animate={{
+                    x: 0,
+                    opacity: 1
+                }}
+                transition={{
+                    type: "spring",
+                    duration: 1.5
+                }}>
                 <NavLink className={({ isActive }) => `${isActive ? style.link_active : style.link}`} to={'/'}>главная</NavLink>
                 <NavLink className={({ isActive }) => `${isActive ? style.link_active : style.link}`} to={'/movie'}>кино</NavLink>
                 <NavLink className={({ isActive }) => `${isActive ? style.link_active : style.link}`} to={'/cartoon'}>мультфильмы</NavLink>
                 <NavLink className={({ isActive }) => `${isActive ? style.link_active : style.link}`} to={'/series'}>сериалы</NavLink>
-            </nav>
+            </motion.nav>
 
             <Outlet />
 

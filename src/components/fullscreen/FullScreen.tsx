@@ -21,10 +21,11 @@ export const FullScreen: React.FC = () => {
 
     return <div className={style.fullscreen}>
         <div className={style.fullscreen__gradient}>
-            <motion.div initial={{
-                x: -1200,
-                opacity: 0
-            }}
+            <motion.div
+                initial={{
+                    x: -1200,
+                    opacity: 0
+                }}
                 animate={{
                     x: 0,
                     opacity: 1
