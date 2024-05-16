@@ -38,29 +38,31 @@ export const Series: React.FC = () => {
 
     const onChangeFilter = (updatedFilter: string) => dispatch(changeFilterSeries(updatedFilter))
 
-    return <div className={style.series}>
+    return <section className={style.film}>
+        <div className={style.series}>
 
-        <Title>Лучшие сериалы</Title>
+            <Title>Лучшие сериалы</Title>
 
-        <InputCustom touch={touch} setTouch={setTouch} requestSearchName={requestSearchName} />
+            <InputCustom touch={touch} setTouch={setTouch} requestSearchName={requestSearchName} />
 
-        {touch && <div className={style.searchFilms}>
-            <ul>{list.map(film => <SearchItem key={film.id} {...film} />)}</ul>
-        </div>}
+            {touch && <div className={style.searchFilms}>
+                <ul>{list.map(film => <SearchItem key={film.id} {...film} />)}</ul>
+            </div>}
 
-        <div className={style.genres}>
-            <SelectCustom activeOption={activeOption} setActiveOption={setActiveOption} title={'Жанры'} option={options} />
+            <div className={style.genres}>
+                <SelectCustom activeOption={activeOption} setActiveOption={setActiveOption} title={'Жанры'} option={options} />
+            </div>
+
+            <Filters onChangeFilter={onChangeFilter} currentFilter={filter} filtersObject={filteringSeriesPage} />
+
+            {isLoading ? <Loader /> : <>
+                {series.map(s => <Link key={s.id} to={`${s.id}`}>
+                    <Film {...s} />
+                </Link>)}
+            </>}
+
+            <Pagination page={page} onRequestHandler={requestPageSeries} />
+
         </div>
-
-        <Filters onChangeFilter={onChangeFilter} currentFilter={filter} filtersObject={filteringSeriesPage} />
-
-        {isLoading ? <Loader /> : <>
-            {series.map(s => <Link key={s.id} to={`${s.id}`}>
-                <Film {...s} />
-            </Link>)}
-        </>}
-
-        <Pagination page={page} onRequestHandler={requestPageSeries} />
-
-    </div>
+    </section>
 }

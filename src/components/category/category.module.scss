@@ -1,10 +1,9 @@
 @import '../../style/variables.scss';
 
 .category {
-    // min-height: 100vh;
     background: url('../../assets/img/categoryImage.png');
     background-repeat: no-repeat;
-    // background-size: cover;
+    background-size: cover;
     padding: 50px 0;
 }
 
@@ -77,7 +76,6 @@
 
         .container {
             .category__info {
-
 
                 .filters {
                     flex-direction: column;

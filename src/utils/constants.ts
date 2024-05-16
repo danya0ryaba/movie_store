@@ -22,7 +22,11 @@ export const filteringValues: { [key: string]: string } = {
 export const filteringFilmsPage: { [key: string]: string } = {
     "С высоким рейтингом": "votes.imdb",
     "По отзывам критиков": "rating.filmCritics",
-    "Зарубежные": "fees.usa.value"
+    "Зарубежные": "fees.usa.value",
+    "Аудитория": "audience.count",
+    "топ 250": "top250",
+    "По российским сборам": "fees.russia.value",
+    "По мировым сборам": "fees.world.value",
 }
 
 // это объект фильрации для сериалов

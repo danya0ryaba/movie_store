@@ -9,6 +9,7 @@ import { Loader } from '../loader/Loader'
 
 
 export const CartoonBlock: React.FC = () => {
+    console.log("render CartoonBlock");
 
     const { cartoon, page, isLoading, error } = useAppSelector(state => state.cartoon);
 
@@ -17,9 +18,10 @@ export const CartoonBlock: React.FC = () => {
     const onRequestCartoon = (page: number) => dispatch(getCartoon(page))
 
     React.useEffect(() => {
+        dispatch(getCartoon(page))
         window.scrollTo(0, 0)
         return () => window.scrollTo(0, 0)
-    }, [page])
+    }, [page, dispatch])
 
     return <section className={style.tv}>
         <div className={style.tv__container}>

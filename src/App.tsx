@@ -11,15 +11,12 @@ import { Header } from './components/header/Header';
 import { useAppDispatch, useAppSelector } from './store/hooks/redux';
 import { getMovies } from './store/movie/movieSlice';
 import { getSeries } from './store/series/seriesSlice';
-import { getCartoon } from './store/cartoon/cartoonSlice';
 import { Footer } from './components/footer/Footer';
 import { getAnime } from './store/anime/animeSlice';
 import { Person } from './page/Person/Person';
 import { Auth } from './page/Auth/Auth';
 import { auth } from './firebase';
 import { setAuth } from './store/auth/authSlice';
-
-// НАДО КАК-ТО ПЕРЕПИСАТЬ ФИЛТРАЦИЮ, А ТО ЭТО КАКАЯ-ТО ЗАЛУПА
 
 function App() {
 
@@ -36,17 +33,18 @@ function App() {
       }))
     }
     dispatch(getSeries({ page: 1, filter: "votes.imdb" }))
-    dispatch(getCartoon(1))
     dispatch(getAnime(1))
   }, [dispatch])
 
   // ГЛАВНАЯ ПРОБЛЕМА ЭТО ПАГИНАЦИЯ ПРИ ИЗМЕНЕНИИ ФИЛЬТРА
 
-  // добавить побольше фильтров на страницу фильмы
+  // может фильтровать на стороне клиента, чтобы постеры были?
+
+  // верстка на пагинацию с использованием useWidth
+
   // что-то с footer придумать
 
-  // какие-то проблемы с api у мультиков
-  // поправить вертску изображения бэтмена
+  // сделать нормальную верстку у cartoons
 
   // написать анимацию для всего (через библиотеки) НА АНИМЕ
   // в конце сделать lazy loading

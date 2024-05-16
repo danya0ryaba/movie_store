@@ -1,38 +1,50 @@
-.series {
-    position: relative;
+.film {
+    background: url("https://i.ytimg.com/vi/dTAgboB8d2E/maxresdefault.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 
-    .searchFilms {
-        margin: 0 auto;
-        background-color: #fff;
-        width: 100%;
-        max-width: 800px;
-        height: 200px;
-        overflow: auto;
-        margin-top: -34px;
-    }
+    .series {
+        background: rgb(0, 0, 0);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(132, 133, 135, 0.12657563025210083) 50%, rgba(0, 0, 0, 1) 100%);
+        position: relative;
 
-    .genres {
-        position: absolute;
-        top: 0;
-        left: 50px;
+        .searchFilms {
+            margin: 0 auto;
+            background-color: #fff;
+            width: 100%;
+            max-width: 800px;
+            height: 200px;
+            overflow: auto;
+            margin-top: -34px;
+        }
+
+        .genres {
+            position: absolute;
+            top: 0;
+            left: 50px;
+        }
     }
 }
 
 @media (max-width:830px) {
-    .series {
-        padding: 0 10px;
+    .film {
+        .series {
+            padding: 0 10px;
 
-        .genres {
-            top: 60px;
-            left: 40px;
+            .genres {
+                top: 60px;
+                left: 40px;
+            }
         }
     }
 }
 
 @media (max-width:746px) {
-    .series {
-        .genres {
-            display: none;
+    .film {
+        .series {
+            .genres {
+                display: none;
+            }
         }
     }
 }

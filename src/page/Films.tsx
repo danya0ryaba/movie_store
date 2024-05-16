@@ -41,33 +41,35 @@ export const Films: React.FC = () => {
         dispatch(changeFilter(updatedFilter))
     }
 
-    // ВСЕ РАВНО ПРИ ИЗМЕНЕНИИ ФИЛЬРА БЕРЕТ СТРАНИЦУ ИЗ СТАРОГО СОСТОЯНИЯ
+    // ВСЕ РАВНО ПРИ ИЗМЕНЕНИИ ФИЛЬТРА БЕРЕТ СТРАНИЦУ ИЗ СТАРОГО СОСТОЯНИЯ
     const requestPage = (page: number) => dispatch(getMovies({ page, filter }))
 
-    return <div className={style.series}>
+    return <section className={style.film}>
+        <div className={style.series}>
 
-        <Title>Лучшие фильмов</Title>
+            <Title>Лучшие фильмов</Title>
 
-        <InputCustom touch={touch} setTouch={setTouch} requestSearchName={requestSearchName} />
+            <InputCustom touch={touch} setTouch={setTouch} requestSearchName={requestSearchName} />
 
-        {touch && <div className={style.searchFilms}>
-            <ul>{searchMovies.map(film => <SearchItem key={film.id} {...film} />)}</ul>
-        </div>}
+            {touch && <div className={style.searchFilms}>
+                <ul>{searchMovies.map(film => <SearchItem key={film.id} {...film} />)}</ul>
+            </div>}
 
-        <div className={style.genres}>
-            <SelectCustom title={'Жанры'} option={options} activeOption={activeOption} setActiveOption={setActiveOption} />
+            <div className={style.genres}>
+                <SelectCustom title={'Жанры'} option={options} activeOption={activeOption} setActiveOption={setActiveOption} />
+            </div>
+
+            <Filters currentFilter={filter} onChangeFilter={onChangeFilter} filtersObject={filteringFilmsPage} />
+
+            {isLoading ?
+                <Loader /> : <>
+                    {movies.map(film => <Link key={film.id} to={`${film.id}`}>
+                        <Film  {...film} />
+                    </Link>)}
+                </>}
+
+            <Pagination filter={filter} onRequestHandler={requestPage} page={page} />
+
         </div>
-
-        <Filters currentFilter={filter} onChangeFilter={onChangeFilter} filtersObject={filteringFilmsPage} />
-
-        {isLoading ?
-            <Loader /> : <>
-                {movies.map(film => <Link key={film.id} to={`${film.id}`}>
-                    <Film  {...film} />
-                </Link>)}
-            </>}
-
-        <Pagination filter={filter} onRequestHandler={requestPage} page={page} />
-
-    </div>
+    </section>
 }

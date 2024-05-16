@@ -7,7 +7,6 @@ import { usersAPI } from '../API/api'
 import style from './cartoon.module.scss'
 import { Movie } from '../type/movie'
 
-
 export const Cartoon: React.FC = () => {
 
     const [touch, setTouch] = React.useState(false)

@@ -16,7 +16,7 @@ export const usersAPI = {
     getMovieId(id: number) {
         return instance.get(`movie/${id}`)
     },
-    getMovie(page: number = 1, filter: string = 'rating.imdb', limit: number = 12) {
+    getMovie(page: number = 1, filter: string = 'rating.imdb', limit: number = 10) {
         return instance.get(`movie?page=${page}&limit=${limit}&type=movie&
         selectFields=id&
         selectFields=name&
@@ -66,7 +66,7 @@ export const usersAPI = {
         notNullFields=persons.enProfession&&sortField=${filter}&sortType=-1`
         )
     },
-    getSeries(page: number = 1, filter: string = "votes.imdb", limit: number = 20) {
+    getSeries(page: number = 1, filter: string = "votes.imdb", limit: number = 10) {
         return instance.get(`movie?page=${page}&limit=${limit}&type=tv-series&
         selectFields=name&
         selectFields=poster&
@@ -80,7 +80,13 @@ export const usersAPI = {
         )
     },
     getCartoon(page: number = 1, limit: number = 12) {
-        return instance.get(`movie?page=${page}&limit=${limit}&type=cartoon`)
+        return instance.get(`movie?page=${page}&limit=${limit}&type=cartoon&
+        selectFields=poster&
+        selectFields=name&
+        selectFields=alternativeName&
+        notNullFields=poster&
+        notNullFields=name&
+        notNullFields=alternativeName`)
     },
     getAnime(page: number = 1, limit: number = 15) {
         return instance.get(`movie?page=${page}&limit=${limit}&type=anime`)

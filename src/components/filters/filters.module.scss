@@ -6,6 +6,9 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 16px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 @media (max-width:427px) {
