@@ -84,7 +84,7 @@ export const usersAPI = {
         selectFields=poster&
         selectFields=name&
         selectFields=alternativeName&
-        notNullFields=poster&
+        notNullFields=poster.url&
         notNullFields=name&
         notNullFields=alternativeName`)
     },
@@ -99,8 +99,6 @@ export const usersAPI = {
     },
 
 }
-
-
 
 // ХЗ
 const additionalInstance = axios.create({

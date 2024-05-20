@@ -2,7 +2,7 @@ import React from 'react'
 import style from './pagination.module.scss'
 import { ReactComponent as RightArrow } from '../../assets/img/right-arrow (1).svg'
 import { ReactComponent as LeftArrow } from '../../assets/img/left-arrow (2).svg'
-// import { useResize } from '../../hook/useResize'
+import { useResize } from '../../hook/useResize'
 import { createPag } from '../../utils/pag'
 
 type PaginationType = {
@@ -13,14 +13,14 @@ type PaginationType = {
 
 export const Pagination: React.FC<PaginationType> = ({ page, onRequestHandler, filter }) => {
 
-    // ОСТАЛОСЬ ПРИДУМАТЬ ЧТО ДЕЛАТЬ С ШИРИНОЙ ЭКРАНА let width = useResize()
+    const width = useResize()
 
     const [activePage, setActivePage] = React.useState(page)
 
-    const [pagination, setPagination] = React.useState<number[]>(createPag(1))
+    const [pagination, setPagination] = React.useState<number[]>(createPag(1, width))
 
     const onClickHandler = (num: number) => {
-        setPagination(createPag(num))
+        setPagination(createPag(num, width))
         setActivePage(num)
         onRequestHandler(num)
     }
@@ -28,14 +28,14 @@ export const Pagination: React.FC<PaginationType> = ({ page, onRequestHandler, f
     const onLeftArrowHandler = () => {
         const num = activePage - 1
         if (num < 1) return
-        setPagination(createPag(num))
+        setPagination(createPag(num, width))
         setActivePage(num)
         onRequestHandler(num)
     }
 
     const onRightArrowHandler = () => {
         const num = activePage + 1
-        setPagination(createPag(num))
+        setPagination(createPag(num, width))
         setActivePage(num)
         onRequestHandler(num)
     }

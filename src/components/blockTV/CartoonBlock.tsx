@@ -9,7 +9,6 @@ import { Loader } from '../loader/Loader'
 
 
 export const CartoonBlock: React.FC = () => {
-    console.log("render CartoonBlock");
 
     const { cartoon, page, isLoading, error } = useAppSelector(state => state.cartoon);
 

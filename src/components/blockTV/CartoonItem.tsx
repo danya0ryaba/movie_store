@@ -4,6 +4,8 @@ import { CartoonInterface } from '../../type/cartoon'
 
 export const CartoonItem: React.FC<CartoonInterface> = (props) => {
 
+    const ageRat = props.ageRating ? props.ageRating + "+" : "рейтинг отсутствует"
+
     return <div className={style.cards__item}>
 
         <article className={style.card}>
@@ -14,8 +16,8 @@ export const CartoonItem: React.FC<CartoonInterface> = (props) => {
             </div>
 
             <div className={style.card__content}>
-                <span className={style.age}>{props.ageRating}+</span>
-                <h2 className={style.name}>{props.name}</h2>
+                <span className={style.age}>{ageRat}</span>
+                <h2 className={style.name}>{props.name ? props.name : "не удалось загрузить"}</h2>
                 <p className={style.short__desc}>{props.shortDescription}</p>
             </div>
 

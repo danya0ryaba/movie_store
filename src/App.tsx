@@ -8,7 +8,7 @@ import { Films } from './page/Films';
 import { Series } from './page/Series';
 import { Cartoon } from './page/Cartoon';
 import { Header } from './components/header/Header';
-import { useAppDispatch, useAppSelector } from './store/hooks/redux';
+import { useAppDispatch } from './store/hooks/redux';
 import { getMovies } from './store/movie/movieSlice';
 import { getSeries } from './store/series/seriesSlice';
 import { Footer } from './components/footer/Footer';
@@ -20,7 +20,6 @@ import { setAuth } from './store/auth/authSlice';
 
 function App() {
 
-  // console.log('render App');
 
   const dispatch = useAppDispatch()
 
@@ -38,16 +37,8 @@ function App() {
 
   // ГЛАВНАЯ ПРОБЛЕМА ЭТО ПАГИНАЦИЯ ПРИ ИЗМЕНЕНИИ ФИЛЬТРА
 
-  // может фильтровать на стороне клиента, чтобы постеры были?
-
-  // верстка на пагинацию с использованием useWidth
-
-  // что-то с footer придумать
-
-  // сделать нормальную верстку у cartoons
-
-  // написать анимацию для всего (через библиотеки) НА АНИМЕ
   // в конце сделать lazy loading
+
   // оптимизировать все (memo? useMeme? useCallback?)
 
   return (<>
@@ -74,7 +65,7 @@ function App() {
 
     </Routes>
 
-    {/* <Footer /> */}
+    <Footer />
 
   </>);
 }
