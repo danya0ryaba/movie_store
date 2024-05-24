@@ -6,7 +6,7 @@ import { Popular } from '../components/popular/Popular'
 
 // https://imagetmdb.com/t/p/original/vRTKNKNWLZ22fAgPa5kY8wT2b1F.jpg
 
-export const Home: React.FC = () => {
+const Home: React.FC = () => {
     return <>
         <FullScreen />
         <Category />
@@ -14,3 +14,5 @@ export const Home: React.FC = () => {
         <Popular />
     </>
 }
+
+export default Home

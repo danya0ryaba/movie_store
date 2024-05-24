@@ -15,7 +15,7 @@ const buttonAnimation = {
 
 interface ButtonCategoryInterface {
     readonly children: React.ReactNode
-    readonly filterValue: any
+    readonly filterValue: string
     readonly currentFilter: string
     onChangeFilter: (value: string) => void
 }

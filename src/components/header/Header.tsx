@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { Link, NavLink, Outlet } from 'react-router-dom'
 import style from './header.module.scss'
 import logo from '../../assets/img/logo.png'
@@ -6,6 +6,7 @@ import { Auth } from '../auth/Auth'
 import { SelectCustom } from '../select/SelectCustom'
 import { useAuth } from '../../hook/useAuth'
 import { motion } from 'framer-motion'
+import { Loader } from '../loader/Loader'
 
 export type Language = 'RU' | 'EN'
 

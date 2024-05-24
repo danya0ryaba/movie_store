@@ -11,8 +11,6 @@ import { changeFilter, getMovies } from '../../store/movie/movieSlice'
 import { Filters } from '../filters/Filters'
 
 export const Category: React.FC = () => {
-    console.log('render Category');
-
 
     const dispatch = useAppDispatch()
 

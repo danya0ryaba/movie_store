@@ -8,7 +8,7 @@ import { createPag } from '../../utils/pag'
 type PaginationType = {
     page: number,
     onRequestHandler: (page: number) => void
-    filter?: any
+    filter?: string
 }
 
 export const Pagination: React.FC<PaginationType> = ({ page, onRequestHandler, filter }) => {
@@ -18,6 +18,12 @@ export const Pagination: React.FC<PaginationType> = ({ page, onRequestHandler, f
     const [activePage, setActivePage] = React.useState(page)
 
     const [pagination, setPagination] = React.useState<number[]>(createPag(1, width))
+
+    // React.useEffect(() => {
+    //     setPagination(createPag(1))
+    //     setActivePage(1)
+    //     onRequestHandler(1)
+    // }, [filter])
 
     const onClickHandler = (num: number) => {
         setPagination(createPag(num, width))

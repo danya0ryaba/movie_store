@@ -17,7 +17,7 @@ import { filteringSeriesPage } from '../utils/constants'
 
 const options = ['Биография', 'Аниме', 'Боевики', 'Детективы', 'Документальные', 'Драмы']
 
-export const Series: React.FC = () => {
+const Series: React.FC = () => {
     // для селекта
     const [activeOption, setActiveOption] = React.useState('')
 
@@ -66,3 +66,5 @@ export const Series: React.FC = () => {
         </div>
     </section>
 }
+
+export default Series

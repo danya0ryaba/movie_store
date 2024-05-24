@@ -7,7 +7,7 @@ import { usersAPI } from '../API/api'
 import style from './cartoon.module.scss'
 import { Movie } from '../type/movie'
 
-export const Cartoon: React.FC = () => {
+const Cartoon: React.FC = () => {
 
     const [touch, setTouch] = React.useState(false)
     const [list, setList] = React.useState<Movie[]>([])
@@ -26,3 +26,5 @@ export const Cartoon: React.FC = () => {
         <CartoonBlock />
     </>
 }
+
+export default Cartoon

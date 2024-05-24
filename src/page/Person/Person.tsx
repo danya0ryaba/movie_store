@@ -5,7 +5,7 @@ import { usersAPI } from '../../API/api'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Loader } from '../../components/loader/Loader'
 
-export const Person: React.FC = () => {
+const Person: React.FC = () => {
 
     const navigate = useNavigate()
     const onClickBack = () => navigate(-1)
@@ -83,3 +83,5 @@ export const Person: React.FC = () => {
         </div>
     </div>
 }
+
+export default Person

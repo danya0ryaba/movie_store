@@ -16,7 +16,7 @@ export const usersAPI = {
     getMovieId(id: number) {
         return instance.get(`movie/${id}`)
     },
-    getMovie(page: number = 1, filter: string = 'rating.imdb', limit: number = 10) {
+    getMovie(page: number = 1, filter: string = 'rating.imdb', limit: number = 8) {
         return instance.get(`movie?page=${page}&limit=${limit}&type=movie&
         selectFields=id&
         selectFields=name&

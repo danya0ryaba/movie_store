@@ -1,8 +1,5 @@
 import React from "react"
 
-
-// убрать any
-
 export const useResize = () => {
     const [width, setWidth] = React.useState(window.innerWidth)
     React.useEffect(() => {

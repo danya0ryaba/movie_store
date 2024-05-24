@@ -5,17 +5,16 @@ import style from './signup.module.scss'
 import { useAppDispatch } from '../../store/hooks/redux'
 import { removeAuth } from '../../store/auth/authSlice'
 import { Button } from '../button/Button'
+import { User } from "firebase/auth";
 
 export const AuthDetails: React.FC = () => {
 
     const dispatch = useAppDispatch()
 
-    const [authUser, setAuthUser] = React.useState<any>(null)
+    const [authUser, setAuthUser] = React.useState<User | null>(null)
 
     React.useEffect(() => {
         const listen = onAuthStateChanged(auth, (user) => {
-            // console.log();
-
             if (user) setAuthUser(user)
             else setAuthUser(null)
         })

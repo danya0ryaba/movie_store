@@ -14,10 +14,9 @@ import { SearchItem } from '../components/search/searchitem/SearchItem'
 import { filteringFilmsPage } from '../utils/constants'
 import { resetLoadingMovie } from '../store/movie/loadingMovieSlice'
 import { Film } from '../components/film/Film'
+import { options } from '../utils/options'
 
-const options = ['Биография', 'Аниме', 'Боевики', 'Детективы', 'Документальные', 'Драмы']
-
-export const Films: React.FC = () => {
+const Films: React.FC = () => {
 
     // для селекта
     const [activeOption, setActiveOption] = React.useState('')
@@ -27,12 +26,13 @@ export const Films: React.FC = () => {
     const requestSearchName = (name: string) => dispatch(getSearchMovie(name))
 
     const { movies, page, isLoading, filter } = useAppSelector(state => state.movie)
-
     const dispatch = useAppDispatch()
 
+    // ВОЗМОЖНО, УБРАТЬ PAGE ИЗ ЗАВИСИМОСТЕЙ И НЕ ПРОКИДЫВАТЬ  FILTER В Pagination
     React.useEffect(() => {
         window.scrollTo(0, 0)
         dispatch(getMovies({ page, filter }))
+        return () => window.scrollTo(0, 0)
     }, [page, filter, dispatch])
 
     // изменяет фильтр 
@@ -42,7 +42,9 @@ export const Films: React.FC = () => {
     }
 
     // ВСЕ РАВНО ПРИ ИЗМЕНЕНИИ ФИЛЬТРА БЕРЕТ СТРАНИЦУ ИЗ СТАРОГО СОСТОЯНИЯ
-    const requestPage = (page: number) => dispatch(getMovies({ page, filter }))
+    const requestPage = (page: number) => {
+        dispatch(getMovies({ page, filter }))
+    }
 
     return <section className={style.film}>
         <div className={style.series}>
@@ -73,3 +75,5 @@ export const Films: React.FC = () => {
         </div>
     </section>
 }
+
+export default Films

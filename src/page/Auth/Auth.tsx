@@ -5,7 +5,7 @@ import { AuthDetails } from '../../components/authLogin/AuthDetails'
 import style from './auth.module.scss'
 import { useNavigate } from 'react-router-dom'
 
-export const Auth: React.FC = () => {
+const Auth: React.FC = () => {
 
     const navigate = useNavigate()
 
@@ -24,3 +24,5 @@ export const Auth: React.FC = () => {
         <AuthDetails />
     </section>
 }
+
+export default Auth
