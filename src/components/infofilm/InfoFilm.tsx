@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import style from './infofilm.module.scss'
 import { Button } from '../button/Button'
 import date from '../../assets/img/date.png'
@@ -20,21 +20,20 @@ export const InfoFilm: React.FC<CurrentFilm> = (props) => {
     // для портала (popup)
     const [modePortal, setModePortal] = React.useState(false)
 
-    const changeModePortal = () => {
-        if (!isAuth) {
-            setModePortal(prev => !prev)
-        } else {
-            alert("Спасибо, что авторизовались, но это бутафорский сайт")
-        }
-    }
+    const changeModePortal = useCallback(() => {
+        if (!isAuth) setModePortal(prev => !prev)
+        else alert("Спасибо, что авторизовались, но это бутафорский сайт")
+    }, [isAuth, setModePortal])
+
     // вернуться назад
     const navigate = useNavigate()
     const onClickBack = () => navigate(-1)
 
     // показать звезды для оценки
     const [grade, setGrade] = React.useState(false)
-    const onGrading = () => setGrade(true)
-    const onMouseLeaveFilm = () => setGrade(false)
+
+    const onGrading = useCallback(() => setGrade(true), [setGrade])
+    const onMouseLeaveFilm = useCallback(() => setGrade(false), [setGrade])
 
     // оценить
     const [rating, setRating] = React.useState(0)

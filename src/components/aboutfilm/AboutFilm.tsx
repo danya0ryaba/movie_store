@@ -1,7 +1,6 @@
 import React from 'react'
 import style from './aboutfilm.module.scss'
-import { GenresItem, RatingAndVotes } from '../../type/movie'
-import { AudienceItem, Budget, CurrentFilm, Persons, Trailer } from '../../type/movieId'
+import { CurrentFilm } from '../../type/movieId'
 import { PersonsLists } from '../persons/PersonsList'
 
 export const AboutFilm: React.FC<CurrentFilm> = (props) => {
@@ -28,7 +27,7 @@ export const AboutFilm: React.FC<CurrentFilm> = (props) => {
             <div className={style.video}>
                 <div className={style.video__trailer}>
                     {props.videos?.trailers && props.videos.trailers.length > 0 ?
-                        <iframe className={style.video__video} src={props.videos.trailers[0].url} allowFullScreen></iframe>
+                        <iframe title={`title_${props.enName}`} className={style.video__video} src={props.videos.trailers[0].url} allowFullScreen></iframe>
                         : 'трейлер отсутствует'}
                 </div>
                 <div className={style.description}>{props.description}</div>

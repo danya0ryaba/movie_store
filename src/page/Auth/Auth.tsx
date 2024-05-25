@@ -1,19 +1,19 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { SignUp } from '../../components/authLogin/SignUp'
 import { SignIn } from '../../components/authLogin/SignIn'
 import { AuthDetails } from '../../components/authLogin/AuthDetails'
 import style from './auth.module.scss'
 import { useNavigate } from 'react-router-dom'
 
-const Auth: React.FC = () => {
+const Auth: React.FC = React.memo(() => {
 
     const navigate = useNavigate()
 
     const [authState, setAuthState] = React.useState(true)
 
-    const onLoginAcc = () => setAuthState((prev) => !prev)
+    const onLoginAcc = useCallback(() => setAuthState((prev) => !prev), [setAuthState])
 
-    const onClickBack = () => navigate(-1)
+    const onClickBack = useCallback(() => navigate(-1), [navigate])
 
     return <section className={style.auth}>
         <button className={style.back} onClick={onClickBack}> &#129044; Назад</button>
@@ -23,6 +23,6 @@ const Auth: React.FC = () => {
         </span>
         <AuthDetails />
     </section>
-}
+})
 
 export default Auth

@@ -170,6 +170,45 @@
 
 }
 
+
+@media (max-width:1024px) {
+    .container {
+        .header {
+            &__logo {
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
+
+                h1 {
+                    font-size: 25px;
+                }
+            }
+
+            &__menu {
+                .link {
+                    font-size: 15px;
+                    padding: 0 8px;
+
+                    &:last-child {
+                        padding: 0 0 0 8px;
+                    }
+                }
+
+                .link_active {
+                    font-size: 16px;
+                }
+            }
+
+            &__modes {
+                &_guest {
+                    padding: 2px;
+                }
+            }
+        }
+    }
+}
+
 @media (max-width:895px) {
     .container {
         .header {

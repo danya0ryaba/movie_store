@@ -3,7 +3,7 @@ import './style/index.scss';
 import { Route, Routes } from 'react-router-dom';
 import { CardMovie } from './page/CardMovie';
 import { Header } from './components/header/Header';
-import { useAppDispatch, useAppSelector } from './store/hooks/redux';
+import { useAppDispatch } from './store/hooks/redux';
 import { getSeries } from './store/series/seriesSlice';
 import { Footer } from './components/footer/Footer';
 import { getAnime } from './store/anime/animeSlice';
@@ -22,42 +22,24 @@ const Error = lazy(() => import("./page/Error"))
 function App() {
 
   const dispatch = useAppDispatch()
-  const { anime } = useAppSelector(state => state.anime)
-
-  const localStorageAuth = localStorage.getItem("auth")
-
-  const localStorageAnime = sessionStorage.getItem("anime")
-  const localStorageSeries = sessionStorage.getItem("series")
-
-  console.log(localStorageAnime);
 
   React.useEffect(() => {
-    if (!localStorageAuth) {
-      if (auth.currentUser?.email && auth.currentUser?.uid) {
-        dispatch(setAuth({
-          email: auth.currentUser.email,
-          token: 'допустим есть',
-          id: auth.currentUser?.uid,
-        }))
-      }
+
+    if (auth.currentUser?.email && auth.currentUser?.uid) {
+      dispatch(setAuth({
+        email: auth.currentUser.email,
+        token: 'допустим есть',
+        id: auth.currentUser?.uid,
+      }))
     }
-    // if (!localStorageAnime) {
-    //   sessionStorage.setItem("anime", JSON.stringify(anime))
-    //   dispatch(getAnime(1))
-    // }
-    // if (!localStorageSeries) {
-    //   dispatch(getSeries({ page: 1, filter: "votes.imdb" }))
-    // }
+    dispatch(getAnime(1))
+    dispatch(getSeries({ page: 1, filter: "votes.imdb" }))
   }, [dispatch])
 
+  // скачать все картинки для фонов и загружать локально
   // auth записать в localStorage, а осталбное в sessionStorage
-
+  // Верстка на Pagination
   // ГЛАВНАЯ ПРОБЛЕМА ЭТО ПАГИНАЦИЯ ПРИ ИЗМЕНЕНИИ ФИЛЬТРА
-
-  // записать в localStorage Series Anime Auth
-
-  // поправить верстку
-  // оптимизировать все (memo? useMeme? useCallback?)
   // типизацию (убрать any)
 
   return (<>

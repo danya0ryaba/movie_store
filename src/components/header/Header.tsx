@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import { Link, NavLink, Outlet } from 'react-router-dom'
 import style from './header.module.scss'
 import logo from '../../assets/img/logo.png'
@@ -6,7 +6,6 @@ import { Auth } from '../auth/Auth'
 import { SelectCustom } from '../select/SelectCustom'
 import { useAuth } from '../../hook/useAuth'
 import { motion } from 'framer-motion'
-import { Loader } from '../loader/Loader'
 
 export type Language = 'RU' | 'EN'
 
@@ -26,10 +25,12 @@ export const Header: React.FC = () => {
 
         <header className={style.header}>
 
-            <Link to='/'><div className={style.header__logo}>
-                <img src={logo} alt="logo" />
-                <h1> Filmagnet </h1>
-            </div></Link>
+            <Link to='/'>
+                <div className={style.header__logo}>
+                    <img src={logo} alt="logo" />
+                    <h1> Filmagnet </h1>
+                </div>
+            </Link>
 
             <motion.nav className={style.header__menu}
                 initial={{

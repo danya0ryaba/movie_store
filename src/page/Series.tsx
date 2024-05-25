@@ -14,8 +14,7 @@ import { SearchItem } from '../components/search/searchitem/SearchItem'
 import { usersAPI } from '../API/api'
 import { Movie } from '../type/movie'
 import { filteringSeriesPage } from '../utils/constants'
-
-const options = ['Биография', 'Аниме', 'Боевики', 'Детективы', 'Документальные', 'Драмы']
+import { options } from '../utils/options'
 
 const Series: React.FC = () => {
     // для селекта
