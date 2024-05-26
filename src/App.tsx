@@ -5,7 +5,7 @@ import { CardMovie } from './page/CardMovie';
 import { Header } from './components/header/Header';
 import { useAppDispatch, useAppSelector } from './store/hooks/redux';
 import { getSeries } from './store/series/seriesSlice';
-import { Footer } from './components/footer/Footer';
+// import { Footer } from './components/footer/Footer';
 import { getAnime } from './store/anime/animeSlice';
 import { auth } from './firebase';
 import { setAuth } from './store/auth/authSlice';
@@ -50,10 +50,7 @@ function App() {
     }
   }, [dispatch, sessionStorageAnime, sessionStorageSeries])
 
-  // скачать все картинки для фонов и загружать локально
-  // Верстка на Pagination
   // ГЛАВНАЯ ПРОБЛЕМА ЭТО ПАГИНАЦИЯ ПРИ ИЗМЕНЕНИИ ФИЛЬТРА
-  // типизацию (убрать any)
 
   return (<>
 
@@ -80,7 +77,7 @@ function App() {
 
     </Routes>
 
-    <Footer />
+    {/* <Footer /> */}
 
   </>);
 }

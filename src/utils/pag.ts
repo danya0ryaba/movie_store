@@ -5,6 +5,7 @@ export const createPag = (num: number, width?: number) => {
     let less: number[] = []
     let countForLess = num
     let countForMore = num
+
     if (width && width < 501) {
         if (num > 2) {
             for (let i = 0; i < 3; i++) {

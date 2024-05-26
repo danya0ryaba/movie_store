@@ -21,8 +21,8 @@ export const SignIn: React.FC = () => {
 
     const { isAuth } = useAuth()
 
-    const logIn = (e: MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault()
+    const logIn = (e?: MouseEvent<HTMLButtonElement>) => {
+        e && e.preventDefault()
         signInWithEmailAndPassword(auth, email, password)
             .then((user) => {
                 dispatch(setAuth({
