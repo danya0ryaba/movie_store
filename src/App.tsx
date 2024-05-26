@@ -3,7 +3,7 @@ import './style/index.scss';
 import { Route, Routes } from 'react-router-dom';
 import { CardMovie } from './page/CardMovie';
 import { Header } from './components/header/Header';
-import { useAppDispatch } from './store/hooks/redux';
+import { useAppDispatch, useAppSelector } from './store/hooks/redux';
 import { getSeries } from './store/series/seriesSlice';
 import { Footer } from './components/footer/Footer';
 import { getAnime } from './store/anime/animeSlice';
@@ -23,6 +23,14 @@ function App() {
 
   const dispatch = useAppDispatch()
 
+  const { anime } = useAppSelector(state => state.anime)
+  sessionStorage.setItem("anime", JSON.stringify(anime))
+  const sessionStorageAnime = sessionStorage.getItem("anime");
+
+  const { series } = useAppSelector(state => state.series)
+  sessionStorage.setItem("series", JSON.stringify(series))
+  const sessionStorageSeries = sessionStorage.getItem("series")
+
   React.useEffect(() => {
 
     if (auth.currentUser?.email && auth.currentUser?.uid) {
@@ -32,12 +40,17 @@ function App() {
         id: auth.currentUser?.uid,
       }))
     }
-    dispatch(getAnime(1))
-    dispatch(getSeries({ page: 1, filter: "votes.imdb" }))
-  }, [dispatch])
+
+    if (JSON.parse(sessionStorageAnime!).length === 0) {
+      dispatch(getAnime(1))
+    }
+
+    if (JSON.parse(sessionStorageSeries!).length === 0) {
+      dispatch(getSeries({ page: 1, filter: "votes.imdb" }))
+    }
+  }, [dispatch, sessionStorageAnime, sessionStorageSeries])
 
   // скачать все картинки для фонов и загружать локально
-  // auth записать в localStorage, а осталбное в sessionStorage
   // Верстка на Pagination
   // ГЛАВНАЯ ПРОБЛЕМА ЭТО ПАГИНАЦИЯ ПРИ ИЗМЕНЕНИИ ФИЛЬТРА
   // типизацию (убрать any)

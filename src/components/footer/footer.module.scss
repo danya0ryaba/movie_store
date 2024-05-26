@@ -42,3 +42,29 @@
         }
     }
 }
+
+@media (max-width:700px) {
+    .footer {
+
+        .container {
+
+            .navigate {
+
+                .navigate__list {
+                    flex-direction: column;
+
+                    .link_menu {
+                        padding: 0;
+                        font-size: 16px;
+                        margin-bottom: 8px;
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
