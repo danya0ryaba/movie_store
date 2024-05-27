@@ -49,9 +49,7 @@ function App() {
       dispatch(getSeries({ page: 1, filter: "votes.imdb" }))
     }
   }, [dispatch, sessionStorageAnime, sessionStorageSeries])
-
-  // ГЛАВНАЯ ПРОБЛЕМА ЭТО ПАГИНАЦИЯ ПРИ ИЗМЕНЕНИИ ФИЛЬТРА
-
+  // при нажатии на "посмотреть" сделать какой-то визуал чтобы было понятно что подгружает
   return (<>
 
     <Header />

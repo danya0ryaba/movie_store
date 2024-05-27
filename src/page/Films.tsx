@@ -18,9 +18,9 @@ import { options } from '../utils/options'
 
 const Films: React.FC = () => {
 
-    // для селекта
+    // for select
     const [activeOption, setActiveOption] = React.useState('')
-    // для инпута
+    // for input
     const [touch, setTouch] = React.useState(false)
     const { searchMovies } = useAppSelector(state => state.searchMovie)
     const requestSearchName = (name: string) => dispatch(getSearchMovie(name))
@@ -35,7 +35,7 @@ const Films: React.FC = () => {
         return () => window.scrollTo(0, 0)
     }, [page, filter, dispatch])
 
-    // изменяет фильтр 
+    // for change filter
     const onChangeFilter = (updatedFilter: string) => {
         dispatch(resetLoadingMovie())
         dispatch(changeFilter(updatedFilter))

@@ -25,7 +25,6 @@ export const TopFilms: React.FC = () => {
                             "https://image.openmoviedb.com/kinopoisk-images/10809116/e1befa7a-c495-4a4a-be01-220b92724e43/x1000"} />
                     </Link>)}
                 </ul>
-                {/* <span onClick={onViewMore} className={style.more}>посмотреть...</span> */}
                 <More handlerClick={onViewMore} />
             </>}
         </section>

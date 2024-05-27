@@ -4,12 +4,9 @@ import { auth } from '../../firebase'
 import style from './signup.module.scss'
 import { useAppDispatch } from '../../store/hooks/redux'
 import { setAuth } from '../../store/auth/authSlice'
-import { useNavigate } from 'react-router-dom'
 import { Button } from '../button/Button'
 
 export const SignUp: React.FC = () => {
-
-    const navigate = useNavigate()
 
     const dispatch = useAppDispatch()
 
@@ -36,9 +33,6 @@ export const SignUp: React.FC = () => {
                 setEmail("")
                 setPassword("")
                 setCopyPassword("")
-                setTimeout(() => {
-                    navigate('/')
-                }, 2000)
             })
             .catch((error) => alert(error.message))
     }
@@ -50,7 +44,6 @@ export const SignUp: React.FC = () => {
             <input className={style.form__inp} placeholder='password' value={password} onChange={(e) => setPassword(e.currentTarget.value)} type="password" />
             <input className={style.form__inp} placeholder='copy password' value={copyPassword} onChange={(e) => setCopyPassword(e.currentTarget.value)} type="password" />
             <Button type='submit'>Создать аккаунт</Button>{error ? <p style={{ color: 'red' }}>{error}</p> : false}
-            {/* <button type='submit' className={style.form__btn}>Создать аккаунт</button>{error ? <p style={{ color: 'red' }}>{error}</p> : false} */}
         </form>
     </div>
 }

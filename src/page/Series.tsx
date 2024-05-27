@@ -17,16 +17,17 @@ import { filteringSeriesPage } from '../utils/constants'
 import { options } from '../utils/options'
 
 const Series: React.FC = () => {
-    // для селекта
+
+    const dispatch = useAppDispatch()
+    // for select
     const [activeOption, setActiveOption] = React.useState('')
 
-    // для инпута
+    // for input
     const [touch, setTouch] = React.useState(false)
     const [list, setList] = React.useState<Movie[]>([])
     const requestSearchName = (name: string) => usersAPI.getSearch(name).then(res => setList(res.data.docs))
 
-    // для пагинации и записи в стейт текущих сериалов
-    const dispatch = useAppDispatch()
+    // for pagination and state entries of current series
     const { series, isLoading, page, filter } = useAppSelector(state => state.series);
     const requestPageSeries = (page: number) => dispatch(getSeries({ page, filter }))
 
