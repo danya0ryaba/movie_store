@@ -46,6 +46,18 @@
     }
 }
 
+@media (max-width:500px) {
+    .spin_wrapper {
+
+        .spinner {
+            height: 120px;
+            width: 120px;
+            border: 6px solid transparent;
+
+        }
+    }
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);

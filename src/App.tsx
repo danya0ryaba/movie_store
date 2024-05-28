@@ -49,7 +49,7 @@ function App() {
       dispatch(getSeries({ page: 1, filter: "votes.imdb" }))
     }
   }, [dispatch, sessionStorageAnime, sessionStorageSeries])
-  // при нажатии на "посмотреть" сделать какой-то визуал чтобы было понятно что подгружает
+  // осталось решить проблему пагинации
   return (<>
 
     <Header />
