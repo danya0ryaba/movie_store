@@ -14,7 +14,7 @@ export const FullScreen: React.FC = () => {
 
     const onClose = useCallback(() => setPopup(false), [setPopup])
 
-    const onClick = useCallback(() => {
+    const onClickHandler = useCallback(() => {
         if (!isAuth) setPopup(true)
         else alert("Спасибо, что авторизовались, но это бутафорский сайт")
     }, [setPopup, isAuth])
@@ -49,7 +49,7 @@ export const FullScreen: React.FC = () => {
                         <span>2024</span>
                     </div>
                 </div>
-                <Button onClick={onClick}>смотреть сейчас</Button>
+                <Button onClick={onClickHandler}>смотреть сейчас</Button>
                 {popup && <Portal onClose={onClose} />}
             </motion.div>
         </div>

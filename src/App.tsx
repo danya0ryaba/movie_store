@@ -49,7 +49,7 @@ function App() {
       dispatch(getSeries({ page: 1, filter: "votes.imdb" }))
     }
   }, [dispatch, sessionStorageAnime, sessionStorageSeries])
-  // осталось решить проблему пагинации
+  // осталось решить проблему пагинации and footer
   return (<>
 
     <Header />

@@ -10,32 +10,36 @@ import { AboutFilm } from '../aboutfilm/AboutFilm';
 import { Portal } from '../Portal/Portal';
 import { Star } from '../star/Star';
 import { useAuth } from '../../hook/useAuth';
+import { splitTheWord } from '../../utils/splitStringUsingRegex';
+import { motion } from 'framer-motion';
 
 const gradeForFilms = [1, 2, 3, 4, 5]
 
+const charVariants = {
+    hidden: { opacity: 0 },
+    reveal: { opacity: 1 },
+}
+
 export const InfoFilm: React.FC<CurrentFilm> = (props) => {
+    // for animation props.name
+    let trueNameChars: string[] = [];
+    if (props.name) trueNameChars = splitTheWord(props.name);
 
     const { isAuth } = useAuth()
-
-    // для портала (popup)
+    // for popup
     const [modePortal, setModePortal] = React.useState(false)
-
     const changeModePortal = useCallback(() => {
         if (!isAuth) setModePortal(prev => !prev)
         else alert("Спасибо, что авторизовались, но это бутафорский сайт")
     }, [isAuth, setModePortal])
-
-    // вернуться назад
+    // come back
     const navigate = useNavigate()
     const onClickBack = () => navigate(-1)
-
-    // показать звезды для оценки
+    // show stars for rating
     const [grade, setGrade] = React.useState(false)
-
     const onGrading = useCallback(() => setGrade(true), [setGrade])
     const onMouseLeaveFilm = useCallback(() => setGrade(false), [setGrade])
-
-    // оценить
+    // for estimate
     const [rating, setRating] = React.useState(0)
 
     return <section className={style.section__film}>
@@ -51,7 +55,17 @@ export const InfoFilm: React.FC<CurrentFilm> = (props) => {
                 </Link>
 
                 <div className={style.card__info}>
-                    <h1 className={style.movie__title}>{props.name}</h1>
+
+                    <motion.h1 transition={{ staggerChildren: 0.08 }} initial="hidden" whileInView="reveal" className={style.movie__title} >
+                        {trueNameChars.map((char, index) => {
+                            return <motion.span
+                                key={index}
+                                transition={{ duration: 0.5 }}
+                                variants={charVariants}>
+                                {char}
+                            </motion.span>
+                        })}</motion.h1>
+
                     <h2 className={style.movie__subtitle}>Свободный <span>просмотр</span></h2>
 
                     <div className={style.about_film}>

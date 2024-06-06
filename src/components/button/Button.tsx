@@ -1,7 +1,7 @@
 import React, { MouseEvent } from 'react'
 import style from './button.module.scss'
 
-interface ButtonType {
+interface ButtonType extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     readonly children: React.ReactNode
     onClick?: (e?: MouseEvent<HTMLButtonElement>) => void
     type?: "button" | "submit" | "reset"

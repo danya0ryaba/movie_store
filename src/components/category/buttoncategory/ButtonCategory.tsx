@@ -13,7 +13,7 @@ const buttonAnimation = {
     },
 }
 
-interface ButtonCategoryInterface {
+interface ButtonCategoryInterface extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     readonly children: React.ReactNode
     readonly filterValue: string
     readonly currentFilter: string
