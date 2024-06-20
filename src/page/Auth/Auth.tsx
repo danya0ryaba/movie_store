@@ -4,6 +4,7 @@ import { SignIn } from '../../components/authLogin/SignIn'
 import { AuthDetails } from '../../components/authLogin/AuthDetails'
 import style from './auth.module.scss'
 import { useNavigate } from 'react-router-dom'
+import { Footer } from '../../components/footer/Footer'
 
 const Auth: React.FC = React.memo(() => {
 
@@ -15,7 +16,7 @@ const Auth: React.FC = React.memo(() => {
 
     const onClickBack = useCallback(() => navigate(-1), [navigate])
 
-    return <section className={style.auth}>
+    return <><section className={style.auth}>
         <button className={style.back} onClick={onClickBack}> &#129044; Назад</button>
         {authState ? <SignUp /> : <SignIn />}
         <span className={style.auth__span} onClick={onLoginAcc} style={{ color: 'white' }}>
@@ -23,6 +24,8 @@ const Auth: React.FC = React.memo(() => {
         </span>
         <AuthDetails />
     </section>
+        <Footer />
+    </>
 })
 
 export default Auth

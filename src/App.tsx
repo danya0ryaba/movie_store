@@ -5,7 +5,6 @@ import { CardMovie } from './page/CardMovie';
 import { Header } from './components/header/Header';
 import { useAppDispatch, useAppSelector } from './store/hooks/redux';
 import { getSeries } from './store/series/seriesSlice';
-// import { Footer } from './components/footer/Footer';
 import { getAnime } from './store/anime/animeSlice';
 import { auth } from './firebase';
 import { setAuth } from './store/auth/authSlice';
@@ -22,11 +21,11 @@ const Error = lazy(() => import("./page/Error"))
 function App() {
 
   const dispatch = useAppDispatch()
-
+  // I write down anime the in a sessionStorage
   const { anime } = useAppSelector(state => state.anime)
   sessionStorage.setItem("anime", JSON.stringify(anime))
   const sessionStorageAnime = sessionStorage.getItem("anime");
-
+  // I write down series the in a sessionStorage
   const { series } = useAppSelector(state => state.series)
   sessionStorage.setItem("series", JSON.stringify(series))
   const sessionStorageSeries = sessionStorage.getItem("series")
@@ -49,11 +48,14 @@ function App() {
       dispatch(getSeries({ page: 1, filter: "votes.imdb" }))
     }
   }, [dispatch, sessionStorageAnime, sessionStorageSeries])
-  // осталось решить проблему пагинации and footer
-  return (<>
+
+  // осталось решить проблему пагинации
+
+  return (<div className='wrapper'>
 
     <Header />
 
+    {/* <main className="wrapper_main"> */}
     <Routes>
 
       <Route path='/' element={<Suspense fallback={<Loader />}><Home /></Suspense>} />
@@ -74,10 +76,9 @@ function App() {
       <Route path='*' element={<Suspense fallback={<Loader />}><Error /></Suspense>} />
 
     </Routes>
+    {/* </main> */}
 
-    {/* <Footer /> */}
-
-  </>);
+  </div>);
 }
 
 export default App;

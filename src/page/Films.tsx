@@ -15,6 +15,7 @@ import { filteringFilmsPage } from '../utils/constants'
 import { resetLoadingMovie } from '../store/movie/loadingMovieSlice'
 import { Film } from '../components/film/Film'
 import { options } from '../utils/options'
+import { Footer } from '../components/footer/Footer'
 
 const Films: React.FC = () => {
 
@@ -73,6 +74,7 @@ const Films: React.FC = () => {
             <Pagination filter={filter} onRequestHandler={requestPage} page={page} />
 
         </div>
+        <Footer />
     </section>
 }
 

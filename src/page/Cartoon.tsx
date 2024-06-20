@@ -6,6 +6,7 @@ import { SearchItem } from '../components/search/searchitem/SearchItem'
 import { usersAPI } from '../API/api'
 import style from './cartoon.module.scss'
 import { Movie } from '../type/movie'
+import { Footer } from '../components/footer/Footer'
 
 const Cartoon: React.FC = React.memo(() => {
 
@@ -24,6 +25,7 @@ const Cartoon: React.FC = React.memo(() => {
             <ul>{list.map(film => <SearchItem key={film.id} {...film} />)}</ul>
         </div>}
         <CartoonBlock />
+        <Footer />
     </>
 })
 

@@ -4,6 +4,7 @@ import { PersonI } from '../../type/person'
 import { usersAPI } from '../../API/api'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Loader } from '../../components/loader/Loader'
+import { Footer } from '../../components/footer/Footer'
 
 const Person: React.FC = () => {
 
@@ -81,6 +82,7 @@ const Person: React.FC = () => {
             </div>
 
         </div>
+        <Footer />
     </div>
 }
 

@@ -15,6 +15,7 @@ import { usersAPI } from '../API/api'
 import { Movie } from '../type/movie'
 import { filteringSeriesPage } from '../utils/constants'
 import { options } from '../utils/options'
+import { Footer } from '../components/footer/Footer'
 
 const Series: React.FC = () => {
 
@@ -64,6 +65,7 @@ const Series: React.FC = () => {
             <Pagination page={page} onRequestHandler={requestPageSeries} />
 
         </div>
+        <Footer />
     </section>
 }
 

@@ -12,6 +12,7 @@ import { Star } from '../star/Star';
 import { useAuth } from '../../hook/useAuth';
 import { splitTheWord } from '../../utils/splitStringUsingRegex';
 import { motion } from 'framer-motion';
+import { Footer } from '../footer/Footer';
 
 const gradeForFilms = [1, 2, 3, 4, 5]
 
@@ -44,47 +45,35 @@ export const InfoFilm: React.FC<CurrentFilm> = (props) => {
 
     return <section className={style.section__film}>
         <div className={style.container}>
-
             <button className={style.back} onClick={onClickBack}> &#129044; Назад</button>
-
             <div className={style.card}>
-
                 <Link to={props.videos?.trailers && props.videos.trailers.length > 0 ? `${props.videos.trailers[0].url}` : 'https://www.youtube.com/'}
                     className={style.card__trailer}>
                     <img src={props.poster?.previewUrl ? props.poster?.previewUrl : 'https://upload.wikimedia.org/wikipedia/commons/7/78/Image.jpg'} alt="trailer film" />
                 </Link>
-
                 <div className={style.card__info}>
-
                     <motion.h1 transition={{ staggerChildren: 0.08 }} initial="hidden" whileInView="reveal" className={style.movie__title} >
                         {trueNameChars.map((char, index) => {
-                            return <motion.span
-                                key={index}
+                            return <motion.span key={index}
                                 transition={{ duration: 0.5 }}
-                                variants={charVariants}>
-                                {char}
-                            </motion.span>
-                        })}</motion.h1>
-
+                                variants={charVariants}>{char}</motion.span>
+                        })}
+                    </motion.h1>
                     <h2 className={style.movie__subtitle}>Свободный <span>просмотр</span></h2>
-
                     <div className={style.about_film}>
                         <div className={style.type}>{props.type}</div>
                         <div className={style.quality}>HD</div>
-
                         <div className={style.category}>
                             {props.genres && props.genres.length > 0 ? props.genres.map((g, ind, arr) => {
                                 if (ind === arr.length - 1) return `${g.name}`
                                 else return `${g.name}, `
                             }) : 'нет информации'}
                         </div>
-
                         <div className={style.data}>
                             <img src={date} alt="date" />
                             <span>{props.year}</span>
                         </div>
                     </div>
-
                     <div className={style.movie__rating}>
 
                         <div className={style.send}>
@@ -114,13 +103,11 @@ export const InfoFilm: React.FC<CurrentFilm> = (props) => {
                         {modePortal && <Portal onClose={changeModePortal} />}
 
                     </div>
-
                     <p className={style.card__info__text}>{props.shortDescription}</p>
                 </div>
-
             </div>
-
             <AboutFilm {...props} />
         </div>
+        <Footer />
     </section>
 }
