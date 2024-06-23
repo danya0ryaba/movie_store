@@ -27,6 +27,7 @@ const Films: React.FC = () => {
     const requestSearchName = (name: string) => dispatch(getSearchMovie(name))
 
     const { movies, page, isLoading, filter } = useAppSelector(state => state.movie)
+
     const dispatch = useAppDispatch()
 
     // ВОЗМОЖНО, УБРАТЬ PAGE ИЗ ЗАВИСИМОСТЕЙ И НЕ ПРОКИДЫВАТЬ  FILTER В Pagination
@@ -40,6 +41,7 @@ const Films: React.FC = () => {
     const onChangeFilter = (updatedFilter: string) => {
         dispatch(resetLoadingMovie())
         dispatch(changeFilter(updatedFilter))
+        // dispatch(getMovies({ page: 1, filter: updatedFilter }))
     }
 
     // ВСЕ РАВНО ПРИ ИЗМЕНЕНИИ ФИЛЬТРА БЕРЕТ СТРАНИЦУ ИЗ СТАРОГО СОСТОЯНИЯ
@@ -71,7 +73,7 @@ const Films: React.FC = () => {
                     </Link>)}
                 </>}
 
-            <Pagination filter={filter} onRequestHandler={requestPage} page={page} />
+            <Pagination onRequestHandler={requestPage} page={page} />
 
         </div>
         <Footer />

@@ -35,7 +35,8 @@ export const MButtonCategory = React.forwardRef<HTMLButtonElement, ButtonCategor
     { children,
         filterValue,
         currentFilter,
-        onChangeFilter },
+        onChangeFilter
+    },
     ref) => {
     return <motion.button variants={buttonAnimation} ref={ref} onClick={() => onChangeFilter(filterValue)}
         className={currentFilter === filterValue ? `${style.filters__item_active}` : style.filters__item}>

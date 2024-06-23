@@ -49,34 +49,32 @@ function App() {
     }
   }, [dispatch, sessionStorageAnime, sessionStorageSeries])
 
-  // осталось решить проблему пагинации
-
   return (<div className='wrapper'>
 
     <Header />
 
-    {/* <main className="wrapper_main"> */}
-    <Routes>
+    <main className="wrapper_main">
+      <Routes>
 
-      <Route path='/' element={<Suspense fallback={<Loader />}><Home /></Suspense>} />
+        <Route path='/' element={<Suspense fallback={<Loader />}><Home /></Suspense>} />
 
-      <Route path='movie' element={<Suspense fallback={<Loader />}><Films /></Suspense>} />
-      <Route path='movie/:id' element={<CardMovie />} />
+        <Route path='movie' element={<Suspense fallback={<Loader />}><Films /></Suspense>} />
+        <Route path='movie/:id' element={<CardMovie />} />
 
-      <Route path='cartoon' element={<Suspense fallback={<Loader />}><Cartoon /></Suspense>} />
-      <Route path='cartoon/:id' element={<CardMovie />} />
+        <Route path='cartoon' element={<Suspense fallback={<Loader />}><Cartoon /></Suspense>} />
+        <Route path='cartoon/:id' element={<CardMovie />} />
 
-      <Route path='/series' element={<Suspense fallback={<Loader />}><Series /></Suspense>} />
-      <Route path='/series/:id' element={<CardMovie />} />
+        <Route path='/series' element={<Suspense fallback={<Loader />}><Series /></Suspense>} />
+        <Route path='/series/:id' element={<CardMovie />} />
 
-      <Route path='person/:id' element={<Suspense fallback={<Loader />}><Person /></Suspense>} />
+        <Route path='person/:id' element={<Suspense fallback={<Loader />}><Person /></Suspense>} />
 
-      <Route path='auth' element={<Suspense fallback={<Loader />}><Auth /></Suspense>} />
+        <Route path='auth' element={<Suspense fallback={<Loader />}><Auth /></Suspense>} />
 
-      <Route path='*' element={<Suspense fallback={<Loader />}><Error /></Suspense>} />
+        <Route path='*' element={<Suspense fallback={<Loader />}><Error /></Suspense>} />
 
-    </Routes>
-    {/* </main> */}
+      </Routes>
+    </main>
 
   </div>);
 }
