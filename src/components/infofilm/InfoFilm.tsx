@@ -22,6 +22,7 @@ const charVariants = {
 }
 
 export const InfoFilm: React.FC<CurrentFilm> = (props) => {
+
     // for animation props.name
     let trueNameChars: string[] = [];
     if (props.name) trueNameChars = splitTheWord(props.name);
@@ -52,9 +53,14 @@ export const InfoFilm: React.FC<CurrentFilm> = (props) => {
                     <img src={props.poster?.previewUrl ? props.poster?.previewUrl : 'https://upload.wikimedia.org/wikipedia/commons/7/78/Image.jpg'} alt="trailer film" />
                 </Link>
                 <div className={style.card__info}>
-                    <motion.h1 transition={{ staggerChildren: 0.08 }} initial="hidden" whileInView="reveal" className={style.movie__title} >
+                    <motion.h1
+                        transition={{ staggerChildren: 0.08 }}
+                        initial="hidden"
+                        whileInView="reveal"
+                        className={style.movie__title} >
                         {trueNameChars.map((char, index) => {
-                            return <motion.span key={index}
+                            return <motion.span
+                                key={index}
                                 transition={{ duration: 0.5 }}
                                 variants={charVariants}>{char}</motion.span>
                         })}

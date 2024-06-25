@@ -1,9 +1,11 @@
 import axios from "axios"
 
+// "MSHPGE9-G12MQGY-J328FX0-0HC7G9A"
+
 // в конце возможно переписать это покрасивее
 const instance = axios.create({
     baseURL: 'https://api.kinopoisk.dev/v1.4/',
-    headers: { "X-API-KEY": "MSHPGE9-G12MQGY-J328FX0-0HC7G9A" },
+    headers: { "X-API-KEY": process.env.REACT_APP_API_KEY },
     params: {
         // page: 1,
         // limit: 8,
