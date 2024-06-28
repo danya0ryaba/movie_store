@@ -13,7 +13,7 @@ export const getInfoFilm = createAsyncThunk<CurrentFilm, number, { rejectValue: 
     'film/getInfoFilm',
     async (id, { rejectWithValue }) => {
         const response = await usersAPI.getMovieId(id);
-        if (response.status == 200) return response.data
+        if (response.status === 200) return response.data
         else return rejectWithValue("Server Error!")
     }
 )

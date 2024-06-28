@@ -5,10 +5,15 @@ import { useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../store/hooks/redux'
 import { getInfoFilm } from '../store/film/filmSlice'
 import { Loader } from '../components/loader/Loader'
+import { useResize } from '../hook/useResize'
 
 const strBg = 'https://imagetmdb.com/t/p/original/vRTKNKNWLZ22fAgPa5kY8wT2b1F.jpg'
 
 export const CardMovie: React.FC = () => {
+
+    // const resize = useResize()
+    // const bgSize = resize < 900 ? 'contain' : 'cover';
+    // backgroundSize: `${bgSize}`,
 
     const { id } = useParams()
     const dispatch = useAppDispatch()

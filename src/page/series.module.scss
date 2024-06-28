@@ -41,7 +41,12 @@
 
 @media (max-width:746px) {
     .film {
+        background-size: contain;
+        background-repeat: repeat;
+
         .series {
+            background: rgba(0, 0, 0, 0.252);
+
             .genres {
                 display: none;
             }
