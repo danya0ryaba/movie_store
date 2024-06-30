@@ -1,16 +1,9 @@
 import axios from "axios"
 
-// "MSHPGE9-G12MQGY-J328FX0-0HC7G9A"
-
-// в конце возможно переписать это покрасивее
 const instance = axios.create({
     baseURL: 'https://api.kinopoisk.dev/v1.4/',
     headers: { "X-API-KEY": process.env.REACT_APP_API_KEY },
-    params: {
-        // page: 1,
-        // limit: 8,
-        // notNullFields: ["top250"],
-    }
+    params: {}
 })
 
 export const usersAPI = {
@@ -100,17 +93,4 @@ export const usersAPI = {
         return instance.get(`person/${id}`)
     },
 
-}
-
-// ХЗ
-const additionalInstance = axios.create({
-    baseURL: 'https://api.kinopoisk.dev/v1/movie/type?field=',
-    headers: { "X-API-KEY": "MSHPGE9-G12MQGY-J328FX0-0HC7G9A" },
-    params: {}
-})
-
-export const userApiFilter = {
-    getOptions(filter: string = 'genres.name') {
-        return additionalInstance.get(`${filter}`)
-    },
 }

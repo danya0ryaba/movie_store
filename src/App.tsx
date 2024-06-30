@@ -18,8 +18,6 @@ const Person = lazy(() => import("./page/Person/Person"))
 const Auth = lazy(() => import("./page/Auth/Auth"))
 const Error = lazy(() => import("./page/Error"))
 
-// закинуть ключ от api в env.local
-
 function App() {
 
   const dispatch = useAppDispatch()
